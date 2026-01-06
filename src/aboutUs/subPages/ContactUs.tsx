@@ -63,9 +63,9 @@ export default function ContactUs() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <div className="pt-24 px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-black text-white w-full">
+      <div className="pt-24 px-6">
+        <div className="w-full h-full px-2">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 py-16">
             <div className="lg:col-span-2">
               <h1 className="text-6xl md:text-7xl font-bold mb-6 text-white">
@@ -75,7 +75,7 @@ export default function ContactUs() {
                 Let us help you become ever greater at what you do. Fill out the following form and we will get back to you in the next 24 hours.
               </p>
 
-              <form className="space-y-8">
+              <form className="space-y-8 flex flex-col text-left">
                 <div className="relative">
                   <label
                     htmlFor="name"
@@ -246,7 +246,7 @@ export default function ContactUs() {
                 </div>
               </div>
 
-              <div className="space-y-8">
+              <div className="space-y-8 text-left">
                 <div>
                   <h2 className="text-xl font-semibold mb-4 text-white">CALL US</h2>
                   <p className="text-gray-400 mb-2">+91 9826000000</p>
@@ -341,22 +341,22 @@ export default function ContactUs() {
                   <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#e0e0e0" strokeWidth="0.5" opacity="0.3"/>
                 </pattern>
               </defs>
-              
+
               <rect width="1200" height="800" fill="#f5f5f5"/>
               <rect width="1200" height="800" fill="url(#mapGrid)"/>
-              
+
               <g id="water">
                 <path d="M 0 600 Q 200 550 400 580 T 800 600 L 1200 600 L 1200 800 L 0 800 Z" fill="#b3d9ff" opacity="0.4"/>
                 <path d="M 100 700 Q 300 650 500 680 T 900 700 L 1200 700 L 1200 800 L 100 800 Z" fill="#99ccff" opacity="0.3"/>
               </g>
-              
+
               <g id="parks">
                 <ellipse cx="200" cy="200" rx="80" ry="60" fill="#90ee90" opacity="0.4"/>
                 <ellipse cx="800" cy="300" rx="100" ry="70" fill="#90ee90" opacity="0.4"/>
                 <ellipse cx="500" cy="550" rx="90" ry="65" fill="#90ee90" opacity="0.4"/>
                 <rect x="350" y="150" width="120" height="100" rx="8" fill="#90ee90" opacity="0.3"/>
               </g>
-              
+
               <g id="majorRoads">
                 <line x1="0" y1="200" x2="1200" y2="200" stroke="#888888" strokeWidth="8" opacity="0.6"/>
                 <line x1="0" y1="400" x2="1200" y2="400" stroke="#888888" strokeWidth="8" opacity="0.6"/>
@@ -365,7 +365,7 @@ export default function ContactUs() {
                 <line x1="600" y1="0" x2="600" y2="800" stroke="#888888" strokeWidth="8" opacity="0.6"/>
                 <line x1="1000" y1="0" x2="1000" y2="800" stroke="#888888" strokeWidth="8" opacity="0.6"/>
               </g>
-              
+
               <g id="secondaryRoads">
                 <line x1="0" y1="100" x2="1200" y2="100" stroke="#aaaaaa" strokeWidth="4" opacity="0.5"/>
                 <line x1="0" y1="300" x2="1200" y2="300" stroke="#aaaaaa" strokeWidth="4" opacity="0.5"/>
@@ -374,14 +374,14 @@ export default function ContactUs() {
                 <line x1="400" y1="0" x2="400" y2="800" stroke="#aaaaaa" strokeWidth="4" opacity="0.5"/>
                 <line x1="800" y1="0" x2="800" y2="800" stroke="#aaaaaa" strokeWidth="4" opacity="0.5"/>
               </g>
-              
+
               <g id="trainLines">
                 <path d="M 0 250 Q 300 200 600 250 T 1200 250" fill="none" stroke="#4169e1" strokeWidth="6" opacity="0.7"/>
                 <path d="M 0 450 Q 300 400 600 450 T 1200 450" fill="none" stroke="#4169e1" strokeWidth="6" opacity="0.7"/>
                 <path d="M 250 0 Q 250 200 250 400 T 250 800" fill="none" stroke="#4169e1" strokeWidth="6" opacity="0.7"/>
                 <path d="M 750 0 Q 750 200 750 400 T 750 800" fill="none" stroke="#4169e1" strokeWidth="6" opacity="0.7"/>
               </g>
-              
+
               <g id="buildings">
                 <rect x="150" y="120" width="60" height="50" fill="#c0c0c0" opacity="0.6" rx="2"/>
                 <rect x="250" y="100" width="80" height="70" fill="#c0c0c0" opacity="0.6" rx="2"/>
@@ -389,24 +389,24 @@ export default function ContactUs() {
                 <rect x="650" y="110" width="90" height="75" fill="#c0c0c0" opacity="0.6" rx="2"/>
                 <rect x="780" y="140" width="65" height="50" fill="#c0c0c0" opacity="0.6" rx="2"/>
                 <rect x="950" y="125" width="75" height="60" fill="#c0c0c0" opacity="0.6" rx="2"/>
-                
+
                 <rect x="120" y="320" width="70" height="60" fill="#c0c0c0" opacity="0.6" rx="2"/>
                 <rect x="220" y="340" width="85" height="65" fill="#c0c0c0" opacity="0.6" rx="2"/>
                 <rect x="420" y="330" width="75" height="55" fill="#c0c0c0" opacity="0.6" rx="2"/>
                 <rect x="720" y="350" width="80" height="70" fill="#c0c0c0" opacity="0.6" rx="2"/>
                 <rect x="880" y="320" width="70" height="60" fill="#c0c0c0" opacity="0.6" rx="2"/>
-                
-                <rect x="180" y="520" width="90" height="75" fill="#c0c0c0" opacity="0.6" rx="2"/>
+
                 <rect x="320" y="540" width="75" height="65" fill="#c0c0c0" opacity="0.6" rx="2"/>
                 <rect x="480" y="530" width="85" height="70" fill="#c0c0c0" opacity="0.6" rx="2"/>
+                <rect x="180" y="520" width="90" height="75" fill="#c0c0c0" opacity="0.6" rx="2"/>
                 <rect x="680" y="550" width="70" height="60" fill="#c0c0c0" opacity="0.6" rx="2"/>
                 <rect x="820" y="520" width="80" height="75" fill="#c0c0c0" opacity="0.6" rx="2"/>
               </g>
-              
+
               <g id="landmarks">
                 <circle cx="600" cy="400" r="25" fill="#ff6b6b" opacity="0.7"/>
                 <text x="600" y="405" textAnchor="middle" fontSize="16" fill="white" fontWeight="bold">★</text>
-                
+
                 <circle cx="300" cy="250" r="20" fill="#4ecdc4" opacity="0.7"/>
                 <circle cx="850" cy="350" r="20" fill="#4ecdc4" opacity="0.7"/>
                 <circle cx="450" cy="550" r="20" fill="#4ecdc4" opacity="0.7"/>
@@ -435,7 +435,7 @@ export default function ContactUs() {
                   <circle cx="12" cy="8" r="3" fill="#FFFFFF" />
                 </svg>
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 bg-white/90 text-black text-xs px-2 py-1 rounded shadow-lg whitespace-nowrap">
-                Sahu Complex, 2rd Floor
+                  Sahu Complex, 2rd Floor
                   <br />
                   Indore, MP 453001
                   <br />

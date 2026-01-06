@@ -64,6 +64,8 @@ const Hero1 = () => {
   }, [location]); // Re-run when location changes
 
   return (
+
+    // GSAP CODE
     // <div
     //   ref={containerRef}
     //   className="relative h-screen w-full overflow-hidden"
@@ -89,9 +91,9 @@ const Hero1 = () => {
     //   {/* <Hero2 /> */}
 
     // </div>
-    <div className='lg:h-full lg:w-full lg:flex flex-col border-[10px] border-red-500'>
-      <div className='lg:h-screen lg:w-full lg:flex flex-col border border-green-500'></div>
-      <div className='lg:h-full lg:w-full lg:flex flex-col border border-blue-600'>
+    <div className='lg:h-full lg:w-full lg:flex flex-col'>
+      <div className='lg:h-screen lg:w-full lg:flex flex-col'></div>
+      <div className='lg:h-full lg:w-full lg:flex flex-col'>
         
         <Hero2 />
       </div>

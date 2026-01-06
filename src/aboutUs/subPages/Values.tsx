@@ -200,10 +200,10 @@ export default function Values() {
 
   return (
     <div className="min-h-screen bg-black pt-24 pb-12 relative">
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-        <h1 className="text-[100px] md:text-[300px] font-extrabold text-[#ffffff] opacity-5 select-none">
-          VALUES
-        </h1>
+      <div className="absolute inset-0 flex justify-center pointer-events-none z-0">
+        <h1 className="mt-10 md:mt-16 md:text-[50px] font-bold text-white  select-none">
+   OUR VALUES
+</h1>
       </div>
       <div className="w-full h-full flex items-center justify-center my-[100px] relative z-10">
         <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -216,7 +216,7 @@ export default function Values() {
               className={`h-[400px] flex items-center justify-center w-[350px] px-6 ${value.padding} group`}
             >
               <div
-                className={`flex items-center justify-center flex-col ${value.borderColor} border-2 h-full w-full rounded-xl p-1 border border-white`}
+                className={`flex items-center justify-center flex-col ${value.borderColor} border-2 h-full w-full rounded-xl p-1 border-white`}
               >
                 <div 
                   className={`flex flex-col ${value.bgColor} h-full w-full rounded-lg relative overflow-hidden`}

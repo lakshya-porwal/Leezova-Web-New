@@ -4,10 +4,10 @@ export default function Carriers() {
       <div className="max-w-4xl">
         <h1 className="text-4xl font-bold mb-6">Carriers</h1>
         <div  className="  flex h-[200px] w-full md:flex-col gap-1 md:hidden">
-          <div className="w-[65%] h-full border-4 border-blue-500 rounded-l-2xl bg-black md:w-full md:rounded-none">
+          <div className="w-[65%] h-full rounded-l-2xl bg-black md:w-full md:rounded-none">
              picture 1 
           </div>
-          <div className="w-[35%] h-full border-4 border-green-500 rounded-r-2xl bg-black md:w-full md:rounded-none">
+          <div className="w-[35%] h-full rounded-r-2xl bg-black md:w-full md:rounded-none">
              picture 2
           </div>
          
