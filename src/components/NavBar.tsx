@@ -1,4 +1,4 @@
-import React, { useState, useCallback} from "react";
+import React, { useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { navRoutes } from "./routes";
 
@@ -260,7 +260,8 @@ const MobileNav = React.memo(({
           const isMenuOpen = activeMenu === routeId;
 
           return (
-            <div key={routeId}>              <div
+            <div key={routeId}>
+              <div
                 className="flex items-center justify-between px-3 py-2 rounded-md text-gray-200 hover:bg-[#2d3447] cursor-pointer"
                 onClick={() => onMenuToggle(routeId)}
               >
@@ -332,7 +333,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="md:fixed md:top-0 md:left-0 md:right-0 z-50 md:bg-transparent text-white">
+    <nav className="fixed md:top-0 md:left-0 md:right-0 z-[9999] md:bg-transparent text-white">
       <DesktopNav
         routes={navRoutes}
         activeDropdown={activeDropdown}

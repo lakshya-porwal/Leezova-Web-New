@@ -323,7 +323,7 @@ export default function ContactUs() {
 
       <div
         ref={mapWrapperRef}
-        className="wrapper h-screen w-full relative bg-gray-900 overflow-hidden"
+        className="wrapper h-screen w-full relative bg-gray-900 overflow-hidden border-4 border-red-600"
       >
         <div className="absolute inset-0 flex items-center justify-center">
           <div
