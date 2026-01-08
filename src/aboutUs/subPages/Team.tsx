@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { teamMembers, teamTypes } from "./team-data";
 import type { TeamMember } from "./team-data";
+
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
@@ -24,7 +25,6 @@ export default function Team() {
     return shuffled;
   };
 
-  // Calculate member arrays only on client side to avoid hydration mismatch
   useEffect(() => {
     if (selectedTeam === 'all') {
       setRow1Members([]);
@@ -114,23 +114,179 @@ export default function Team() {
   }, [selectedTeam]);
 
   return (
-    <div className="min-h-screen w-full pt-20 relative" ref={containerRef}>
-      <div className="h-[450px] flex items-center justify-center">
-        <div className="text-left">
-          <span className="text-gray-200 text-9xl">The Crew who brew</span>
-          <br />
-          <span className="text-gray-200 text-9xl">the </span>
-          <span className="text-[#4169E1] text-9xl font-bold">Code</span>
+    <div className="min-h-screen w-full md:pt-20 mt-5 relative" ref={containerRef}>
+      <div className="md:h-[450px] flex items-center justify-center">
+        <div className="text-left flex flex-col pl-4">
+          <span className="text-gray-200 text-[56px] md:text-9xl leading-tight">
+            The Crew who brew
+          </span>
+
+          <span className="text-gray-200 text-[56px] md:text-9xl leading-tight mt-1 md:mt-0">
+            the
+          </span>
+
+          <span className="text-[#4169E1] text-[56px] md:text-9xl font-bold leading-tight mt-1 md:mt-0">
+            Code
+          </span>
         </div>
       </div>
+
       <div className="h-[100vh] w-full relative items-center content-center" ref={redDivRef}>
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none h-[97vh] max-w-full">
           <div style={{
             background: 'radial-gradient(circle,rgba(255, 255, 255, 0) 14%, rgba(36, 36, 36, 1) 100%)'
-          }} className="w-full h-[100vh] z-20"/>
+          }} className="w-full h-[100vh] z-20" />
         </div>
 
-        <div className="relative z-10 h-[95vh]">
+        {/* Mobile Layout (below 768px) */}
+        <div className="relative z-10 h-[95vh] md:hidden">
+          <div className="h-full flex flex-col gap-4 text-black">
+            <div className="flex-1 overflow-x-auto">
+              <div className="h-full flex gap-2 pb-2" style={{ width: 'max-content', minWidth: '100%' }}>
+                {selectedTeam === 'all' ? (
+                  <>
+                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Shubham</div>
+                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Riddhesh</div>
+                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Sourabh</div>
+                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Column 4</div>
+                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Praveen</div>
+                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Divyanshi</div>
+                  </>
+                ) : (
+                  (() => {
+                    const upperCards = [...(row1Members.slice(0, 4) || []), ...(middleRowMembers.slice(0, 2) || []), ...(middleRowMembers.slice(3, 5) || [])];
+                    return upperCards.map((member, index) => (
+                      <div
+                        key={member ? member.name : `empty-upper-${index}`}
+                        className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0"
+                      >
+                        {member ? member.name : ''}
+                      </div>
+                    ));
+                  })()
+                )}
+              </div>
+            </div>
+            <div className="flex-1 flex items-center justify-center px-4">
+              <div className="w-full h-full border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex items-center justify-center">
+                {selectedTeam === 'all' ? 'Tisha' : (middleRowMembers[2]?.name || '')}
+              </div>
+            </div>
+            <div className="flex-1 overflow-x-auto">
+              <div className="h-full flex gap-2 pb-2" style={{ width: 'max-content', minWidth: '100%' }}>
+                {selectedTeam === 'all' ? (
+                  <>
+                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Rajat</div>
+                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Deepak</div>
+                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Aastha</div>
+                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Ajay</div>
+                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Swati</div>
+                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Lakshya</div>
+                  </>
+                ) : (
+                  (() => {
+                    const lowerCards = row3Members.slice(0, 4) || [];
+                    return lowerCards.map((member, index) => (
+                      <div
+                        key={member ? member.name : `empty-lower-${index}`}
+                        className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0"
+                      >
+                        {member ? member.name : ''}
+                      </div>
+                    ));
+                  })()
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* iPad Layout (768px to 1366px) */}
+        <div className="relative z-10 h-[60vh] hidden md:block xl:hidden border-4 border-red-600">
+          <div className="h-full flex flex-col gap-4 text-black px-6">
+            {/* Upper scrollable row - 5 cards */}
+            <div className="flex-1 overflow-x-auto -mx-6 px-6">
+              <div className="h-full flex gap-2 pb-2" style={{ width: 'max-content', minWidth: '100%' }}>
+                {selectedTeam === 'all' ? (
+                  <>
+                    <div className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0 flex items-center justify-center">Shubham</div>
+                    <div className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0 flex items-center justify-center">Riddhesh</div>
+                    <div className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0 flex items-center justify-center">Sourabh</div>
+                    <div className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0 flex items-center justify-center">Column 4</div>
+                    <div className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0 flex items-center justify-center">Praveen</div>
+                  </>
+                ) : (
+                  (() => {
+                    const upperCards = [...(row1Members.slice(0, 4) || []), ...(middleRowMembers.slice(0, 1) || [])];
+                    return upperCards.map((member, index) => (
+                      <div
+                        key={member ? member.name : `empty-ipad-upper-${index}`}
+                        className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0 flex items-center justify-center"
+                      >
+                        {member ? member.name : ''}
+                      </div>
+                    ));
+                  })()
+                )}
+              </div>
+            </div>
+
+            {/* Middle scrollable row - 3 cards */}
+            <div className="flex-1 overflow-x-auto -mx-6 px-6">
+              <div className="h-full flex gap-2 pb-2" style={{ width: 'max-content', minWidth: '100%' }}>
+                {selectedTeam === 'all' ? (
+                  <>
+                    <div className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0 flex items-center justify-center">Tisha</div>
+                    <div className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0 flex items-center justify-center">Rajat</div>
+                    <div className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0 flex items-center justify-center">Divyanshi</div>
+                  </>
+                ) : (
+                  (() => {
+                    const middleCards = middleRowMembers.slice(1, 4) || [];
+                    return middleCards.map((member, index) => (
+                      <div
+                        key={member ? member.name : `empty-ipad-middle-${index}`}
+                        className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0 flex items-center justify-center"
+                      >
+                        {member ? member.name : ''}
+                      </div>
+                    ));
+                  })()
+                )}
+              </div>
+            </div>
+
+            {/* Lower scrollable row - 5 cards */}
+            <div className="flex-1 overflow-x-auto -mx-6 px-6">
+              <div className="h-full flex gap-2 pb-2" style={{ width: 'max-content', minWidth: '100%' }}>
+                {selectedTeam === 'all' ? (
+                  <>
+                    <div className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0 flex items-center justify-center">Deepak</div>
+                    <div className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0 flex items-center justify-center">Aastha</div>
+                    <div className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0 flex items-center justify-center">Ajay</div>
+                    <div className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0 flex items-center justify-center">Swati</div>
+                    <div className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0 flex items-center justify-center">Lakshya</div>
+                  </>
+                ) : (
+                  (() => {
+                    const lowerCards = [...(middleRowMembers.slice(4, 5) || []), ...(row3Members.slice(0, 4) || [])];
+                    return lowerCards.map((member, index) => (
+                      <div
+                        key={member ? member.name : `empty-ipad-lower-${index}`}
+                        className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0 flex items-center justify-center"
+                      >
+                        {member ? member.name : ''}
+                      </div>
+                    ));
+                  })()
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Layout (above 1366px) */}
+        <div className="relative z-10 h-[95vh] hidden xl:block">
           <div className="h-full flex flex-col gap-4 text-black">
             <div className="flex-1">
               <div className="h-full flex gap-2">
@@ -223,6 +379,7 @@ export default function Team() {
           </div>
         </div>
       </div>
+
       <div className="w-full py-4 px-6">
         <div className="flex items-center justify-center gap-3 flex-wrap">
           {teamTypes.map((team) => (
@@ -239,8 +396,8 @@ export default function Team() {
           ))}
         </div>
       </div>
-      <div className="h-screen flex items-center justify-center px-6 my-20">
 
+      <div className="h-screen flex items-center justify-center px-6 my-20">
         <div className="w-full max-w-6xl aspect-[21/9] rounded-2xl overflow-hidden bg-gray-900 p-2">
           <div className="w-full h-full rounded-lg">
 
@@ -250,4 +407,3 @@ export default function Team() {
     </div>
   );
 }
-

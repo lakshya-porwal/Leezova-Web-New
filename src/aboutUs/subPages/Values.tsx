@@ -27,7 +27,7 @@ export default function Values() {
           <circle cx="50" cy="50" r="3" fill="#4169E1" />
         </svg>
       ),
-      padding: "pt-10",
+      padding: "md:pt-10 pt-8 ",
     },
     {
       title: "Innovation",
@@ -54,7 +54,7 @@ export default function Values() {
           />
         </svg>
       ),
-      padding: "pb-10",
+      padding: "md:pb-10 pb-0",
     },
     {
       title: "Excellence",
@@ -72,7 +72,7 @@ export default function Values() {
           <circle cx="50" cy="50" r="20" fill="none" stroke="#4169E1" strokeWidth="1.5" opacity="0.5" />
         </svg>
       ),
-      padding: "pt-10",
+      padding: "md:pt-10 pt-0",
     },
     {
       title: "Collaboration",
@@ -102,7 +102,7 @@ export default function Values() {
           />
         </svg>
       ),
-      padding: "pt-10",
+      padding: "md:pt-10 pt-0 ",
     },
     {
       title: "Customer Focus",
@@ -126,7 +126,7 @@ export default function Values() {
           <line x1="60" y1="45" x2="60" y2="48" stroke="#4169E1" strokeWidth="2" />
         </svg>
       ),
-      padding: "pb-10",
+      padding: "md:pb-10 pb-0",
     },
     {
       title: "Sustainability",
@@ -153,60 +153,55 @@ export default function Values() {
           <circle cx="50" cy="50" r="3" fill="#4169E1" />
         </svg>
       ),
-      padding: "pt-10",
+      padding: "md:pt-10 pt-0",
     },
   ];
 
   useEffect(() => {
-    const setupAnimation = () => {
-      if (!containerRef.current) return;
+  if (!containerRef.current) return;
 
-      const cards = cardRefs.current.filter(Boolean) as HTMLDivElement[];
-      if (cards.length !== 6) return;
+  const cards = cardRefs.current.filter(Boolean) as HTMLDivElement[];
+  if (cards.length !== 6) return;
 
-      const middleCardIndices = [1, 4];
+  const mm = gsap.matchMedia();
 
-      cards.forEach((card, index) => {
-        const isMiddleCard = middleCardIndices.includes(index);
-        
-        gsap.set(card, { y: 0 });
-        
-        gsap.to(card, {
-          y: isMiddleCard ? 80 : -80,
-          ease: "power1.out",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            scrub: 1.5,
-          },
-        });
+  mm.add("(min-width: 768px)", () => {
+    const middleCardIndices = [1, 4];
+
+    cards.forEach((card, index) => {
+      const isMiddleCard = middleCardIndices.includes(index);
+
+      gsap.set(card, { y: 0 });
+
+      gsap.to(card, {
+        y: isMiddleCard ? 80 : -80,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+          end: "bottom 20%",
+          scrub: 1.5,
+        },
       });
+    });
 
-      ScrollTrigger.refresh();
-    };
+    ScrollTrigger.refresh();
+  });
+  return () => {
+    mm.revert();
+  };
+}, []);
 
-    const timer = setTimeout(setupAnimation, 200);
-
-    return () => {
-      clearTimeout(timer);
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.vars?.trigger === containerRef.current) {
-          trigger.kill();
-        }
-      });
-    };
-  }, []);
 
   return (
     <div className="min-h-screen bg-black pt-24 pb-12 relative">
       <div className="absolute inset-0 flex justify-center pointer-events-none z-0">
-        <h1 className="mt-10 md:mt-16 md:text-[50px] font-bold text-white  select-none">
+        <h1 className="mt-8 md:mt-16 md:text-[50px] font-bold text-white  select-none">
    OUR VALUES
 </h1>
       </div>
-      <div className="w-full h-full flex items-center justify-center my-[100px] relative z-10">
-        <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="w-full h-full flex items-center justify-center my-[100px] relative z-10 md:px-8 px-12 mt-5 md:mt-24">
+        <div ref={containerRef} className="flex flex-col  gap-6 md:grid md:grid-cols-3 md:gap-4  mx-auto">
           {values.map((value, index) => (
             <div
               key={index}

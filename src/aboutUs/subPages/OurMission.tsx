@@ -1,8 +1,8 @@
 export default function OurMission() {
   return (
-    <div className="min-h-screen pt-24 px-6">
+    <div className="min-h-screen md:pt-24 pt-8 px-6">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl font-bold mb-6">Our Mission</h1>
+        <h1 className="text-5xl font-bold mb-6 ">Our Mission</h1>
         <div className="space-y-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
           <p>
             At Leezova, our mission is to empower businesses with innovative
@@ -15,8 +15,9 @@ export default function OurMission() {
             digital solutions. Our team of experts works tirelessly to create
             products and services that not only meet but exceed our clients'
             expectations.
-          </p>
-          <div className="mt-8 p-6 bg-gray-100 dark:bg-gray-800 rounded-lg">
+          </p> 
+          </div>
+          <div className="mt-6 mb-4 p-6 bg-gray-100 dark:bg-gray-800 rounded-lg">
             <h2 className="text-2xl font-semibold mb-4">What Drives Us</h2>
             <ul className="list-disc list-inside space-y-2">
               <li>Innovation and continuous improvement</li>
@@ -25,7 +26,7 @@ export default function OurMission() {
               <li>Building lasting partnerships</li>
             </ul>
           </div>
-        </div>
+       
       </div>
     </div>
   );
