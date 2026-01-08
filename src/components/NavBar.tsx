@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { navRoutes } from "./routes";
+import emailjs from '@emailjs/browser';
 
 const DEFAULT_DESCRIPTION = "Explore our offerings and discover how we can help you achieve your goals.";
 interface HoveredItems {
@@ -390,7 +391,45 @@ interface ScheduleModalProps {
   onClose: () => void;
 }
 
+// EmailJS Configuration
+// ====================
+// To set up EmailJS for sending contact form emails:
+// 
+// 1. Sign up for a free account at https://www.emailjs.com/
+// 2. Go to Email Services and add a service (Gmail, Outlook, etc.)
+// 3. Go to Email Templates and create a new template with these variables:
+//    - {{to_email}} - recipient email
+//    - {{from_name}} - sender's name
+//    - {{from_email}} - sender's email
+//    - {{phone}} - sender's phone
+//    - {{preferred_date}} - preferred date
+//    - {{preferred_time}} - preferred time
+//    - {{description}} - message description
+//    - {{subject}} - email subject
+//    - {{message}} - full message body
+// 4. Go to Account > API Keys and copy your Public Key
+// 5. Update the constants below with your credentials:
+const EMAILJS_SERVICE_ID = 'service_t5pep46'; // Your EmailJS Service ID
+const EMAILJS_TEMPLATE_ID = 'template_ygfnv6c'; // Replace with your EmailJS Template ID (get from Email Templates section)
+const EMAILJS_PUBLIC_KEY = 'XmJ-Y5bkY3VCVlBYh'; // Replace with your EmailJS Public Key (get from Account > API Keys)
+const RECIPIENT_EMAIL = 'lakshya.porwal@leezova.com'; // Email address to receive submissions
+
 const ScheduleModal = React.memo(({ isOpen, onClose }: ScheduleModalProps) => {
+  // Generate time slots from 10:00 AM to 6:30 PM in 30-minute intervals
+  const generateTimeSlots = (): string[] => {
+    const slots: string[] = [];
+    for (let hour = 10; hour <= 18; hour++) {
+      for (let minute = 0; minute < 60; minute += 30) {
+        if (hour === 18 && minute > 30) break; // Stop at 6:30 PM
+        const timeString = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
+        slots.push(timeString);
+      }
+    }
+    return slots;
+  };
+
+  const timeSlots = generateTimeSlots();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -400,6 +439,9 @@ const ScheduleModal = React.memo(({ isOpen, onClose }: ScheduleModalProps) => {
     description: ''
   });
   const [timeError, setTimeError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     if (isOpen) {
@@ -408,6 +450,13 @@ const ScheduleModal = React.memo(({ isOpen, onClose }: ScheduleModalProps) => {
       return () => {
         document.body.style.overflow = originalStyle;
       };
+    } else {
+      // Reset form state when modal closes
+      setFormData({ name: '', email: '', phone: '', date: '', time: '', description: '' });
+      setTimeError('');
+      setSubmitStatus('idle');
+      setErrorMessage('');
+      setIsSubmitting(false);
     }
   }, [isOpen]);
 
@@ -424,34 +473,52 @@ const ScheduleModal = React.memo(({ isOpen, onClose }: ScheduleModalProps) => {
     }
   }, [isOpen, onClose]);
 
-  const validateWorkingHours = (time: string): boolean => {
-    if (!time) return false;
-    const [hours] = time.split(':').map(Number);
-    return hours >= 10 && hours < 19; // 10am to 7pm (19:00)
+  const formatTimeForDisplay = (time: string): string => {
+    if (!time) return '';
+    const [hours, minutes] = time.split(':').map(Number);
+    const period = hours >= 12 ? 'PM' : 'AM';
+    const displayHours = hours > 12 ? hours - 12 : hours === 0 ? 12 : hours;
+    return `${displayHours}:${minutes.toString().padStart(2, '0')} ${period}`;
   };
 
-  const handleTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleTimeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const time = e.target.value;
     setFormData(prev => ({ ...prev, time }));
-    
-    if (time && !validateWorkingHours(time)) {
-      setTimeError('Please select a time between 10:00 AM and 7:00 PM');
-    } else {
-      setTimeError('');
-    }
+    setTimeError('');
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!validateWorkingHours(formData.time)) {
-      setTimeError('Please select a time between 10:00 AM and 7:00 PM');
+    if (!formData.time) {
+      setTimeError('Please select a time slot');
       return;
     }
 
-    // Format email content
-    const subject = `New Contact Request from ${formData.name}`;
-    const emailBody = `Dear Team,
+    // Validate EmailJS configuration
+    if (!EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      setSubmitStatus('error');
+      setErrorMessage('Email service is not configured. Please set up EmailJS Template ID and Public Key.');
+      return;
+    }
+
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
+
+    try {
+      // Prepare template parameters for EmailJS
+      const templateParams = {
+        to_email: RECIPIENT_EMAIL,
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone || 'Not provided',
+        preferred_date: formData.date,
+        preferred_time: formData.time,
+        description: formData.description || 'No additional description provided.',
+        subject: `New Contact Request from ${formData.name}`,
+        message: `Dear Team,
 
 A potential client wants to set up a call with us. Please find the details below:
 
@@ -468,20 +535,33 @@ ${formData.description || 'No additional description provided.'}
 Please contact them to schedule the call.
 
 Best regards,
-Website Contact Form`;
+Website Contact Form`
+      };
 
-    // Create mailto link
-    const mailtoLink = `mailto:lakshya.porwal@leezova.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-    
-    // Open email client
-    window.location.href = mailtoLink;
-    
-    // Reset form and close modal after a short delay
-    setTimeout(() => {
-      setFormData({ name: '', email: '', phone: '', date: '', time: '', description: '' });
-      setTimeError('');
-      onClose();
-    }, 500);
+      // Send email using EmailJS
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      setSubmitStatus('success');
+      
+      // Reset form and close modal after a short delay
+      setTimeout(() => {
+        setFormData({ name: '', email: '', phone: '', date: '', time: '', description: '' });
+        setTimeError('');
+        setSubmitStatus('idle');
+        setIsSubmitting(false);
+        onClose();
+      }, 2000);
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      setSubmitStatus('error');
+      setErrorMessage('Failed to send email. Please try again later or contact us directly.');
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -499,23 +579,23 @@ Website Contact Form`;
       onClick={onClose}
     >
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/70 backdrop-blur-md" />
       
       {/* Modal */}
       <div
-        className="relative bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden"
+        className="relative bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl w-full max-w-sm overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="relative px-6 pt-6 pb-4">
+        <div className="relative px-5 pt-5 pb-3 border-b border-white/10">
           <div className="flex items-start justify-between">
             <div>
-              <h2 className="text-xl font-bold text-gray-900">Contact Us</h2>
-              <p className="text-sm text-gray-600 mt-1">Fill in the details and we'll get back to you.</p>
+              <h2 className="text-lg font-bold text-white text-left">Contact Us</h2>
+              <p className="text-xs text-gray-300 mt-1">Fill in the details and we'll get back to you.</p>
             </div>
             <button
               onClick={onClose}
-              className="text-gray-400 hover:text-gray-600 transition-colors"
+              className="text-gray-400 hover:text-white transition-colors"
               aria-label="Close modal"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -526,10 +606,10 @@ Website Contact Form`;
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="px-6 pb-6 space-y-4">
+        <form onSubmit={handleSubmit} className="px-5 pb-5 space-y-3 text-left">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">
-              Name <span className="text-red-500">*</span>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-1.5">
+              Name <span className="text-red-400">*</span>
             </label>
             <input
               type="text"
@@ -538,15 +618,15 @@ Website Contact Form`;
               required
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-3.5 py-2.5 bg-white border border-gray-300 rounded-lg text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+              className="w-full px-3.5 py-2.5 bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg text-white text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
               placeholder="Enter your name"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
-                Email ID <span className="text-red-500">*</span>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-1.5">
+                Email ID <span className="text-red-400">*</span>
               </label>
               <input
                 type="email"
@@ -555,14 +635,14 @@ Website Contact Form`;
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-3.5 py-2.5 bg-white border border-gray-300 rounded-lg text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                className="w-full px-3.5 py-2.5 bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg text-white text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
                 placeholder="Enter email address"
               />
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">
-                Phone number <span className="text-red-500">*</span>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-200 mb-1.5">
+                Phone number <span className="text-red-400">*</span>
               </label>
               <input
                 type="tel"
@@ -571,7 +651,7 @@ Website Contact Form`;
                 required
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full px-3.5 py-2.5 bg-white border border-gray-300 rounded-lg text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                className="w-full px-3.5 py-2.5 bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg text-white text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
                 placeholder="Enter phone number"
               />
             </div>
@@ -579,8 +659,8 @@ Website Contact Form`;
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1.5">
-                Date <span className="text-red-500">*</span>
+              <label htmlFor="date" className="block text-sm font-medium text-gray-200 mb-1.5">
+                Date <span className="text-red-400">*</span>
               </label>
               <div className="relative">
                 <input
@@ -591,7 +671,7 @@ Website Contact Form`;
                   value={formData.date}
                   onChange={handleChange}
                   min={new Date().toISOString().split('T')[0]}
-                  className="w-full px-3.5 py-2.5 pr-10 bg-white border border-gray-300 rounded-lg text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all cursor-pointer"
+                  className="w-full px-3.5 py-2.5 pr-10 bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all cursor-pointer [color-scheme:dark]"
                 />
                 <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
                   <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -602,63 +682,95 @@ Website Contact Form`;
             </div>
 
             <div>
-              <label htmlFor="time" className="block text-sm font-medium text-gray-700 mb-1.5">
-                Time <span className="text-red-500">*</span> <span className="text-xs text-gray-500 font-normal">(10 AM - 7 PM)</span>
+              <label htmlFor="time" className="block text-sm font-medium text-gray-200 mb-1.5">
+                Time <span className="text-red-400">*</span> <span className="text-xs text-gray-400 font-normal">(10 AM - 6:30 PM)</span>
               </label>
               <div className="relative">
-                <input
-                  type="time"
+                <select
                   id="time"
                   name="time"
                   required
-                  min="10:00"
-                  max="19:00"
                   value={formData.time}
                   onChange={handleTimeChange}
-                  className={`w-full px-3.5 py-2.5 pr-10 bg-white border ${timeError ? 'border-red-300' : 'border-gray-300'} rounded-lg text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all cursor-pointer`}
-                />
+                  className={`w-full px-3.5 py-2.5 pr-10 bg-white/5 backdrop-blur-sm border ${timeError ? 'border-red-400/50' : 'border-white/20'} rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all cursor-pointer appearance-none`}
+                >
+                  <option value="" className="bg-black text-gray-400">Select time</option>
+                  {timeSlots.map((slot) => (
+                    <option key={slot} value={slot} className="bg-black text-white">
+                      {formatTimeForDisplay(slot)}
+                    </option>
+                  ))}
+                </select>
                 <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
                   <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </div>
               </div>
               {timeError && (
-                <p className="mt-1 text-xs text-red-500">{timeError}</p>
+                <p className="mt-1 text-xs text-red-400">{timeError}</p>
               )}
             </div>
           </div>
 
           <div>
-            <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1.5">
-              Description <span className="text-red-500">*</span>
+            <label htmlFor="description" className="block text-sm font-medium text-gray-200 mb-1.5">
+              Description <span className="text-red-400">*</span>
             </label>
             <textarea
               id="description"
               name="description"
               required
-              rows={4}
+              rows={3}
               value={formData.description}
               onChange={handleChange}
-              className="w-full px-3.5 py-2.5 bg-white border border-gray-300 rounded-lg text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all resize-none"
+              className="w-full px-3.5 py-2.5 bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg text-white text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all resize-none"
               placeholder="Tell us about your requirements..."
             />
           </div>
+
+          {/* Success/Error Messages */}
+          {submitStatus === 'success' && (
+            <div className="pt-2 px-4 py-3 bg-green-500/20 backdrop-blur-sm border border-green-500/30 rounded-lg">
+              <p className="text-sm text-green-300 font-medium">
+                ✓ Message sent successfully! We'll get back to you soon.
+              </p>
+            </div>
+          )}
+          {submitStatus === 'error' && (
+            <div className="pt-2 px-4 py-3 bg-red-500/20 backdrop-blur-sm border border-red-500/30 rounded-lg">
+              <p className="text-sm text-red-300 font-medium">
+                {errorMessage || 'Failed to send message. Please try again.'}
+              </p>
+            </div>
+          )}
 
           {/* Action Buttons */}
           <div className="pt-4 flex gap-3">
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2.5 text-gray-700 bg-white border border-gray-300 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+              disabled={isSubmitting}
+              className="flex-1 px-4 py-2.5 text-white bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg font-medium hover:bg-white/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="flex-1 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+              disabled={isSubmitting}
+              className="flex-1 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
-              Submit
+              {isSubmitting ? (
+                <>
+                  <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Sending...
+                </>
+              ) : (
+                'Submit'
+              )}
             </button>
           </div>
         </form>

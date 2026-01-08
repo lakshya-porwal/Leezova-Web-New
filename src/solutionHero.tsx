@@ -96,7 +96,7 @@ function SolutionHero() {
         ref={textRef}
         className='absolute z-[2] text-7xl md:text-8xl lg:text-9xl font-bold pointer-events-none'
         style={{
-          top: '15%',
+          top: '25%',
           left: '50%',
           transform: 'translate(-50%, -50%)'
         }}

@@ -196,7 +196,7 @@ export default function ContactUs() {
               </form>
             </div>
 
-            <div className=" hidden lg:col-span-1 space-y-12">
+            <div className="hidden md:block lg:col-span-1 space-y-12">
               <div className="flex justify-center lg:justify-start">
                 <div className="relative w-64 h-64">
                   <svg
