@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Hero2 from './hero2';
+import Hero3 from './hero3';
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -96,6 +97,7 @@ const Hero1 = () => {
       <div className='h-full w-full flex flex-col'>
         
         <Hero2 />
+        <Hero3/>
       </div>
       
     </div>
