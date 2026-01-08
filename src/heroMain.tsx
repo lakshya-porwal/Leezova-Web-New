@@ -91,9 +91,9 @@ const Hero1 = () => {
     //   {/* <Hero2 /> */}
 
     // </div>
-    <div className='lg:h-full lg:w-full lg:flex flex-col'>
-      <div className='lg:h-screen lg:w-full lg:flex flex-col'></div>
-      <div className='lg:h-full lg:w-full lg:flex flex-col'>
+    <div className='h-full w-full flex flex-col'>
+      <div className='h-screen w-full flex flex-col'></div>
+      <div className='h-full w-full flex flex-col'>
         
         <Hero2 />
       </div>

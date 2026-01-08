@@ -22,8 +22,11 @@ export default function ContactUs() {
     return () => clearInterval(interval);
   }, []);
 
+  const isDesktop = () => window.innerWidth >= 768;
+
   useEffect(() => {
     console.clear();
+    if (!isDesktop()) return;
 
     if (!mapWrapperRef.current || !mapRef.current || !pinRef.current) return;
 
@@ -64,11 +67,11 @@ export default function ContactUs() {
 
   return (
     <div className="min-h-screen bg-black text-white w-full">
-      <div className="pt-24 px-6">
-        <div className="w-full h-full px-2">
+      <div className="md:pt-24 pt-0 px-6">
+        <div className="w-full h-full md:px-2 px-0">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 py-16">
             <div className="lg:col-span-2">
-              <h1 className="text-6xl md:text-7xl font-bold mb-6 text-white">
+              <h1 className="text-[55px] md:text-7xl font-bold mb-6 text-white">
                 CONTACT US  Let's work together!
               </h1>
               <p className="text-gray-400 text-lg mb-12 max-w-2xl">
@@ -193,7 +196,7 @@ export default function ContactUs() {
               </form>
             </div>
 
-            <div className="lg:col-span-1 space-y-12">
+            <div className=" hidden lg:col-span-1 space-y-12">
               <div className="flex justify-center lg:justify-start">
                 <div className="relative w-64 h-64">
                   <svg
@@ -327,9 +330,9 @@ export default function ContactUs() {
       >
         <div className="absolute inset-0 flex items-center justify-center">
           <div
-            ref={mapRef}
-            className="content relative w-full h-full bg-[#f5f5f5]"
-          >
+  ref={isDesktop() ? mapRef : null}
+  className="content relative w-full h-full bg-[#f5f5f5]"
+>
             <svg
               className="w-full h-full"
               viewBox="0 0 1200 800"
