@@ -178,7 +178,8 @@ const DesktopNav = React.memo(({
   hoveredItems,
   onDropdownEnter,
   onDropdownLeave,
-  onItemHover
+  onItemHover,
+  onScheduleClick
 }: {
   routes: NavRoute[];
   activeDropdown: string | null;
@@ -186,6 +187,7 @@ const DesktopNav = React.memo(({
   onDropdownEnter: (routeId: string) => void;
   onDropdownLeave: () => void;
   onItemHover: (routeId: string, idx: number | null) => void;
+  onScheduleClick: () => void;
 }) => (
   <div className="hidden lg:block">
     <div className="lg:max-w-7xl lg:mx-auto lg:px-6 lg:py-4">
@@ -239,8 +241,11 @@ const DesktopNav = React.memo(({
           })}
         </div>
 
-        <button className="lg:px-6 lg:py-2 bg-[#2d3447] hover:bg-[#3a4155] rounded-lg font-medium transition-colors">
-          Schedule a Call
+        <button 
+          onClick={onScheduleClick}
+          className="lg:px-6 lg:py-2 bg-[#2d3447] hover:bg-[#3a4155] rounded-lg font-medium transition-colors text-white"
+        >
+          Contact Us
         </button>
       </div>
     </div>
@@ -253,7 +258,8 @@ const MobileNav = React.memo(({
   activeMenu,
   onToggle,
   onMenuToggle,
-  onClose
+  onClose,
+  onScheduleClick
 }: {
   routes: NavRoute[];
   isOpen: boolean;
@@ -261,6 +267,7 @@ const MobileNav = React.memo(({
   onToggle: () => void;
   onMenuToggle: (routeId: string) => void;
   onClose: () => void;
+  onScheduleClick: () => void;
 }) => {
   const sidebarRef = useRef<HTMLDivElement>(null);
 
@@ -363,9 +370,12 @@ const MobileNav = React.memo(({
 
           <button 
             className="mt-6 px-4 py-3 bg-[#2d3447] hover:bg-[#3a4155] active:bg-[#4a5568] rounded-lg font-medium text-white transition-colors touch-manipulation"
-            onClick={onClose}
+            onClick={() => {
+              onScheduleClick();
+              onClose();
+            }}
           >
-            Schedule a Call
+            Contact Us
           </button>
         </div>
       </div>
@@ -374,12 +384,297 @@ const MobileNav = React.memo(({
 });
 MobileNav.displayName = 'MobileNav';
 
+// Schedule Modal Component
+interface ScheduleModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const ScheduleModal = React.memo(({ isOpen, onClose }: ScheduleModalProps) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    date: '',
+    time: '',
+    description: ''
+  });
+  const [timeError, setTimeError] = useState('');
+
+  useEffect(() => {
+    if (isOpen) {
+      const originalStyle = window.getComputedStyle(document.body).overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalStyle;
+      };
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      window.addEventListener('keydown', handleEscape);
+      return () => window.removeEventListener('keydown', handleEscape);
+    }
+  }, [isOpen, onClose]);
+
+  const validateWorkingHours = (time: string): boolean => {
+    if (!time) return false;
+    const [hours] = time.split(':').map(Number);
+    return hours >= 10 && hours < 19; // 10am to 7pm (19:00)
+  };
+
+  const handleTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const time = e.target.value;
+    setFormData(prev => ({ ...prev, time }));
+    
+    if (time && !validateWorkingHours(time)) {
+      setTimeError('Please select a time between 10:00 AM and 7:00 PM');
+    } else {
+      setTimeError('');
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!validateWorkingHours(formData.time)) {
+      setTimeError('Please select a time between 10:00 AM and 7:00 PM');
+      return;
+    }
+
+    // Format email content
+    const subject = `New Contact Request from ${formData.name}`;
+    const emailBody = `Dear Team,
+
+A potential client wants to set up a call with us. Please find the details below:
+
+Contact Details:
+- Name: ${formData.name}
+- Email: ${formData.email}
+- Phone: ${formData.phone || 'Not provided'}
+- Preferred Date: ${formData.date}
+- Preferred Time: ${formData.time}
+
+Description:
+${formData.description || 'No additional description provided.'}
+
+Please contact them to schedule the call.
+
+Best regards,
+Website Contact Form`;
+
+    // Create mailto link
+    const mailtoLink = `mailto:lakshya.porwal@leezova.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    // Reset form and close modal after a short delay
+    setTimeout(() => {
+      setFormData({ name: '', email: '', phone: '', date: '', time: '', description: '' });
+      setTimeError('');
+      onClose();
+    }, 500);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      {/* Backdrop */}
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+      
+      {/* Modal */}
+      <div
+        className="relative bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="relative px-6 pt-6 pb-4">
+          <div className="flex items-start justify-between">
+            <div>
+              <h2 className="text-xl font-bold text-gray-900">Contact Us</h2>
+              <p className="text-sm text-gray-600 mt-1">Fill in the details and we'll get back to you.</p>
+            </div>
+            <button
+              onClick={onClose}
+              className="text-gray-400 hover:text-gray-600 transition-colors"
+              aria-label="Close modal"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="px-6 pb-6 space-y-4">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">
+              Name <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full px-3.5 py-2.5 bg-white border border-gray-300 rounded-lg text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+              placeholder="Enter your name"
+            />
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
+                Email ID <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full px-3.5 py-2.5 bg-white border border-gray-300 rounded-lg text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                placeholder="Enter email address"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">
+                Phone number <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full px-3.5 py-2.5 bg-white border border-gray-300 rounded-lg text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                placeholder="Enter phone number"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1.5">
+                Date <span className="text-red-500">*</span>
+              </label>
+              <div className="relative">
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  required
+                  value={formData.date}
+                  onChange={handleChange}
+                  min={new Date().toISOString().split('T')[0]}
+                  className="w-full px-3.5 py-2.5 pr-10 bg-white border border-gray-300 rounded-lg text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all cursor-pointer"
+                />
+                <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                  <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="time" className="block text-sm font-medium text-gray-700 mb-1.5">
+                Time <span className="text-red-500">*</span> <span className="text-xs text-gray-500 font-normal">(10 AM - 7 PM)</span>
+              </label>
+              <div className="relative">
+                <input
+                  type="time"
+                  id="time"
+                  name="time"
+                  required
+                  min="10:00"
+                  max="19:00"
+                  value={formData.time}
+                  onChange={handleTimeChange}
+                  className={`w-full px-3.5 py-2.5 pr-10 bg-white border ${timeError ? 'border-red-300' : 'border-gray-300'} rounded-lg text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all cursor-pointer`}
+                />
+                <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                  <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+              </div>
+              {timeError && (
+                <p className="mt-1 text-xs text-red-500">{timeError}</p>
+              )}
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1.5">
+              Description <span className="text-red-500">*</span>
+            </label>
+            <textarea
+              id="description"
+              name="description"
+              required
+              rows={4}
+              value={formData.description}
+              onChange={handleChange}
+              className="w-full px-3.5 py-2.5 bg-white border border-gray-300 rounded-lg text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all resize-none"
+              placeholder="Tell us about your requirements..."
+            />
+          </div>
+
+          {/* Action Buttons */}
+          <div className="pt-4 flex gap-3">
+            <button
+              type="button"
+              onClick={onClose}
+              className="flex-1 px-4 py-2.5 text-gray-700 bg-white border border-gray-300 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="flex-1 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+});
+ScheduleModal.displayName = 'ScheduleModal';
+
 export default function Navbar() {
   const location = useLocation();
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [hoveredItems, setHoveredItems] = useState<HoveredItems>({});
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileActiveMenu, setMobileActiveMenu] = useState<string | null>(null);
+  const [scheduleModalOpen, setScheduleModalOpen] = useState(false);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -455,24 +750,37 @@ export default function Navbar() {
     setMobileActiveMenu(prev => prev === routeId ? null : routeId);
   }, []);
 
+  const handleScheduleClick = useCallback(() => {
+    setScheduleModalOpen(true);
+  }, []);
+
+  const handleScheduleClose = useCallback(() => {
+    setScheduleModalOpen(false);
+  }, []);
+
   return (
-    <nav className="lg:fixed lg:top-0 lg:left-0 lg:right-0 z-50 lg:bg-transparent text-white">
-      <DesktopNav
-        routes={navRoutes}
-        activeDropdown={activeDropdown}
-        hoveredItems={hoveredItems}
-        onDropdownEnter={handleDropdownEnter}
-        onDropdownLeave={handleDropdownLeave}
-        onItemHover={handleItemHover}
-      />
-      <MobileNav
-        routes={navRoutes}
-        isOpen={mobileOpen}
-        activeMenu={mobileActiveMenu}
-        onToggle={handleMobileToggle}
-        onMenuToggle={handleMobileMenuToggle}
-        onClose={handleMobileClose}
-      />
-    </nav>
+    <>
+      <nav className="lg:fixed lg:top-0 lg:left-0 lg:right-0 z-50 lg:bg-transparent text-white">
+        <DesktopNav
+          routes={navRoutes}
+          activeDropdown={activeDropdown}
+          hoveredItems={hoveredItems}
+          onDropdownEnter={handleDropdownEnter}
+          onDropdownLeave={handleDropdownLeave}
+          onItemHover={handleItemHover}
+          onScheduleClick={handleScheduleClick}
+        />
+        <MobileNav
+          routes={navRoutes}
+          isOpen={mobileOpen}
+          activeMenu={mobileActiveMenu}
+          onToggle={handleMobileToggle}
+          onMenuToggle={handleMobileMenuToggle}
+          onClose={handleMobileClose}
+          onScheduleClick={handleScheduleClick}
+        />
+      </nav>
+      <ScheduleModal isOpen={scheduleModalOpen} onClose={handleScheduleClose} />
+    </>
   );
 }

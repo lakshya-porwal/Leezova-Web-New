@@ -27,7 +27,7 @@ export default function Footer() {
 
   return (
     <footer className="relative w-full">
-      <div className="relative bg-[#1e3a8a] text-white">
+      <div className="relative bg-[#090979] text-white">
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center gap-6 text-sm font-mono">
@@ -64,7 +64,7 @@ export default function Footer() {
           >
             <path
               d="M0,0 L0,95 L150,90 L300,80 L450,65 L600,50 L750,35 L900,25 L1050,18 L1200,12 L1200,0 Z"
-              fill="#1e3a8a"
+              fill="#090979"
             />
             <path
               d="M0,95 L150,90 L300,80 L450,65 L600,50 L750,35 L900,25 L1050,18 L1200,12 L1200,120 L0,120 Z"
