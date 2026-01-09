@@ -35,9 +35,9 @@ const PlaceholderIcon = React.memo(({ size = 24 }: { size?: number }) => (
 PlaceholderIcon.displayName = 'PlaceholderIcon';
 
 const Logo = React.memo(() => (
-  <Link to="/" className="flex items-center space-x-2">
-    <span className="text-xl lg:text-2xl font-bold">★</span>
-    <span className="text-lg lg:text-xl font-semibold">LEEZOVA</span>
+  <Link to="/" className="flex items-center gap-2">
+    <img src="/logoSmall.png" alt="LEEZOVA" className="h-8 md:h-6 w-auto brightness-0 invert" />
+    <img src="/mainLogo.png" alt="LEEZOVA" className="hidden md:block h-2 md:h-4 w-auto brightness-0 invert" />
   </Link>
 ));
 Logo.displayName = 'Logo';
@@ -190,8 +190,14 @@ const DesktopNav = React.memo(({
   onItemHover: (routeId: string, idx: number | null) => void;
   onScheduleClick: () => void;
 }) => (
-  <div className="hidden lg:block">
-    <div className="lg:max-w-7xl lg:mx-auto lg:px-6 lg:py-4">
+  <div className="hidden lg:block relative">
+    <div 
+      className="absolute inset-0 pointer-events-none"
+      style={{
+        background: 'linear-gradient(360deg, rgba(255, 255, 255, 0) 0%, rgb(0, 0, 0) 100%)'
+      }}
+    />
+    <div className="lg:max-w-7xl lg:mx-auto lg:px-6 lg:py-4 relative z-10">
       <div className="lg:flex lg:items-center lg:justify-between">
         <Logo />
 
@@ -872,25 +878,33 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="lg:fixed lg:top-0 lg:left-0 lg:right-0 z-50 lg:bg-transparent text-white">
-        <DesktopNav
-          routes={navRoutes}
-          activeDropdown={activeDropdown}
-          hoveredItems={hoveredItems}
-          onDropdownEnter={handleDropdownEnter}
-          onDropdownLeave={handleDropdownLeave}
-          onItemHover={handleItemHover}
-          onScheduleClick={handleScheduleClick}
+      <nav className="lg:fixed lg:top-0 lg:left-0 lg:right-0 z-50 text-white relative">
+        <div 
+          className="hidden lg:block absolute inset-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(360deg, rgba(255, 255, 255, 0) 0%, rgba(9, 9, 121, 1) 100%)'
+          }}
         />
-        <MobileNav
-          routes={navRoutes}
-          isOpen={mobileOpen}
-          activeMenu={mobileActiveMenu}
-          onToggle={handleMobileToggle}
-          onMenuToggle={handleMobileMenuToggle}
-          onClose={handleMobileClose}
-          onScheduleClick={handleScheduleClick}
-        />
+        <div className="relative z-10">
+          <DesktopNav
+            routes={navRoutes}
+            activeDropdown={activeDropdown}
+            hoveredItems={hoveredItems}
+            onDropdownEnter={handleDropdownEnter}
+            onDropdownLeave={handleDropdownLeave}
+            onItemHover={handleItemHover}
+            onScheduleClick={handleScheduleClick}
+          />
+          <MobileNav
+            routes={navRoutes}
+            isOpen={mobileOpen}
+            activeMenu={mobileActiveMenu}
+            onToggle={handleMobileToggle}
+            onMenuToggle={handleMobileMenuToggle}
+            onClose={handleMobileClose}
+            onScheduleClick={handleScheduleClick}
+          />
+        </div>
       </nav>
       <ScheduleModal isOpen={scheduleModalOpen} onClose={handleScheduleClose} />
     </>

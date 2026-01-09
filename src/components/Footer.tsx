@@ -27,28 +27,27 @@ export default function Footer() {
 
   return (
     <footer className="relative w-full">
-      <div className="relative bg-[#090979] text-white">
+      <div className="relative bg-[#090979]">
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center gap-6 text-sm font-mono">
               <Link
                 to="/terms-of-service"
-                className="hover:underline transition-colors"
+                className="hover:underline transition-colors text-white"
               >
                 TERMS OF SERVICE
               </Link>
               <Link
                 to="/privacy-policy"
-                className="hover:underline transition-colors"
+                className="hover:underline transition-colors text-white"
               >
                 PRIVACY POLICY
               </Link>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-sm font-mono">(C) {currentYear} LEEZOVA</span>
-              <Link to="/" className="flex items-center space-x-2">
-                <span className="text-2xl font-bold">★</span>
-                <span className="text-xl font-semibold">LEEZOVA</span>
+              <Link to="/" className="flex items-center gap-2">
+                <img src="/logoSmall.png" alt="LEEZOVA" className="h-4 md:h-8 w-auto brightness-0 invert" />
+                <img src="/mainLogo.png" alt="LEEZOVA" className="hidden md:block h-4 md:h-4 w-auto brightness-0 invert" />
               </Link>
             </div>
           </div>
@@ -178,7 +177,7 @@ export default function Footer() {
 
           <div className="border-t border-gray-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-gray-400 text-sm font-mono">
+              <p className="text-white text-sm font-mono">
                 © {currentYear} LEEZOVA. All rights reserved.
               </p>
               <div className="flex items-center gap-6 text-sm font-mono">

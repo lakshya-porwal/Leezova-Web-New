@@ -16,16 +16,7 @@ export default function Values() {
       bgColor: "bg-black",
       borderColor: "border-transparent",
       icon: (
-        <svg viewBox="0 0 100 100" className="w-32 h-32">
-          <path
-            d="M 50 20 L 60 40 L 80 45 L 65 60 L 68 80 L 50 70 L 32 80 L 35 60 L 20 45 L 40 40 Z"
-            fill="none"
-            stroke="#4169E1"
-            strokeWidth="2"
-          />
-          <circle cx="50" cy="50" r="15" fill="none" stroke="#4169E1" strokeWidth="2" />
-          <circle cx="50" cy="50" r="3" fill="#4169E1" />
-        </svg>
+        <img src="/Integrity.svg" alt="Integrity" className="w-32 h-32 transition-all duration-300 group-hover:brightness-0 group-hover:invert" />
       ),
       padding: "md:pt-10 pt-8 ",
     },
@@ -35,24 +26,7 @@ export default function Values() {
       bgColor: "bg-black",
       borderColor: "border-transparent",
       icon: (
-        <svg viewBox="0 0 100 100" className="w-32 h-32">
-          <circle cx="50" cy="50" r="35" fill="none" stroke="#4169E1" strokeWidth="2" />
-          <path
-            d="M 50 20 L 50 50 L 70 50"
-            fill="none"
-            stroke="#4169E1"
-            strokeWidth="3"
-            strokeLinecap="round"
-          />
-          <circle cx="50" cy="50" r="8" fill="#4169E1" />
-          <path
-            d="M 30 70 Q 50 60 70 70"
-            fill="none"
-            stroke="#4169E1"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        </svg>
+        <img src="/Vector (1).svg" alt="Innovation" className="w-32 h-32 transition-all duration-300 group-hover:brightness-0 group-hover:invert" />
       ),
       padding: "md:pb-10 pb-0",
     },
@@ -62,15 +36,7 @@ export default function Values() {
       bgColor: "bg-black",
       borderColor: "border-transparent",
       icon: (
-        <svg viewBox="0 0 100 100" className="w-32 h-32">
-          <path
-            d="M 50 15 L 55 40 L 80 40 L 60 55 L 65 80 L 50 65 L 35 80 L 40 55 L 20 40 L 45 40 Z"
-            fill="none"
-            stroke="#4169E1"
-            strokeWidth="2"
-          />
-          <circle cx="50" cy="50" r="20" fill="none" stroke="#4169E1" strokeWidth="1.5" opacity="0.5" />
-        </svg>
+        <img src="/Vector.svg" alt="Excellence" className="w-32 h-32 transition-all duration-300 group-hover:brightness-0 group-hover:invert" />
       ),
       padding: "md:pt-10 pt-0",
     },
@@ -80,27 +46,7 @@ export default function Values() {
       bgColor: "bg-black",
       borderColor: "border-transparent",
       icon: (
-        <svg viewBox="0 0 100 100" className="w-32 h-32">
-          <path
-            d="M 30 50 Q 30 35 40 35 Q 50 35 50 50 Q 50 35 60 35 Q 70 35 70 50"
-            fill="none"
-            stroke="#4169E1"
-            strokeWidth="3"
-            strokeLinecap="round"
-          />
-          <path
-            d="M 40 50 Q 50 65 50 65 Q 50 65 60 50"
-            fill="none"
-            stroke="#4169E1"
-            strokeWidth="3"
-            strokeLinecap="round"
-          />
-          <path
-            d="M 45 55 Q 50 60 50 60 Q 50 60 55 55"
-            fill="#4169E1"
-            opacity="0.3"
-          />
-        </svg>
+        <img src="/Group.svg" alt="Collaboration" className="w-32 h-32 transition-all duration-300 group-hover:brightness-0 group-hover:invert" />
       ),
       padding: "md:pt-10 pt-0 ",
     },
@@ -110,21 +56,7 @@ export default function Values() {
       bgColor: "bg-black",
       borderColor: "border-transparent",
       icon: (
-        <svg viewBox="0 0 100 100" className="w-32 h-32">
-          <path
-            d="M 30 50 Q 30 30 50 30 Q 70 30 70 50 Q 70 70 50 70 Q 30 70 30 50"
-            fill="none"
-            stroke="#4169E1"
-            strokeWidth="3"
-          />
-          <path
-            d="M 45 50 Q 50 55 50 55 Q 50 55 55 50"
-            fill="#4169E1"
-            opacity="0.3"
-          />
-          <line x1="40" y1="45" x2="40" y2="48" stroke="#4169E1" strokeWidth="2" />
-          <line x1="60" y1="45" x2="60" y2="48" stroke="#4169E1" strokeWidth="2" />
-        </svg>
+        <img src="/User Focus.svg" alt="Customer Focus" className="w-32 h-32 transition-all duration-300 group-hover:brightness-0 group-hover:invert" />
       ),
       padding: "md:pb-10 pb-0",
     },
@@ -134,24 +66,7 @@ export default function Values() {
       bgColor: "bg-black",
       borderColor: "border-transparent",
       icon: (
-        <svg viewBox="0 0 100 100" className="w-32 h-32">
-          <circle cx="50" cy="50" r="30" fill="none" stroke="#4169E1" strokeWidth="2" />
-          <path
-            d="M 50 25 L 50 50 L 65 50"
-            fill="none"
-            stroke="#4169E1"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <path
-            d="M 35 65 Q 50 60 65 65"
-            fill="none"
-            stroke="#4169E1"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <circle cx="50" cy="50" r="3" fill="#4169E1" />
-        </svg>
+        <img src="/Sustainability.svg" alt="Sustainability" className="w-32 h-32 transition-all duration-300 group-hover:brightness-0 group-hover:invert" />
       ),
       padding: "md:pt-10 pt-0",
     },
@@ -236,7 +151,12 @@ export default function Values() {
                   </div>
 
                   <div className="w-full h-full flex items-center justify-center p-4 relative z-10">
-                    {value.icon}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="w-40 h-40 rounded-full bg-gradient-to-br from-white/20 via-white/10 to-transparent blur-2xl"></div>
+                    </div>
+                    <div className="relative z-10">
+                      {value.icon}
+                    </div>
                   </div>
 
                   <div className="w-full h-full flex items-center justify-center flex-col gap-2 p-4 relative z-10">
