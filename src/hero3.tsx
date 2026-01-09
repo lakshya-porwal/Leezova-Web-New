@@ -3,43 +3,43 @@ import type { ReactElement } from 'react';
 
 // Icon components
 const MonitorIcon = (): ReactElement => (
-  <svg className="w-8 h-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg className="w-12 h-12 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
   </svg>
 );
 
 const MobileIcon = (): ReactElement => (
-  <svg className="w-8 h-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg className="w-12 h-12 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
   </svg>
 );
 
 const ChartIcon = (): ReactElement => (
-  <svg className="w-8 h-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg className="w-12 h-12 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
   </svg>
 );
 
 const EditIcon = (): ReactElement => (
-  <svg className="w-8 h-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg className="w-12 h-12 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
   </svg>
 );
 
 const HeartIcon = (): ReactElement => (
-  <svg className="w-8 h-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg className="w-12 h-12 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
   </svg>
 );
 
 const SearchIcon = (): ReactElement => (
-  <svg className="w-8 h-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg className="w-12 h-12 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
   </svg>
 );
 
 // Common class names
-const GLASS_CARD_CLASSES = "relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group";
+const GLASS_CARD_CLASSES = "relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 pt-12";
 const GLOW_EFFECT_CLASSES = "absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none";
 
 interface Service {
@@ -180,8 +180,8 @@ function Hero3() {
               >
                 <div className={GLOW_EFFECT_CLASSES} />
                 
-                <div className="relative z-10 flex flex-col h-full">
-                  <div className={`w-14 h-14 ${service.iconColor} rounded-full flex items-center justify-center mb-4 bg-black/30 backdrop-blur-sm border border-white/10 flex-shrink-0`}>
+                <div className="relative z-10 flex flex-col h-full items-center text-center">
+                  <div className={`w-20 h-20 ${service.iconColor} rounded-full flex items-center justify-center mb-4 bg-black/30 backdrop-blur-sm border border-white/10 flex-shrink-0`}>
                     {service.icon}
                   </div>
                   <h3 className="text-lg font-semibold text-white mb-3">
