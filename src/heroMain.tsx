@@ -93,7 +93,9 @@ const Hero1 = () => {
 
     // </div>
     <div className='h-full w-full flex flex-col'>
-      <div className='h-screen w-full flex flex-col'></div>
+      <div className='h-screen w-full flex flex-col italic text-center items-center justify-center text-4xl'>
+        Still in development
+      </div>
       <div className='h-full w-full flex flex-col'>
         
         <Hero2 />
