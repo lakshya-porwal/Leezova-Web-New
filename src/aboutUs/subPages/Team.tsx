@@ -132,7 +132,7 @@ export default function Team() {
       </div>
 
       <div className="h-[100vh] w-full relative items-center content-center" ref={redDivRef}>
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none h-[97vh] max-w-full">
+        <div className="absolute inset-0 pointer-events-none flex items-center justify-center h-[97vh] max-w-full">
           <div style={{
             background: 'radial-gradient(circle,rgba(255, 255, 255, 0) 14%, rgba(36, 36, 36, 1) 100%)'
           }} className="w-full h-[100vh] z-20" />
@@ -320,6 +320,6 @@ export default function Team() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
   );
 }
