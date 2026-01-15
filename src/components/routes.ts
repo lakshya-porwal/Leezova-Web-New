@@ -34,12 +34,12 @@ export const navRoutes: NavRoute[] = [
         description: "Meet our experts",
         image: "/Platform.webp",
       },
-      {
-        label: "Contact Us",
-        path: "/about-us/contact-us",
-        description: "Get in touch with us",
-        image: "/front-left-side-47.avif",
-      },
+      // {
+      //   label: "Contact Us",
+      //   path: "/about-us/contact-us",
+      //   description: "Get in touch with us",
+      //   image: "/front-left-side-47.avif",
+      // },
     ],
   },
   {

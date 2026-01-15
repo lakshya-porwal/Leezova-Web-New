@@ -12,7 +12,7 @@ import Careers from './Careers'
 import AboutUs from './aboutUs/AboutUs'
 import OurMission from './aboutUs/subPages/OurMission'
 import Values from './aboutUs/subPages/Values'
-import ContactUs from './aboutUs/subPages/ContactUs'
+// import ContactUs from './aboutUs/subPages/ContactUs'
 import Team from './aboutUs/subPages/Team'
 import Hero1 from './heroMain'
 import Navbar from './components/NavBar'
@@ -39,7 +39,7 @@ function App() {
         <Route path="/about-us/our-mission" element={<OurMission />} />
         <Route path="/about-us/values" element={<Values />} />
         <Route path="/about-us/team" element={<Team />} />
-        <Route path="/about-us/contact-us" element={<ContactUs />} />
+        {/* <Route path="/about-us/contact-us" element={<ContactUs />} /> */}
         {/* <Route path="/products" element={<Products />} /> */}
         {/* <Route path="/products/our-products" element={<OurProducts />} /> */}
         {/* <Route path="/products/onboard" element={<OnBoard />} /> */}

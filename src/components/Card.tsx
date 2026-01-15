@@ -12,20 +12,20 @@ const Card = ({title, text1, text2, text3, text4, text5, text6, text7,descriptio
   mediaSrc4, mediaSrc5, mediaSrc6, mediaSrc7 }: CardProps) => {
     
     return (
-    <div className="min-h-screen pt-24 px-2">
+    <div className="min-h-screen pt-24">
       <div className="text-[45px] text-bold flex justify-center items-center pb-3">
          {title}
       </div>
-      <div className="grid md:grid-cols-3 grid-cols-1 gap-y-5 gap-x-8 p-2 place-items-center">
+      <div className="grid md:grid-cols-3 grid-cols-1 gap-y-5 gap-x-8 md:p-2 place-items-center">
         {/* Row 1 */}
         <div className="md:col-span-3 cols-span-1 flex md:flex-row justify-center gap-8 flex-col">
           <div className="group border p-[3px] rounded-[43px]
                     transition-all duration-300
                     hover:bg-gray-600">
-            <div className="md:w-[420px] md:h-[56vh] w-[270px] h-[95vh] border border-white rounded-[40px] flex flex-col bg-black">
-              <div className="h-[30%] flex flex-col justify-center items-center text-white rounded-t-xl p-8">
+            <div className="md:w-[420px] md:h-[56vh] w-[290px] h-[95vh] border border-white rounded-[40px] flex flex-col bg-black">
+              <div className="h-[30%] flex flex-col justify-center items-center text-white rounded-txl md:p-8 p-4">
                <div className="text-xl font-bold text-start">{text1}</div> 
-               <div className="text-sm text-start">{description1}</div> 
+               <div className="md:text-sm text-base md:pt-0 pt-3 text-start">{description1}</div> 
                </div>
               <div className="h-[70%] relative overflow-hidden">
                 {mediaSrc1 && (() => {
@@ -55,10 +55,10 @@ const Card = ({title, text1, text2, text3, text4, text5, text6, text7,descriptio
           </div>
 
           <div className="group border p-[3px] rounded-[43px] transition-all duration-300 hover:bg-gray-600">
-            <div className="md:w-[420px] md:h-[56vh] w-[270px] h-[95vh] border border-white rounded-[40px] flex flex-col bg-black">
-              <div className="h-[30%] flex flex-col justify-center items-center text-white rounded-t-xl p-8">
+            <div className="md:w-[420px] md:h-[56vh] w-[290px] h-[95vh] border border-white rounded-[40px] flex flex-col bg-black">
+              <div className="h-[30%] flex flex-col justify-center items-center text-white rounded-t-xl md:p-8 p-4">
                <div className="text-xl font-bold text-start ">{text2}</div> 
-               <div className="text-sm text-start">{description2}</div> 
+               <div className="md:text-sm text-base md:pt-0 pt-3 text-start">{description2}</div> 
                </div>
               <div className="h-[70%] relative overflow-hidden">
                 {mediaSrc2 && (() => {
@@ -92,10 +92,10 @@ const Card = ({title, text1, text2, text3, text4, text5, text6, text7,descriptio
           <div className="group border p-[3px] rounded-[43px]
                     transition-all duration-300
                     hover:bg-gray-600">
-            <div className="md:w-[280px] md:h-[85vh] w-[280px] h-[95vh] border border-white rounded-[40px] flex flex-col bg-black relative">
-              <div className="h-[25%] flex flex-col justify-center items-center text-white rounded-t-xl p-9">
+            <div className="md:w-[280px] md:h-[85vh] w-[290px] h-[95vh] border border-white rounded-[40px] flex flex-col bg-black relative">
+              <div className="h-[25%] flex flex-col justify-center items-center text-white rounded-t-xl md:p-9 p-4">
                <div className="text-xl font-bold text-start">{text3}</div> 
-               <div className="text-sm text-start">{description3}</div> 
+               <div className="md:text-sm text-base md:pt-0 pt-3 text-start">{description3}</div> 
                </div>
               <div className="h-[75%] overflow-hidden relative rounded-b-[39px]">
                 {mediaSrc3 && (() => {
@@ -127,10 +127,10 @@ const Card = ({title, text1, text2, text3, text4, text5, text6, text7,descriptio
           <div className="group border p-[3px] rounded-[43px]
                     transition-all duration-300
                     hover:bg-gray-600">
-            <div className="md:w-[280px] md:h-[85vh] w-[280px] h-[95vh] border border-white rounded-[40px] flex flex-col bg-black">
-              <div className="h-[25%] flex flex-col justify-center items-center text-white rounded-t-xl p-9">
+            <div className="md:w-[280px] md:h-[85vh] w-[290px] h-[95vh] border border-white rounded-[40px] flex flex-col bg-black">
+              <div className="h-[25%] flex flex-col justify-center items-center text-white rounded-t-xl md:p-9 p-4">
                <div className="text-xl font-bold text-start ">{text4}</div> 
-               <div className="text-sm text-start">{description4}</div> 
+               <div className="md:text-sm text-base md:pt-0 pt-3 text-start">{description4}</div> 
                </div>
               <div className="h-[75%] relative overflow-hidden">
                 {mediaSrc4 && (() => {
@@ -161,10 +161,10 @@ const Card = ({title, text1, text2, text3, text4, text5, text6, text7,descriptio
           </div>
 
           <div className="group border p-[3px] rounded-[43px] transition-all duration-300 hover:bg-gray-600">
-            <div className="md:w-[280px] md:h-[85vh] w-[280px] h-[95vh] border border-white rounded-[40px] flex flex-col bg-black">
-              <div className="h-[25%] flex flex-col justify-center items-center  text-white rounded-t-xl p-9">
+            <div className="md:w-[280px] md:h-[85vh] w-[290px] h-[95vh] border border-white rounded-[40px] flex flex-col bg-black">
+              <div className="h-[25%] flex flex-col justify-center items-center  text-white rounded-t-xl md:p-9 p-4">
                <div className="text-xl font-bold text-start">{text5}</div> 
-               <div className="text-sm text-start">{description5}</div> 
+               <div className="md:text-sm text-base md:pt-0 pt-3 text-start">{description5}</div> 
                </div>
               <div className="h-[75%] relative overflow-hidden">
                 {mediaSrc5 && (() => {
@@ -196,10 +196,10 @@ const Card = ({title, text1, text2, text3, text4, text5, text6, text7,descriptio
         {/* Row 3 */}
         <div className="md:col-span-3 cols-span-1 flex md:flex-row flex-col justify-center gap-8">
           <div className="group border p-[3px] rounded-[43px] transition-all duration-300 hover:bg-gray-600">
-            <div className="md:w-[420px] md:h-[56vh] w-[270px] h-[95vh] border border-white rounded-[40px] flex flex-col bg-black">
-              <div className="h-[30%] flex flex-col justify-center items-center  text-white rounded-t-xl p-8">
+            <div className="md:w-[420px] md:h-[56vh] w-[290px] h-[95vh] border border-white rounded-[40px] flex flex-col bg-black">
+              <div className="h-[30%] flex flex-col justify-center items-center  text-white rounded-t-xl md:p-8 p-4">
                <div className="text-xl font-bold text-start">{text6}</div> 
-               <div className="text-sm text-start">{description6}</div> 
+               <div className="md:text-sm text-base md:pt-0 pt-3 text-start">{description6}</div> 
                </div>
               <div className="h-[70%] relative overflow-hidden">
                 {mediaSrc6 && (() => {
@@ -231,10 +231,10 @@ const Card = ({title, text1, text2, text3, text4, text5, text6, text7,descriptio
           <div className="group border p-[3px] rounded-[43px]
                     transition-all duration-300
                     hover:bg-gray-600">
-            <div className="md:w-[420px] md:h-[56vh] w-[270px] h-[95vh] border border-white rounded-[40px] flex flex-col bg-black">
-              <div className="h-[30%] flex flex-col justify-center items-center  text-white rounded-t-xl p-8">
+            <div className="md:w-[420px] md:h-[56vh] w-[290px] h-[95vh] border border-white rounded-[40px] flex flex-col bg-black">
+              <div className="h-[30%] flex flex-col justify-center items-center  text-white rounded-t-xl md:p-8 p-4">
                <div className="text-xl font-bold text-start ">{text7}</div> 
-               <div className="text-sm text-start">{description7}</div> 
+               <div className="md:text-sm text-base md:pt-0 pt-3 text-start">{description7}</div> 
                </div>
               <div className="h-[70%] relative overflow-hidden">
                 {mediaSrc7 && (() => {
