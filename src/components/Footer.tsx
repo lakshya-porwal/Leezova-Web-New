@@ -30,7 +30,7 @@ export default function Footer() {
       <div className="relative bg-[#090979]">
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex items-center justify-between flex-wrap gap-4">
-            <div className="flex items-center gap-6 text-sm font-mono">
+            <div className="flex items-center gap-6 md:text-sm text-lg font-mono">
               <Link
                 to="/terms-of-service"
                 className="hover:underline transition-colors text-white"
@@ -46,7 +46,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-4">
               <Link to="/" className="flex items-center gap-2">
-                <img src="/logoSmall.png" alt="LEEZOVA" className="h-4 md:h-8 w-auto brightness-0 invert" />
+                <img src="/logoSmall.png" alt="LEEZOVA" className="h-6 md:h-8 w-auto brightness-0 invert" />
                 <img src="/mainLogo.png" alt="LEEZOVA" className="hidden md:block h-4 md:h-4 w-auto brightness-0 invert" />
               </Link>
             </div>
@@ -85,13 +85,13 @@ export default function Footer() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
             <div>
-              <h3 className="text-lg font-semibold mb-4 font-mono">ABOUT</h3>
+              <h3 className="md:text-lg text-[26px] font-semibold mb-4 font-mono">ABOUT</h3>
               <ul className="space-y-2">
                 {footerLinks.about.map((link) => (
                   <li key={link.path}>
                     <Link
                      to={link.path}
-                      className="text-gray-400 hover:text-white transition-colors text-sm"
+                      className="text-gray-400 hover:text-white transition-colors md:text-sm text-lg"
                     >
                       {link.label}
                     </Link>
@@ -101,13 +101,13 @@ export default function Footer() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 font-mono">PRODUCTS</h3>
+              <h3 className="md:text-lg text-[26px] font-semibold mb-4 font-mono">PRODUCTS</h3>
               <ul className="space-y-2">
                 {footerLinks.products.map((link) => (
                   <li key={link.path}>
                     <Link
                       to={link.path}
-                      className="text-gray-400 hover:text-white transition-colors text-sm"
+                      className="text-gray-400 hover:text-white transition-colors md:text-sm text-lg"
                     >
                       {link.label}
                     </Link>
@@ -117,13 +117,13 @@ export default function Footer() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 font-mono">COMPANY</h3>
+              <h3 className="md:text-lg text-[26px] font-semibold mb-4 font-mono">COMPANY</h3>
               <ul className="space-y-2">
                 {footerLinks.company.map((link) => (
                   <li key={link.path}>
                     <Link
                       to={link.path}
-                      className="text-gray-400 hover:text-white transition-colors text-sm"
+                      className="text-gray-400 hover:text-white transition-colors md:text-sm text-lg"
                     >
                       {link.label}
                     </Link>
@@ -133,12 +133,12 @@ export default function Footer() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 font-mono">CONNECT</h3>
+              <h3 className="md:text-lg text-[26px] font-semibold mb-4 font-mono">CONNECT</h3>
               <ul className="space-y-2">
                 <li>
                   <Link
                     to="/contact"
-                    className="text-gray-400 hover:text-white transition-colors text-sm"
+                    className="text-gray-400 hover:text-white transition-colors md:text-sm text-lg"
                   >
                     Contact Us
                   </Link>
@@ -146,7 +146,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/schedule-call"
-                    className="text-gray-400 hover:text-white transition-colors text-sm"
+                    className="text-gray-400 hover:text-white transition-colors md:text-sm text-lg"
                   >
                     Schedule a Call
                   </Link>
@@ -156,7 +156,7 @@ export default function Footer() {
                     href="https://twitter.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition-colors text-sm"
+                    className="text-gray-400 hover:text-white transition-colors md:text-sm text-lg"
                   >
                     Twitter
                   </a>
@@ -166,7 +166,7 @@ export default function Footer() {
                     href="https://linkedin.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition-colors text-sm"
+                    className="text-gray-400 hover:text-white transition-colors md:text-sm text-lg"
                   >
                     LinkedIn
                   </a>
@@ -177,7 +177,7 @@ export default function Footer() {
 
           <div className="border-t border-gray-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-white text-sm font-mono">
+              <p className="text-white md:text-sm text-lg font-mono">
                 © {currentYear} LEEZOVA. All rights reserved.
               </p>
               <div className="flex items-center gap-6 text-sm font-mono">
