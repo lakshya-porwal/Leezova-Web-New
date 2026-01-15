@@ -34,12 +34,12 @@ export const navRoutes: NavRoute[] = [
         description: "Meet our experts",
         image: "/Platform.webp",
       },
-      {
-        label: "Contact Us",
-        path: "/about-us/contact-us",
-        description: "Get in touch with us",
-        image: "/front-left-side-47.avif",
-      },
+      // {
+      //   label: "Contact Us",
+      //   path: "/about-us/contact-us",
+      //   description: "Get in touch with us",
+      //   image: "/front-left-side-47.avif",
+      // },
     ],
   },
   {
@@ -47,42 +47,14 @@ export const navRoutes: NavRoute[] = [
     path: null,
     hasDropdown: true,
     dropdownItems: [
+      
       {
-        label: "Our Products",
-        path: "/products/ourProduct",
-        description: "Explore our complete product portfolio",
-        image: "/Platform.webp",
-      },
-      {
-        label: "Onboard",
-        path: "/products/onBoards",
-        description: "High-converting onboarding journeys",
-        image: "/Platform.webp",
-      },
-      {
-        label: "Decide",
-        path: "/products/decide",
-        description: "Automated case management",
-        image: "/front-left-side-47.avif",
-      },
-      {
-        label: "Lifecycle",
-        path: "/products/lifeCycle",
+        label: "Erp",
+        path: "/products/Erp",
         description: "Continuous compliance and re-KYC",
         image: "/Platform.webp",
       },
-      {
-        label: "Policy engine",
-        path: "/products/policyEngine",
-        description: "Compliance translated into code",
-        image: "/front-left-side-47.avif",
-      },
-      {
-        label: "Data platform",
-        path: "/products-dataPlatform",
-        description: "Third party orchestration with intelligence",
-        image: "/Platform.webp",
-      },
+     
     ],
   },
   {

@@ -14,7 +14,7 @@ export default function Footer() {
     products: [
       { label: "Onboard", path: "/products/onboard" },
       { label: "Decide", path: "/products/decide" },
-      { label: "Lifecycle", path: "/products/lifecycle" },
+      { label: "ERP", path: "/products/Erp" },
       { label: "Policy Engine", path: "/products/policy-engine" },
       { label: "Data Platform", path: "/products/data-platform" },
     ],
