@@ -99,7 +99,7 @@ const DropdownPreview = ({
       <div className="lg:mb-4">
         {item.image ? (
           <div className="w-full h-48 rounded-lg overflow-hidden mb-4 backdrop-blur-md bg-black/20">
-            <div 
+            <div
               className={`w-full h-full rounded-lg transition-transform duration-500 ease-in-out ${animate ? 'lg:translate-x-0 lg:translate-y-0' : 'lg:translate-x-2 lg:translate-y-2'}`}
             >
               <ImageWithFallback
@@ -160,8 +160,8 @@ const DesktopDropdown = React.memo(({
               ))}
             </div>
           </div>
-          <DropdownPreview 
-            item={activeItem} 
+          <DropdownPreview
+            item={activeItem}
             isHovered={hoveredIdx !== null}
             animationKey={hoveredIdx ?? 'default'}
           />
@@ -190,18 +190,18 @@ const DesktopNav = React.memo(({
   onItemHover: (routeId: string, idx: number | null) => void;
   onScheduleClick: () => void;
 }) => (
-  <div className="hidden lg:block relative">
-    <div 
+  <div className="hidden lg:block relative w-full">
+    <div
       className="absolute inset-0 pointer-events-none"
       style={{
         background: 'linear-gradient(360deg, rgba(255, 255, 255, 0) 0%, rgb(0, 0, 0) 100%)'
       }}
     />
-    <div className="lg:max-w-7xl lg:mx-auto lg:px-6 lg:py-4 relative z-10">
-      <div className="lg:flex lg:items-center lg:justify-between">
+    <div className="w-full px-6 py-4 relative z-10">
+      <div className="flex items-center justify-between w-full">
         <Logo />
 
-        <div className="lg:flex lg:items-center lg:space-x-1">
+        <div className="flex items-center space-x-1 justify-center">
           {routes.map((route, index) => {
             const routeId = generateRouteId(route, index);
             const isActive = activeDropdown === routeId;
@@ -209,28 +209,26 @@ const DesktopNav = React.memo(({
             return (
               <div
                 key={routeId}
-                className="lg:relative"
+                className="relative"
                 onMouseEnter={() => route.hasDropdown && onDropdownEnter(routeId)}
                 onMouseLeave={onDropdownLeave}
               >
                 {route.path ? (
-                  <Link 
-                    to={route.path} 
-                    className={`lg:px-4 lg:py-2 rounded-lg transition-colors ${
-                      isActive 
-                        ? 'bg-[#2d3447] text-white' 
+                  <Link
+                    to={route.path}
+                    className={`px-4 py-2 rounded-lg transition-colors ${isActive
+                        ? 'bg-[#2d3447] text-white'
                         : 'text-gray-300 hover:bg-[#2d3447] hover:text-white'
-                    }`}
+                      }`}
                   >
                     {route.label}
                   </Link>
                 ) : (
-                  <div 
-                    className={`lg:px-4 lg:py-2 rounded-lg transition-colors cursor-pointer ${
-                      isActive 
-                        ? 'bg-[#2d3447] text-white' 
+                  <div
+                    className={`px-4 py-2 rounded-lg transition-colors cursor-pointer ${isActive
+                        ? 'bg-[#2d3447] text-white'
                         : 'text-gray-300 hover:bg-[#2d3447] hover:text-white'
-                    }`}
+                      }`}
                   >
                     {route.label}
                   </div>
@@ -248,9 +246,9 @@ const DesktopNav = React.memo(({
           })}
         </div>
 
-        <button 
+        <button
           onClick={onScheduleClick}
-          className="lg:px-6 lg:py-2 bg-[#2d3447] hover:bg-[#3a4155] rounded-lg font-medium transition-colors text-white"
+          className="px-6 py-2 bg-[#2d3447] hover:bg-[#3a4155] rounded-lg font-medium transition-colors text-white"
         >
           Contact Us
         </button>
@@ -283,9 +281,9 @@ const MobileNav = React.memo(({
       {/* Mobile/Tablet Header */}
       <div className="lg:hidden flex items-center justify-between px-4 py-3 bg-[#1f2433]">
         <Logo />
-        <button 
-          onClick={onToggle} 
-          className="text-2xl hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-[#3a4155] rounded p-1" 
+        <button
+          onClick={onToggle}
+          className="text-2xl hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-[#3a4155] rounded p-1"
           aria-label="Open menu"
           aria-expanded={isOpen}
         >
@@ -375,8 +373,8 @@ const MobileNav = React.memo(({
             );
           })}
 
-          <button 
-            className="mt-6 px-4 py-3 bg-[#2d3447] hover:bg-[#3a4155] active:bg-[#4a5568] rounded-lg font-medium text-white transition-colors touch-manipulation"
+          <button
+            className="mt-6 px-4 py-3 bg-[#2d3447] hover:bg-[#3a4155] active:bg-[#4a5568] rounded-lg font-7xl text-white transition-colors touch-manipulation"
             onClick={() => {
               onScheduleClick();
               onClose();
@@ -495,7 +493,7 @@ const ScheduleModal = React.memo(({ isOpen, onClose }: ScheduleModalProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.time) {
       setTimeError('Please select a time slot');
       return;
@@ -553,7 +551,7 @@ Website Contact Form`
       );
 
       setSubmitStatus('success');
-      
+
       // Reset form and close modal after a short delay
       setTimeout(() => {
         setFormData({ name: '', email: '', phone: '', date: '', time: '', description: '' });
@@ -586,7 +584,7 @@ Website Contact Form`
     >
       {/* Backdrop */}
       <div className="absolute inset-0 bg-black/70 backdrop-blur-md" />
-      
+
       {/* Modal */}
       <div
         className="relative bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl w-full max-w-sm overflow-hidden"
@@ -879,7 +877,7 @@ export default function Navbar() {
   return (
     <>
       <nav className="lg:fixed lg:top-0 lg:left-0 lg:right-0 z-50 text-white relative">
-        <div 
+        <div
           className="hidden lg:block absolute inset-0 pointer-events-none"
           style={{
             background: 'linear-gradient(360deg, rgba(255, 255, 255, 0) 0%, rgba(9, 9, 121, 1) 100%)'
