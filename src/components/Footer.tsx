@@ -1,7 +1,10 @@
 
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { ScheduleModal } from "./ContactUs";
 
 export default function Footer() {
+  const [scheduleModalOpen, setScheduleModalOpen] = useState(false);
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
@@ -83,7 +86,7 @@ export default function Footer() {
                 {footerLinks.about.map((link) => (
                   <li key={link.path}>
                     <Link
-                     to={link.path}
+                      to={link.path}
                       className="text-gray-400 hover:text-white transition-colors text-sm"
                     >
                       {link.label}
@@ -129,12 +132,12 @@ export default function Footer() {
               <h3 className="text-lg font-semibold mb-4 font-mono">CONNECT</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link
-                    to="/contact"
+                  <div
+                    onClick={() => setScheduleModalOpen(true)}
                     className="text-gray-400 hover:text-white transition-colors text-sm"
                   >
                     Contact Us
-                  </Link>
+                  </div>
                 </li>
                 <li>
                   <a
@@ -143,7 +146,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className="text-gray-400 hover:text-white transition-colors text-sm"
                   >
-                  Instagram
+                    Instagram
                   </a>
                 </li>
                 <li>
@@ -177,13 +180,13 @@ export default function Footer() {
               </p>
               <div className="flex items-center gap-6 text-sm font-mono">
                 <Link
-                 to="/terms-of-service"
+                  to="/terms-of-service"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Terms
                 </Link>
                 <Link
-                to="/privacy-policy"
+                  to="/privacy-policy"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Privacy
@@ -201,6 +204,7 @@ export default function Footer() {
       </div>
 
       <div className="h-1 bg-black"></div>
+      <ScheduleModal isOpen={scheduleModalOpen} onClose={() => setScheduleModalOpen(false)} />
     </footer>
   );
 }
