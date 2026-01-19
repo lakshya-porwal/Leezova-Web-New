@@ -9,19 +9,12 @@ export default function Footer() {
       { label: "Our Mission", path: "/about-us/our-mission" },
       { label: "Values", path: "/about-us/values" },
       { label: "Team", path: "/about-us/team" },
-      { label: "Contact Us", path: "/about-us/contact-us" },
     ],
     products: [
-      { label: "Onboard", path: "/products/onboard" },
-      { label: "Decide", path: "/products/decide" },
-      { label: "ERP", path: "/products/Erp" },
-      { label: "Policy Engine", path: "/products/policy-engine" },
-      { label: "Data Platform", path: "/products/data-platform" },
+      { label: "ERP", path: "/products/Erp" }
     ],
     company: [
-      { label: "Solutions", path: "/solutions" },
-      { label: "Carriers", path: "/carriers" },
-      { label: "Schedule a Call", path: "/contact" },
+      { label: "Solutions", path: "/solutions" }
     ],
   };
 
@@ -144,12 +137,14 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/schedule-call"
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-gray-400 hover:text-white transition-colors text-sm"
                   >
-                    Schedule a Call
-                  </Link>
+                  Instagram
+                  </a>
                 </li>
                 <li>
                   <a
