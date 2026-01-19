@@ -1,0 +1,112 @@
+import { useState, useEffect, useRef } from 'react';
+import { ReactIcon, ReactQueryIcon, ReduxIcon, CSSIcon, GitIcon, HTMLIcon, JSIcon } from './heroIcons/icons';
+
+function Hero1() {
+    const icons = [ReactIcon, ReactQueryIcon, ReduxIcon, CSSIcon, GitIcon, HTMLIcon, JSIcon];
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [iconGlows, setIconGlows] = useState<number[]>(Array(24).fill(0));
+    const iconRefs = useRef<(HTMLDivElement | null)[]>([]);
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            setMousePosition({ x: e.clientX, y: e.clientY });
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+
+    useEffect(() => {
+        const updateGlows = () => {
+            const newGlows = iconRefs.current.map((iconRef) => {
+                if (!iconRef) return 0;
+                
+                const rect = iconRef.getBoundingClientRect();
+                const iconCenterX = rect.left + rect.width / 2;
+                const iconCenterY = rect.top + rect.height / 2;
+                
+                const distance = Math.sqrt(
+                    Math.pow(mousePosition.x - iconCenterX, 2) + 
+                    Math.pow(mousePosition.y - iconCenterY, 2)
+                );
+                
+                // Spotlight radius - adjust this value to change the spotlight size
+                const spotlightRadius = 200;
+                const glowIntensity = Math.max(0, 1 - distance / spotlightRadius);
+                
+                return glowIntensity;
+            });
+            
+            setIconGlows(newGlows);
+        };
+
+        updateGlows();
+    }, [mousePosition]);
+
+    return (
+        <div 
+            ref={containerRef}
+            className='h-screen w-full flex items-center justify-center relative bg-black overflow-hidden cursor-none'
+        >
+            {/* Custom rounded cursor */}
+            <div 
+                className='fixed pointer-events-none z-50 mix-blend-difference'
+                style={{
+                    left: `${mousePosition.x}px`,
+                    top: `${mousePosition.y}px`,
+                    transform: 'translate(-50%, -50%)',
+                    width: '40px',
+                    height: '40px',
+                    borderRadius: '50%',
+                    background: 'white',
+                    transition: 'width 0.2s ease, height 0.2s ease',
+                }}
+            />
+            
+            <div className='absolute top-0 right-0 grid grid-cols-6 grid-rows-4 gap-0 bg-transparent border-4 border-green-500' style={{ maxHeight: '100vh', maxWidth: '100vw' }}>
+                {Array.from({ length: 24 }).map((_, index) => {
+                    const IconComponent = icons[index % icons.length];
+                    const glowIntensity = iconGlows[index];
+                    const glowSize = 1 + glowIntensity * 10;
+                    const glowOpacity = 0.3 + glowIntensity * 0.7;
+                    
+                    return (
+                        <div 
+                            key={index} 
+                            ref={(el) => { iconRefs.current[index] = el; }}
+                            className='w-28 h-28 flex items-center justify-center'
+                            style={{
+                                filter: glowIntensity > 0 
+                                    ? `drop-shadow(0 0 ${glowSize}px rgba(255, 255, 255, ${glowOpacity}))`
+                                    : 'none',
+                                transition: 'filter 0.1s ease-out',
+                            }}
+                        >
+                            <div
+                                style={{
+                                    filter: glowIntensity > 0 
+                                        ? `grayscale(${1 - glowIntensity})`
+                                        : 'grayscale(1)',
+                                    transition: 'filter 0.1s ease-out',
+                                    width: '100%',
+                                    height: '100%',
+                                }}
+                            >
+                                <IconComponent className='w-full h-full p-1' />
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+            <div 
+                className='absolute inset-0 pointer-events-none'
+                style={{
+                    background: 'linear-gradient(31deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 21%, rgba(0, 0, 0, 1) 37%, rgba(0, 0, 0, 1) 58%, rgba(0, 0, 0, 0.81) 79%, rgba(0, 0, 0, 0.7) 85%, rgba(0, 0, 0, 0.57) 89%, rgba(0, 0, 0, 0.28) 95%, rgba(0, 0, 0, 0.08) 98%, rgba(0, 0, 0, 0) 100%)'
+                }}
+            ></div>
+        </div>
+    )
+}
+
+export default Hero1
