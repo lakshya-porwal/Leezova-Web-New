@@ -8,7 +8,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 // // import PolicyEngine from './products/subPages/PolicyEngine'
 // import DataPlatform from './products/subPages/DataPlatform'
 import Solution from './Solution'
-import Careers from './Careers' 
 import AboutUs from './aboutUs/AboutUs'
 import OurMission from './aboutUs/subPages/OurMission'
 import Values from './aboutUs/subPages/Values'
@@ -48,7 +47,6 @@ function App() {
         {/* <Route path="/products/data-platform" element={<DataPlatform />} /> */}
         <Route path="/products/Erp" element={<Erp/>} />
         <Route path="/solutions" element={<Solution />} />
-        <Route path="/careers" element={<Careers />} />
       </Routes>
       <Footer />
     </div>

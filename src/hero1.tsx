@@ -21,23 +21,23 @@ function Hero1() {
         const updateGlows = () => {
             const newGlows = iconRefs.current.map((iconRef) => {
                 if (!iconRef) return 0;
-                
+
                 const rect = iconRef.getBoundingClientRect();
                 const iconCenterX = rect.left + rect.width / 2;
                 const iconCenterY = rect.top + rect.height / 2;
-                
+
                 const distance = Math.sqrt(
-                    Math.pow(mousePosition.x - iconCenterX, 2) + 
+                    Math.pow(mousePosition.x - iconCenterX, 2) +
                     Math.pow(mousePosition.y - iconCenterY, 2)
                 );
-                
+
                 // Spotlight radius - adjust this value to change the spotlight size
                 const spotlightRadius = 200;
                 const glowIntensity = Math.max(0, 1 - distance / spotlightRadius);
-                
+
                 return glowIntensity;
             });
-            
+
             setIconGlows(newGlows);
         };
 
@@ -45,12 +45,12 @@ function Hero1() {
     }, [mousePosition]);
 
     return (
-        <div 
+        <div
             ref={containerRef}
             className='h-screen w-full flex items-center justify-center relative bg-black overflow-hidden cursor-none'
         >
             {/* Custom rounded cursor */}
-            <div 
+            <div
                 className='fixed pointer-events-none z-50 mix-blend-difference'
                 style={{
                     left: `${mousePosition.x}px`,
@@ -63,21 +63,21 @@ function Hero1() {
                     transition: 'width 0.2s ease, height 0.2s ease',
                 }}
             />
-            
-            <div className='absolute top-0 right-0 grid grid-cols-6 grid-rows-4 gap-0 bg-transparent border-4 border-green-500' style={{ maxHeight: '100vh', maxWidth: '100vw' }}>
-                {Array.from({ length: 24 }).map((_, index) => {
+
+            <div className='absolute top-0 right-0 grid grid-cols-5 sm:grid-cols-4 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-18 gap-2 xl:gap-12 bg-transparent' style={{ maxHeight: '100vh', maxWidth: '100vw' }}>
+                {Array.from({ length: 40 }).map((_, index) => {
                     const IconComponent = icons[index % icons.length];
                     const glowIntensity = iconGlows[index];
-                    const glowSize = 1 + glowIntensity * 10;
-                    const glowOpacity = 0.3 + glowIntensity * 0.7;
-                    
+                    const glowSize = 1 + glowIntensity * 15;
+                    const glowOpacity = 0.5 + glowIntensity * 1.0;
+
                     return (
-                        <div 
-                            key={index} 
+                        <div
+                            key={index}
                             ref={(el) => { iconRefs.current[index] = el; }}
-                            className='w-28 h-28 flex items-center justify-center'
+                            className='w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24  flex items-center justify-center'
                             style={{
-                                filter: glowIntensity > 0 
+                                filter: glowIntensity > 0
                                     ? `drop-shadow(0 0 ${glowSize}px rgba(255, 255, 255, ${glowOpacity}))`
                                     : 'none',
                                 transition: 'filter 0.1s ease-out',
@@ -85,7 +85,7 @@ function Hero1() {
                         >
                             <div
                                 style={{
-                                    filter: glowIntensity > 0 
+                                    filter: glowIntensity > 0
                                         ? `grayscale(${1 - glowIntensity})`
                                         : 'grayscale(1)',
                                     transition: 'filter 0.1s ease-out',
@@ -93,16 +93,16 @@ function Hero1() {
                                     height: '100%',
                                 }}
                             >
-                                <IconComponent className='w-full h-full p-1' />
+                                <IconComponent className='w-full h-full p-1 sm:p-2 md:p-1' />
                             </div>
                         </div>
                     );
                 })}
             </div>
-            <div 
+            <div
                 className='absolute inset-0 pointer-events-none'
                 style={{
-                    background: 'linear-gradient(31deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 21%, rgba(0, 0, 0, 1) 37%, rgba(0, 0, 0, 1) 58%, rgba(0, 0, 0, 0.81) 79%, rgba(0, 0, 0, 0.7) 85%, rgba(0, 0, 0, 0.57) 89%, rgba(0, 0, 0, 0.28) 95%, rgba(0, 0, 0, 0.08) 98%, rgba(0, 0, 0, 0) 100%)'
+                    background: 'linear-gradient(46deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 21%, rgba(0, 0, 0, 1) 28%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0.81) 90%, rgba(0, 0, 0, 0.7) 92%, rgba(0, 0, 0, 0.57) 94%, rgba(0, 0, 0, 0.28) 96%, rgba(0, 0, 0, 0.08) 98%, rgba(0, 0, 0, 0) 100%)'
                 }}
             ></div>
         </div>
