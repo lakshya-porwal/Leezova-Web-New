@@ -62,10 +62,10 @@ export const navRoutes: NavRoute[] = [
     hasDropdown:false,
     path: "/solutions",
   },
-  {
-    label: "Careers",
-     hasDropdown:false,
-    path: "/careers",
-  },
+  // {
+  //   label: "Careers",
+  //    hasDropdown:false,
+  //   path: "/careers",
+  // },
 ];
 

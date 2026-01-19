@@ -4,12 +4,13 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Hero2 from './hero2';
 import Hero3 from './hero3';
+import Hero1 from './hero1';
 
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
+    gsap.registerPlugin(ScrollTrigger);
+  }
 
-const Hero1 = () => {
+const HeroMain = () => {
   const location = useLocation();
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -93,9 +94,7 @@ const Hero1 = () => {
 
     // </div>
     <div className='h-full w-full flex flex-col'>
-      <div className='h-screen w-full flex flex-col italic text-center items-center justify-center text-4xl'>
-        Still in development
-      </div>
+      <div className='h-screen w-full flex flex-col'><Hero1 /></div>
       <div className='h-full w-full flex flex-col'>
         
         <Hero2 />
@@ -106,4 +105,4 @@ const Hero1 = () => {
   );
 };
 
-export default Hero1;
+export default HeroMain;

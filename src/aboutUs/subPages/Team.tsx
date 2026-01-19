@@ -1,8 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { teamMembers, teamTypes } from "./team-data";
-import type { TeamMember } from "./team-data";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -11,56 +9,6 @@ if (typeof window !== "undefined") {
 export default function Team() {
   const containerRef = useRef<HTMLDivElement>(null);
   const redDivRef = useRef<HTMLDivElement>(null);
-  const [selectedTeam, setSelectedTeam] = useState<string>('all');
-  const [row1Members, setRow1Members] = useState<TeamMember[]>([]);
-  const [middleRowMembers, setMiddleRowMembers] = useState<TeamMember[]>([]);
-  const [row3Members, setRow3Members] = useState<TeamMember[]>([]);
-
-  const shuffleArray = <T,>(array: T[]): T[] => {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
-  };
-
-  useEffect(() => {
-    if (selectedTeam === 'all') {
-      setRow1Members([]);
-      setMiddleRowMembers([]);
-      setRow3Members([]);
-      return;
-    }
-
-    const filteredMembers = teamMembers.filter(member => member.type === selectedTeam);
-    const otherTeamMembers = teamMembers.filter(member => member.type !== selectedTeam);
-
-    const selectedTeamForMiddle = filteredMembers.slice(0, 5);
-    const neededForMiddle = Math.max(0, 5 - selectedTeamForMiddle.length);
-
-    const shuffledOtherForMiddle = shuffleArray(otherTeamMembers);
-    const randomForMiddle = shuffledOtherForMiddle.slice(0, neededForMiddle);
-
-    const middle = [...selectedTeamForMiddle, ...randomForMiddle].slice(0, 5);
-    setMiddleRowMembers(middle);
-
-    const remainingFromSelectedTeam = filteredMembers.slice(5);
-
-    const totalNeededForRows = 8;
-    const alreadyUsedInRows = remainingFromSelectedTeam.length;
-    const neededFromOtherTeams = Math.max(0, totalNeededForRows - alreadyUsedInRows);
-
-    const usedInMiddle = new Set(middle.map(m => m.name));
-    const availableOtherMembers = otherTeamMembers.filter(m => !usedInMiddle.has(m.name));
-    const shuffledOtherMembers = shuffleArray(availableOtherMembers);
-    const randomOtherMembers = shuffledOtherMembers.slice(0, neededFromOtherTeams);
-
-    const allRemainingMembers = [...remainingFromSelectedTeam, ...randomOtherMembers];
-
-    setRow1Members(allRemainingMembers.slice(0, 4));
-    setRow3Members(allRemainingMembers.slice(4, 8));
-  }, [selectedTeam]);
 
   useEffect(() => {
     let ctx: gsap.Context | null = null;
@@ -111,7 +59,7 @@ export default function Team() {
       }
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, [selectedTeam]);
+  }, []);
 
   return (
     <div className="min-h-screen w-full md:pt-20 mt-5 relative" ref={containerRef}>
@@ -143,59 +91,27 @@ export default function Team() {
           <div className="h-full flex flex-col gap-4 text-black">
             <div className="flex-1 overflow-x-auto">
               <div className="h-full flex gap-2 pb-2" style={{ width: 'max-content', minWidth: '100%' }}>
-                {selectedTeam === 'all' ? (
-                  <>
-                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Shubham</div>
-                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Riddhesh</div>
-                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Sourabh</div>
-                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Column 4</div>
-                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Praveen</div>
-                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Divyanshi</div>
-                  </>
-                ) : (
-                  (() => {
-                    const upperCards = [...(row1Members.slice(0, 4) || []), ...(middleRowMembers.slice(0, 2) || []), ...(middleRowMembers.slice(3, 5) || [])];
-                    return upperCards.map((member, index) => (
-                      <div
-                        key={member ? member.name : `empty-upper-${index}`}
-                        className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0"
-                      >
-                        {member ? member.name : ''}
-                      </div>
-                    ));
-                  })()
-                )}
+                <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">IMG 1 </div>
+                <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">IMG 2</div>
+                <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">IMG 3</div>
+                <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">IMG 4</div>
+                <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">IMG 5</div>
+                <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">IMG 6</div>
               </div>
             </div>
             <div className="flex-1 flex items-center justify-center px-4">
               <div className="w-full h-full border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex items-center justify-center">
-                {selectedTeam === 'all' ? 'Tisha' : (middleRowMembers[2]?.name || '')}
+                Tisha
               </div>
             </div>
             <div className="flex-1 overflow-x-auto">
               <div className="h-full flex gap-2 pb-2" style={{ width: 'max-content', minWidth: '100%' }}>
-                {selectedTeam === 'all' ? (
-                  <>
-                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Rajat</div>
-                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Deepak</div>
-                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Aastha</div>
-                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Ajay</div>
-                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Swati</div>
-                    <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">Lakshya</div>
-                  </>
-                ) : (
-                  (() => {
-                    const lowerCards = row3Members.slice(0, 4) || [];
-                    return lowerCards.map((member, index) => (
-                      <div
-                        key={member ? member.name : `empty-lower-${index}`}
-                        className="w-[45vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0"
-                      >
-                        {member ? member.name : ''}
-                      </div>
-                    ));
-                  })()
-                )}
+                <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">IMG 7</div>
+                <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">IMG 8</div>
+                <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">IMG 9</div>
+                <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">IMG 10</div>
+                <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">IMG 11</div>
+                <div className="w-[90vw] border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column flex-shrink-0">IMG 12</div>
               </div>
             </div>
           </div>
@@ -206,110 +122,30 @@ export default function Team() {
           <div className="h-full flex flex-col gap-4 text-black">
             <div className="flex-1">
               <div className="h-full flex gap-2">
-                {selectedTeam === 'all' ? (
-                  <>
-                    <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">Shubham</div>
-                    <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">Riddhesh</div>
-                    <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">Sourabh</div>
-                    <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">Column 4</div>
-                  </>
-                ) : (
-                  (() => {
-                    const membersToShow = row1Members.length >= 4
-                      ? row1Members.slice(0, 4)
-                      : [...row1Members, ...Array(4 - row1Members.length).fill(null)].slice(0, 4);
-
-                    return membersToShow.map((member, index) => (
-                      <div
-                        key={member ? member.name : `empty-row1-${index}`}
-                        className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column"
-                      >
-                        {member ? member.name : ''}
-                      </div>
-                    ));
-                  })()
-                )}
+                <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">IMG 1</div>
+                <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">IMG 2</div>
+                <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">IMG 3</div>
+                <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">IMG 4</div>
               </div>
             </div>
             <div className="flex-1 overflow-hidden relative">
               <div className="h-full flex gap-2">
-                {selectedTeam === 'all' ? (
-                  <>
-                    <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column -ml-[10%]">Praveen</div>
-                    <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">Tisha</div>
-                    <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">Rajat</div>
-                    <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">Divyanshi</div>
-                    <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column -mr-[10%]">Deepak</div>
-                  </>
-                ) : (
-                  (() => {
-                    const membersToShow = middleRowMembers.length >= 5
-                      ? middleRowMembers.slice(0, 5)
-                      : [...middleRowMembers, ...Array(5 - middleRowMembers.length).fill(null)].slice(0, 5);
-
-                    return membersToShow.map((member, index) => {
-                      const isFirst = index === 0;
-                      const isLast = index === 4;
-                      return (
-                        <div
-                          key={member ? member.name : `empty-${index}`}
-                          className={`flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column ${isFirst ? '-ml-[10%]' : ''
-                            } ${isLast ? '-mr-[10%]' : ''
-                            }`}
-                        >
-                          {member ? member.name : ''}
-                        </div>
-                      );
-                    });
-                  })()
-                )}
+                <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column -ml-[10%]">IMG 5</div>
+                <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">IMG 6</div>
+                <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">IMG 7</div>
+                <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">IMG 8</div>
+                <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column -mr-[10%]">IMG 9</div>
               </div>
             </div>
             <div className="flex-1">
               <div className="h-full flex gap-2">
-                {selectedTeam === 'all' ? (
-                  <>
-                    <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">Aastha</div>
-                    <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">Ajay</div>
-                    <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">Swati</div>
-                    <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">Lakshya</div>
-                  </>
-                ) : (
-                  (() => {
-                    const membersToShow = row3Members.length >= 4
-                      ? row3Members.slice(0, 4)
-                      : [...row3Members, ...Array(4 - row3Members.length).fill(null)].slice(0, 4);
-
-                    return membersToShow.map((member, index) => (
-                      <div
-                        key={member ? member.name : `empty-row3-${index}`}
-                        className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column"
-                      >
-                        {member ? member.name : ''}
-                      </div>
-                    ));
-                  })()
-                )}
+                <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">IMG 10</div>
+                <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">IMG 11</div>
+                <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">IMG 12</div>
+                <div className="flex-1 border border-gray-300 dark:border-gray-700 rounded-xl bg-white team-column">IMG 13</div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="w-full py-4 px-6">
-        <div className="flex items-center justify-center gap-3 flex-wrap">
-          {teamTypes.map((team) => (
-            <button
-              key={team.id}
-              onClick={() => setSelectedTeam(team.id)}
-              className={`px-4 py-2 rounded-xl font-medium text-xs transition-all duration-300 ${selectedTeam === team.id
-                ? 'bg-blue-600 text-white shadow-lg scale-105'
-                : 'bg-black/60 text-gray-300 hover:bg-blue-600 hover:text-white'
-                }`}
-            >
-              {team.label}
-            </button>
-          ))}
         </div>
       </div>
 
