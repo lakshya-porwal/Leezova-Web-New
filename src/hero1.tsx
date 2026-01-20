@@ -51,7 +51,7 @@ function Hero1() {
         >
             {/* Custom rounded cursor */}
             <div
-                className='fixed pointer-events-none z-50 mix-blend-difference'
+                className='fixed pointer-events-none z-50 mix-blend-difference hidden lg:block'
                 style={{
                     left: `${mousePosition.x}px`,
                     top: `${mousePosition.y}px`,

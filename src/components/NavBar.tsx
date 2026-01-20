@@ -139,7 +139,7 @@ const DesktopDropdown = React.memo(({
   const activeItem = route.dropdownItems[hoveredIdx ?? 0];
 
   return (
-    <div className="lg:absolute lg:top-full lg:left-0 lg:pt-2 lg:w-[600px] z-50">
+    <div className="lg:absolute lg:top-full lg:left-0 lg:pt-2 lg:w-[600px] z-[9999]">
       <div className="bg-[#2d3447] lg:rounded-lg shadow-2xl overflow-hidden">
         <div className="lg:grid lg:grid-cols-2 lg:gap-0">
           <div className="lg:p-6 lg:space-y-4">
@@ -481,7 +481,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="lg:fixed lg:top-0 lg:left-0 lg:right-0 z-50 text-white relative">
+      <nav className="lg:fixed lg:top-0 lg:left-0 lg:right-0 z-[9999] text-white relative">
         <div
           className="hidden lg:block absolute inset-0 pointer-events-none"
           style={{
