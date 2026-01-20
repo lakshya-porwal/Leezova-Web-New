@@ -1,7 +1,10 @@
 
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { ScheduleModal } from "./ContactUs";
 
 export default function Footer() {
+  const [scheduleModalOpen, setScheduleModalOpen] = useState(false);
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
@@ -9,19 +12,12 @@ export default function Footer() {
       { label: "Our Mission", path: "/about-us/our-mission" },
       { label: "Values", path: "/about-us/values" },
       { label: "Team", path: "/about-us/team" },
-      { label: "Contact Us", path: "/about-us/contact-us" },
     ],
     products: [
-      { label: "Onboard", path: "/products/onboard" },
-      { label: "Decide", path: "/products/decide" },
-      { label: "ERP", path: "/products/Erp" },
-      { label: "Policy Engine", path: "/products/policy-engine" },
-      { label: "Data Platform", path: "/products/data-platform" },
+      { label: "ERP", path: "/products/Erp" }
     ],
     company: [
-      { label: "Solutions", path: "/solutions" },
-      { label: "Carriers", path: "/carriers" },
-      { label: "Schedule a Call", path: "/contact" },
+      { label: "Solutions", path: "/solutions" }
     ],
   };
 
@@ -90,7 +86,7 @@ export default function Footer() {
                 {footerLinks.about.map((link) => (
                   <li key={link.path}>
                     <Link
-                     to={link.path}
+                      to={link.path}
                       className="text-gray-400 hover:text-white transition-colors text-sm"
                     >
                       {link.label}
@@ -136,20 +132,22 @@ export default function Footer() {
               <h3 className="text-lg font-semibold mb-4 font-mono">CONNECT</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link
-                    to="/contact"
+                  <div
+                    onClick={() => setScheduleModalOpen(true)}
                     className="text-gray-400 hover:text-white transition-colors text-sm"
                   >
                     Contact Us
-                  </Link>
+                  </div>
                 </li>
                 <li>
-                  <Link
-                    to="/schedule-call"
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-gray-400 hover:text-white transition-colors text-sm"
                   >
-                    Schedule a Call
-                  </Link>
+                    Instagram
+                  </a>
                 </li>
                 <li>
                   <a
@@ -182,13 +180,13 @@ export default function Footer() {
               </p>
               <div className="flex items-center gap-6 text-sm font-mono">
                 <Link
-                 to="/terms-of-service"
+                  to="/terms-of-service"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Terms
                 </Link>
                 <Link
-                to="/privacy-policy"
+                  to="/privacy-policy"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Privacy
@@ -206,6 +204,7 @@ export default function Footer() {
       </div>
 
       <div className="h-1 bg-black"></div>
+      <ScheduleModal isOpen={scheduleModalOpen} onClose={() => setScheduleModalOpen(false)} />
     </footer>
   );
 }
