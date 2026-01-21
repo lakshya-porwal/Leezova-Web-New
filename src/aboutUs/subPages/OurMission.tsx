@@ -1,20 +1,20 @@
 export default function OurMission() {
   const statistics = [
     {
-      number: "135",
-      label: "Launched Website"
+      number: "135+",
+      label: "Projects Delivered across multiple industries"
     },
     {
-      number: "1M",
-      label: "Client Sales"
+      number: "2+ yrs",
+      label: "Experience in IT services and software development"
     },
     {
       number: "97%",
-      label: "Customer Satisfaction"
+      label: "Client Satisfaction, Built on Trust"
     },
     {
-      number: "20",
-      label: "Website Templates"
+      number: "ERP",
+      label: "First ERP Product Developed, built from real operational and client needs"
     }
   ];
 
@@ -24,8 +24,8 @@ export default function OurMission() {
         {/* Top Introduction Section */}
         <div className="mb-12 md:mb-16">
           <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-4xl">
-            At Leezova, we're on a mission to empower businesses of all sizes. We believe in the limitless potential of services e-commerce and are dedicated to providing the tools and support you need to succeed online.
-          </p>
+             At Leezova Technologies, we deliver reliable and scalable IT services that help businesses grow with confidence. We specialize in IT staff augmentation, custom software development, and digital transformation, while continuously investing in innovation to build solutions shaped by real-world business challenges.
+             </p>
         </div>
 
         {/* Statistics Cards Section */}
@@ -58,7 +58,7 @@ export default function OurMission() {
                   }}
                 >
                   <span 
-                    className="text-xs md:text-sm font-bold whitespace-nowrap"
+                    className="text-xs md:text-sm font-bold whitespace-nowrap border-4"
                     style={{
                       color: '#4A90E2',
                       opacity: 0.6,
@@ -102,56 +102,69 @@ export default function OurMission() {
           
           <div className="space-y-6 text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
             <p>
-              At Leezova, we started with a simple idea - to make services e-commerce accessible and successful for everyone. Our journey began when a group of passionate individuals, ranging from tech experts to e-commerce enthusiasts, came together with a shared vision.
+              Leezova Technologies was founded with a clear objective—to provide dependable and flexible IT services to startups and growing enterprises seeking a trusted technology partner. From the beginning, our focus has been on delivering custom development services and skilled technical resources aligned with business goals.
             </p>
             <p>
-              We recognized that many businesses struggled with the complexities of establishing a strong online presence. Traditional solutions were either too expensive, too complicated, or didn't provide the flexibility needed to adapt to the ever-changing digital landscape.
+             As we worked closely with clients on web platforms, applications, and enterprise systems, we gained valuable insights into the operational challenges faced by growing organizations. These experiences led us to design and build our first ERP solution, created to streamline business processes, improve operational visibility, and support scalable growth.
             </p>
             <p>
-              Driven by innovation and a commitment to excellence, we set out to create a platform that would democratize e-commerce services. Our team worked tirelessly, combining cutting-edge technology with user-friendly design principles to develop solutions that empower businesses of all sizes.
+             While Leezova remains a service-driven company at its core, the development of our ERP platform highlights our technical depth, domain expertise, and ability to translate complex requirements into structured, enterprise-ready solutions.
             </p>
             <p>
-              Today, Leezova stands as a testament to our unwavering dedication. We've helped over 135 businesses launch their online presence, facilitated over 1 million in client sales, and maintained a 97% customer satisfaction rate. Our library of 20 professional website templates continues to grow, each one crafted with attention to detail and optimized for success.
-            </p>
-            <p>
-              But our story doesn't end here. We're continuously evolving, learning from our clients, and pushing the boundaries of what's possible in the e-commerce space. Every project we undertake, every relationship we build, and every challenge we overcome adds a new chapter to our ongoing mission of empowering businesses worldwide.
+              Today, Leezova continues to grow as a trusted technology services partner, delivering IT staff augmentation, custom software development, and solution-driven platforms that support long-term business success.
             </p>
           </div>
 
           {/* Mission Statement */}
           <div className="mt-12 md:mt-16 p-8 bg-gray-50 dark:bg-gray-900/50 rounded-2xl border border-gray-200 dark:border-gray-800">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">
-              Our Mission
+              IT Services
             </h3>
-            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-              At Leezova, our mission is to empower businesses with innovative development solutions that drive growth and transformation. We are committed to delivering excellence in every project, combining cutting-edge technology with strategic thinking.
-            </p>
-            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              We believe that every business deserves access to world-class digital solutions. Our team of experts works tirelessly to create products and services that not only meet but exceed our clients' expectations.
-            </p>
+            <ul className="space-y-4 text-lg text-gray-600 dark:text-gray-400">
+              <li className="flex items-start">
+                <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
+                <span>IT staff augmentation and dedicated development teams</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
+                <span>Custom software development</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
+                <span>Web and application development</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
+                <span>Ongoing support and maintenance</span>
+              </li>
+            </ul>
           </div>
 
           {/* What Drives Us */}
           <div className="mt-8 p-8 bg-gray-50 dark:bg-gray-900/50 rounded-2xl border border-gray-200 dark:border-gray-800">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">
-              What Drives Us
+              Why Choose Leezova Technologies
             </h3>
             <ul className="space-y-4 text-lg text-gray-600 dark:text-gray-400">
               <li className="flex items-start">
                 <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
-                <span>Innovation and continuous improvement in everything we do</span>
+                <span>Service-first and partnership-driven approach</span>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
-                <span>Client success and satisfaction as our top priority</span>
+                <span>Skilled developers with real-world project experience</span>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
-                <span>Excellence in delivery, design, and customer service</span>
+                <span>Flexible engagement and staffing models</span>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
-                <span>Building lasting partnerships based on trust and results</span>
+                <span>Proven capability in delivering both services and structured platforms</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
+                <span>Strong focus on long-term value and client success</span>
               </li>
             </ul>
           </div>

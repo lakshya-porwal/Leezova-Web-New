@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import emailjs from '@emailjs/browser';
 
 export interface ScheduleModalProps {
@@ -10,6 +10,72 @@ const EMAILJS_SERVICE_ID = 'service_t5pep46'; // Your EmailJS Service ID
 const EMAILJS_TEMPLATE_ID = 'template_ygfnv6c'; // Replace with your EmailJS Template ID (get from Email Templates section)
 const EMAILJS_PUBLIC_KEY = 'XmJ-Y5bkY3VCVlBYh'; // Replace with your EmailJS Public Key (get from Account > API Keys)
 const RECIPIENT_EMAIL = 'lakshya.porwal@leezova.com'; // Email address to receive submissions
+
+const CustomTimeDropdown = ({ value, onChange, slots, timeError }: { value: string; onChange: (val: string) => void; slots: string[]; timeError: string }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
+
+    const formatTimeForDisplay = (time: string): string => {
+        if (!time) return '';
+        const [hours, minutes] = time.split(':').map(Number);
+        const period = hours >= 12 ? 'PM' : 'AM';
+        const displayHours = hours > 12 ? hours - 12 : hours === 0 ? 12 : hours;
+        return `${displayHours}:${minutes.toString().padStart(2, '0')} ${period}`;
+    };
+
+    useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+                setIsOpen(false);
+            }
+        };
+
+        if (isOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+            return () => document.removeEventListener('mousedown', handleClickOutside);
+        }
+    }, [isOpen]);
+
+    return (
+        <div className="relative" ref={dropdownRef}>
+            <button
+                type="button"
+                onClick={() => setIsOpen(!isOpen)}
+                className={`w-full px-3.5 py-2.5 pr-10 bg-white/5 backdrop-blur-sm border ${timeError ? 'border-red-400/50' : 'border-white/20'} rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all cursor-pointer text-left flex items-center justify-between`}
+            >
+                <span className="text-xs sm:text-sm lg:text-base">
+                    {value ? formatTimeForDisplay(value) : 'Select Time'}
+                    </span>
+                <svg className="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+
+            {isOpen && (
+                <div className="absolute top-full left-0 right-0 mt-1 bg-[#1a1f2e] border border-white/20 rounded-lg shadow-lg z-50 max-h-64 overflow-y-auto">
+                    <div className="p-2 space-y-1">
+                        {slots.map((slot) => (
+                            <button
+                                key={slot}
+                                type="button"
+                                onClick={() => {
+                                    onChange(slot);
+                                    setIsOpen(false);
+                                }}
+                                className={`w-full px-3 py-2 text-sm rounded-md transition-colors text-left ${value === slot
+                                        ? 'bg-blue-600 text-white'
+                                        : 'text-gray-300 hover:bg-white/10'
+                                    }`}
+                            >
+                                {formatTimeForDisplay(slot)}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
 
 export const ScheduleModal = React.memo(({ isOpen, onClose }: ScheduleModalProps) => {
     // Generate time slots from 10:00 AM to 6:30 PM in 30-minute intervals
@@ -70,16 +136,8 @@ export const ScheduleModal = React.memo(({ isOpen, onClose }: ScheduleModalProps
         }
     }, [isOpen, onClose]);
 
-    const formatTimeForDisplay = (time: string): string => {
-        if (!time) return '';
-        const [hours, minutes] = time.split(':').map(Number);
-        const period = hours >= 12 ? 'PM' : 'AM';
-        const displayHours = hours > 12 ? hours - 12 : hours === 0 ? 12 : hours;
-        return `${displayHours}:${minutes.toString().padStart(2, '0')} ${period}`;
-    };
 
-    const handleTimeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const time = e.target.value;
+    const handleTimeChange = (time: string) => {
         setFormData(prev => ({ ...prev, time }));
         setTimeError('');
     };
@@ -187,8 +245,8 @@ Website Contact Form`
                 <div className="relative px-5 pt-5 pb-3 border-b border-white/10 flex-shrink-0">
                     <div className="flex items-start justify-between">
                         <div>
-                            <h2 className="text-lg font-bold text-white text-left">Contact Us</h2>
-                            <p className="text-xs text-gray-300 mt-1">Fill in the details and we'll get back to you.</p>
+                            <h2 className="text-lg font-bold text-white text-left">Start a Project</h2>
+                            <p className="text-xs text-gray-300 mt-1">Tell us about your idea-we'll take it from here!</p>
                         </div>
                         <button
                             onClick={onClose}
@@ -203,7 +261,7 @@ Website Contact Form`
                 </div>
 
                 {/* Form */}
-                <form onSubmit={handleSubmit} className="px-5 pb-5 space-y-3 text-left overflow-y-auto flex-1">
+                <form onSubmit={handleSubmit} className="px-5 pb-5 space-y-3 text-left overflow-y-auto flex-1 hide-scrollbar">
                     <div>
                         <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-1.5">
                             Name <span className="text-red-400">*</span>
@@ -280,30 +338,14 @@ Website Contact Form`
 
                         <div>
                             <label htmlFor="time" className="block text-sm font-medium text-gray-200 mb-1.5">
-                                Time <span className="text-red-400">*</span> <span className="text-xs text-gray-400 font-normal">(10 AM - 6:30 PM)</span>
+                                Time <span className="text-red-400">*</span> <span className="md:text-xs text-[8px] text-gray-400 font-normal">(10 AM - 6:30 PM)</span>
                             </label>
-                            <div className="relative">
-                                <select
-                                    id="time"
-                                    name="time"
-                                    required
-                                    value={formData.time}
-                                    onChange={handleTimeChange}
-                                    className={`w-full px-3.5 py-2.5 pr-10 bg-white/5 backdrop-blur-sm border ${timeError ? 'border-red-400/50' : 'border-white/20'} rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all cursor-pointer appearance-none`}
-                                >
-                                    <option value="" className="bg-black text-gray-400">Select time</option>
-                                    {timeSlots.map((slot) => (
-                                        <option key={slot} value={slot} className="bg-black text-white">
-                                            {formatTimeForDisplay(slot)}
-                                        </option>
-                                    ))}
-                                </select>
-                                <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                                    <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </div>
-                            </div>
+                            <CustomTimeDropdown
+                                value={formData.time}
+                                onChange={handleTimeChange}
+                                slots={timeSlots}
+                                timeError={timeError}
+                            />
                             {timeError && (
                                 <p className="mt-1 text-xs text-red-400">{timeError}</p>
                             )}

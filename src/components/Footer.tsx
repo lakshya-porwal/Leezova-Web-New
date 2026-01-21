@@ -132,12 +132,12 @@ export default function Footer() {
               <h3 className="text-lg font-semibold mb-4 font-mono">CONNECT</h3>
               <ul className="space-y-2">
                 <li>
-                  <div
+                  <a
                     onClick={() => setScheduleModalOpen(true)}
-                    className="text-gray-400 hover:text-white transition-colors text-sm"
+                    className="text-gray-400 hover:text-white transition-colors text-sm font-semibold"
                   >
                     Contact Us
-                  </div>
+                  </a>
                 </li>
                 <li>
                   <a
