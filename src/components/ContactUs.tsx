@@ -245,8 +245,8 @@ Website Contact Form`
                 <div className="relative px-5 pt-5 pb-3 border-b border-white/10 flex-shrink-0">
                     <div className="flex items-start justify-between">
                         <div>
-                            <h2 className="text-lg font-bold text-white text-left">Contact Us</h2>
-                            <p className="text-xs text-gray-300 mt-1">Fill in the details and we'll get back to you.</p>
+                            <h2 className="text-lg font-bold text-white text-left">Start a Project</h2>
+                            <p className="text-xs text-gray-300 mt-1">Tell us about your idea-we'll take it from here!</p>
                         </div>
                         <button
                             onClick={onClose}
@@ -261,7 +261,7 @@ Website Contact Form`
                 </div>
 
                 {/* Form */}
-                <form onSubmit={handleSubmit} className="px-5 pb-5 space-y-3 text-left overflow-y-auto flex-1">
+                <form onSubmit={handleSubmit} className="px-5 pb-5 space-y-3 text-left overflow-y-auto flex-1 hide-scrollbar">
                     <div>
                         <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-1.5">
                             Name <span className="text-red-400">*</span>

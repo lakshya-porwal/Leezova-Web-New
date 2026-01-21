@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { ReactIcon, ReactQueryIcon, ReduxIcon, CSSIcon, GitIcon, HTMLIcon, JSIcon } from './heroIcons/icons';
 
-function Hero1() {
+
+
+function Hero1({ onStartProject }: { onStartProject: () => void }) {
     const icons = [ReactIcon, ReactQueryIcon, ReduxIcon, CSSIcon, GitIcon, HTMLIcon, JSIcon];
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [iconGlows, setIconGlows] = useState<number[]>(Array(24).fill(0));
@@ -63,6 +65,51 @@ function Hero1() {
                     transition: 'width 0.2s ease, height 0.2s ease',
                 }}
             />
+
+            {/* Hero Content */}
+            <div className="relative z-20 px-6 md:px-0 max-w-2xl text-left">
+                <h1 className="
+    text-white 
+    font-semibold
+    text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+    leading-tight
+    tracking-tight
+  ">
+                    Where clean UI meets scalable code.
+                </h1>
+                <p className="
+    mt-4
+    max-w-xl
+    text-gray-300
+    text-sm sm:text-base md:text-lg
+    leading-relaxed
+  ">
+                    We design and build digital products that feel effortless and perform flawlessly.
+                </p>
+                <button
+                    onClick={onStartProject}
+                    className="
+      mt-8
+      inline-flex items-center justify-center
+      px-7 py-3
+      rounded-full
+      bg-white/10 backdrop-blur-md
+      border border-white/20
+      text-white
+      text-sm md:text-base
+      font-medium
+      
+      relative group
+      shadow-lg
+    "
+
+                >
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 opacity-0 group-hover:opacity-60 transition-opacity duration-300 blur-2xl -z-10" style={{ top: '-8px', left: '-8px', right: '-8px', bottom: '-8px' }}></div>
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/40 via-cyan-400/30 to-blue-600/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-3xl -z-10" style={{ top: '-20px', left: '-20px', right: '-20px', bottom: '-20px' }}></div>
+                    Start a Project
+                </button>
+            </div>
+
 
             <div className='absolute top-0 right-0 grid grid-cols-5 sm:grid-cols-4 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-18 gap-2 xl:gap-12 bg-transparent' style={{ maxHeight: '100vh', maxWidth: '100vw' }}>
                 {Array.from({ length: 40 }).map((_, index) => {
