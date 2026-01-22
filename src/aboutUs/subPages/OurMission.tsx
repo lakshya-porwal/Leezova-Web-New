@@ -23,9 +23,9 @@ export default function OurMission() {
       <div className="max-w-7xl mx-auto">
         {/* Top Introduction Section */}
         <div className="mb-12 md:mb-16">
-          <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-4xl">
-             At Leezova Technologies, we deliver reliable and scalable IT services that help businesses grow with confidence. We specialize in IT staff augmentation, custom software development, and digital transformation, while continuously investing in innovation to build solutions shaped by real-world business challenges.
-             </p>
+          <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-auto text-left">
+            At Leezova Technologies, we deliver reliable and scalable IT services that help businesses grow with confidence. We specialize in IT staff augmentation, custom software development, and digital transformation, while continuously investing in innovation to build solutions shaped by real-world business challenges.
+          </p>
         </div>
 
         {/* Statistics Cards Section */}
@@ -39,17 +39,17 @@ export default function OurMission() {
               }}
             >
               {/* Dotted lines pattern */}
-              <div 
+              <div
                 className="absolute inset-0 opacity-10"
                 style={{
                   backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1px)',
                   backgroundSize: '8px 8px',
                 }}
               />
-              
+
               {/* Ribbon-like text overlay wrapping bottom-left */}
               <div className="absolute bottom-0 left-0 overflow-hidden pointer-events-none">
-                <div 
+                <div
                   className="absolute bottom-4 left-4 transform -rotate-12 origin-bottom-left"
                   style={{
                     background: 'linear-gradient(135deg, rgba(135, 206, 235, 0.2) 0%, rgba(135, 206, 235, 0.1) 100%)',
@@ -57,7 +57,7 @@ export default function OurMission() {
                     borderRadius: '20px',
                   }}
                 >
-                  <span 
+                  <span
                     className="text-xs md:text-sm font-bold whitespace-nowrap border-4"
                     style={{
                       color: '#4A90E2',
@@ -71,13 +71,13 @@ export default function OurMission() {
 
               {/* Angular N/M logo in top-left */}
               <div className="absolute top-3 left-3 z-10">
-                <svg 
-                  className="w-6 h-6 text-black" 
-                  fill="currentColor" 
+                <svg
+                  className="w-6 h-6 text-black"
+                  fill="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path d="M4 4v16h4V9l6 11h4V4h-4v11l-6-11H4z"/>
-                  <path d="M16 4v11l-6-11h-4v16h4V9l6 11h4V4h-4z" opacity="0.7" transform="translate(2,0)"/>
+                  <path d="M4 4v16h4V9l6 11h4V4h-4v11l-6-11H4z" />
+                  <path d="M16 4v11l-6-11h-4v16h4V9l6 11h4V4h-4z" opacity="0.7" transform="translate(2,0)" />
                 </svg>
               </div>
 
@@ -99,16 +99,16 @@ export default function OurMission() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white text-center mb-8 md:mb-12">
             Our Story
           </h2>
-          
+
           <div className="space-y-6 text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
             <p>
               Leezova Technologies was founded with a clear objective—to provide dependable and flexible IT services to startups and growing enterprises seeking a trusted technology partner. From the beginning, our focus has been on delivering custom development services and skilled technical resources aligned with business goals.
             </p>
             <p>
-             As we worked closely with clients on web platforms, applications, and enterprise systems, we gained valuable insights into the operational challenges faced by growing organizations. These experiences led us to design and build our first ERP solution, created to streamline business processes, improve operational visibility, and support scalable growth.
+              As we worked closely with clients on web platforms, applications, and enterprise systems, we gained valuable insights into the operational challenges faced by growing organizations. These experiences led us to design and build our first ERP solution, created to streamline business processes, improve operational visibility, and support scalable growth.
             </p>
             <p>
-             While Leezova remains a service-driven company at its core, the development of our ERP platform highlights our technical depth, domain expertise, and ability to translate complex requirements into structured, enterprise-ready solutions.
+              While Leezova remains a service-driven company at its core, the development of our ERP platform highlights our technical depth, domain expertise, and ability to translate complex requirements into structured, enterprise-ready solutions.
             </p>
             <p>
               Today, Leezova continues to grow as a trusted technology services partner, delivering IT staff augmentation, custom software development, and solution-driven platforms that support long-term business success.
