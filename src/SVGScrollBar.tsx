@@ -17,7 +17,7 @@ const SVGScrollBar = () => {
         <div><NextJsIcon className='h-28 p-2' /></div>
         <div><ReduxIcon className='h-28 p-2' /></div>
         <div><CSSIcon className='h-28 p-2' /></div>
-        <div><ExpressJSIcon className='h-28 p-2 mix-blend-hard-light' /></div>
+        <div><ExpressJSIcon className='h-28 p-2' /></div>
         <div><FigmaIcon className='h-28 p-2' /></div>
         <div><GitIcon className='h-28 p-2' /></div>
         <div><GitHubIcon className='h-28 p-2' /></div>
@@ -28,7 +28,7 @@ const SVGScrollBar = () => {
         <div><NextJsIcon className='h-28 p-2' /></div>
         <div><ReduxIcon className='h-28 p-2' /></div>
         <div><CSSIcon className='h-28 p-2' /></div>
-        <div><ExpressJSIcon className='h-28 p-2 mix-blend-hard-light' /></div>
+        <div><ExpressJSIcon className='h-28 p-2' /></div>
         <div><FigmaIcon className='h-28 p-2' /></div>
         <div><GitIcon className='h-28 p-2' /></div>
         <div><GitHubIcon className='h-28 p-2' /></div>
