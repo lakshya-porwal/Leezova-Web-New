@@ -81,7 +81,7 @@ function SolutionHero() {
   return (
     <div 
       ref={containerRef}
-      className='min-h-screen w-full relative flex flex-col items-center justify-center overflow-hidden cursor-pointer'
+      className='min-h-screen w-full relative flex flex-col items-center justify-center overflow-hidden cursor-pointer h-full'
     >
       {/* Blue to black gradient background */}
       <div 
@@ -94,7 +94,7 @@ function SolutionHero() {
       {/* Layer 1: SOLUTIONS Text (bottom layer - z-[2], behind head and screen) */}
       <h1 
         ref={textRef}
-        className='absolute z-[2] text-7xl md:text-8xl lg:text-9xl font-bold pointer-events-none'
+        className='absolute z-[2] text-7xl md:text-8xl lg:text-9xl font-bold pointer-events-none  h-full'
         style={{
           top: '25%',
           left: '50%',
