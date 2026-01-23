@@ -19,11 +19,11 @@ export default function OurMission() {
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black pt-8 md:pt-24 px-6 pb-16">
+    <div className="min-h-screen bg-black pt-8 md:pt-24 px-6 pb-16">
       <div className="max-w-7xl mx-auto">
         {/* Top Introduction Section */}
         <div className="mb-12 md:mb-16">
-          <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-auto text-left">
+          <p className="text-lg text-white leading-relaxed max-w-auto text-left">
             At Leezova Technologies, we deliver reliable and scalable IT services that help businesses grow with confidence. We specialize in IT staff augmentation, custom software development, and digital transformation, while continuously investing in innovation to build solutions shaped by real-world business challenges.
           </p>
         </div>
@@ -86,7 +86,7 @@ export default function OurMission() {
                 <div className="text-5xl md:text-6xl font-bold text-white mb-2">
                   {stat.number}
                 </div>
-                <div className="text-gray-300 text-sm md:text-base font-normal">
+                <div className="text-white text-sm md:text-base font-normal">
                   {stat.label}
                 </div>
               </div>
@@ -96,11 +96,11 @@ export default function OurMission() {
 
         {/* Our Story Section */}
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white text-center mb-8 md:mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-8 md:mb-12">
             Our Story
           </h2>
 
-          <div className="space-y-6 text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+          <div className="space-y-6 text-lg text-white leading-relaxed">
             <p>
               Leezova Technologies was founded with a clear objective—to provide dependable and flexible IT services to startups and growing enterprises seeking a trusted technology partner. From the beginning, our focus has been on delivering custom development services and skilled technical resources aligned with business goals.
             </p>
@@ -116,54 +116,54 @@ export default function OurMission() {
           </div>
 
           {/* Mission Statement */}
-          <div className="mt-12 md:mt-16 p-8 bg-gray-50 dark:bg-gray-900/50 rounded-2xl border border-gray-200 dark:border-gray-800">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">
+          <div className="mt-12 md:mt-16 p-8 bg-gray-900/50 rounded-2xl border border-gray-800">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
               IT Services
             </h3>
-            <ul className="space-y-4 text-lg text-gray-600 dark:text-gray-400">
+            <ul className="space-y-4 text-lg text-white">
               <li className="flex items-start">
-                <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
+                <span className="text-blue-400 mr-3 mt-1">•</span>
                 <span>IT staff augmentation and dedicated development teams</span>
               </li>
               <li className="flex items-start">
-                <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
+                <span className="text-blue-400 mr-3 mt-1">•</span>
                 <span>Custom software development</span>
               </li>
               <li className="flex items-start">
-                <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
+                <span className="text-blue-400 mr-3 mt-1">•</span>
                 <span>Web and application development</span>
               </li>
               <li className="flex items-start">
-                <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
+                <span className="text-blue-400 mr-3 mt-1">•</span>
                 <span>Ongoing support and maintenance</span>
               </li>
             </ul>
           </div>
 
           {/* What Drives Us */}
-          <div className="mt-8 p-8 bg-gray-50 dark:bg-gray-900/50 rounded-2xl border border-gray-200 dark:border-gray-800">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">
+          <div className="mt-8 p-8 bg-gray-900/50 rounded-2xl border border-gray-800">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
               Why Choose Leezova Technologies
             </h3>
-            <ul className="space-y-4 text-lg text-gray-600 dark:text-gray-400">
+            <ul className="space-y-4 text-lg text-white">
               <li className="flex items-start">
-                <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
+                <span className="text-blue-400 mr-3 mt-1">•</span>
                 <span>Service-first and partnership-driven approach</span>
               </li>
               <li className="flex items-start">
-                <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
+                <span className="text-blue-400 mr-3 mt-1">•</span>
                 <span>Skilled developers with real-world project experience</span>
               </li>
               <li className="flex items-start">
-                <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
+                <span className="text-blue-400 mr-3 mt-1">•</span>
                 <span>Flexible engagement and staffing models</span>
               </li>
               <li className="flex items-start">
-                <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
+                <span className="text-blue-400 mr-3 mt-1">•</span>
                 <span>Proven capability in delivering both services and structured platforms</span>
               </li>
               <li className="flex items-start">
-                <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
+                <span className="text-blue-400 mr-3 mt-1">•</span>
                 <span>Strong focus on long-term value and client success</span>
               </li>
             </ul>
