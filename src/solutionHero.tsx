@@ -28,7 +28,9 @@ function SolutionHero() {
     gsap.set(text, { 
       xPercent: -50, 
       yPercent: -50, 
-      opacity: 0.6, 
+      x: 0,
+      y: 0,
+      opacity: 0.8, 
       color: '#ffffff' 
     });
 
@@ -91,14 +93,13 @@ function SolutionHero() {
         }}
       />
 
-      {/* Layer 1: SOLUTIONS Text (bottom layer - z-[2], behind head and screen) */}
+      {/* Layer 1: SOLUTIONS Text (bottom layer - z-[1], behind head and screen) */}
       <h1 
         ref={textRef}
-        className='absolute z-[2] text-7xl md:text-8xl lg:text-9xl font-bold pointer-events-none  h-full'
+        className='absolute z-[1] text-7xl md:text-8xl lg:text-9xl font-bold pointer-events-none text-white'
         style={{
           top: '25%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)'
+          left: '50%'
         }}
       >
         SOLUTIONS
@@ -144,14 +145,15 @@ function SolutionHero() {
       </div>
 
       {/* Black gradient blend at bottom - TOPMOST layer (z-[30]) for smooth blending */}
+      {/* Adjusted to start later so text is more visible */}
       <div 
         className='absolute z-[30] pointer-events-none'
         style={{
           width: '100%',
-          height: '55%',
+          height: '50%',
           bottom: 0,
           left: 0,
-          background: 'linear-gradient(180deg,rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 1) 60%)'
+          background: 'linear-gradient(180deg,rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 1) 100%)'
         }}
       />
     </div>

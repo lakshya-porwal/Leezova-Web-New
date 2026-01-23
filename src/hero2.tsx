@@ -72,9 +72,7 @@ function Hero2() {
             </div>
 
             <div className='h-full w-full flex items-center justify-center px-4 md:px-8 lg:px-12 py-6 relative z-10'>
-                {/* MacBook Mockup Container */}
                 <div className='relative w-full max-w-6xl'>
-                    {/* Blue Gradient Background - Behind MacBook */}
                     {isImmersive && (
                         <div className='absolute inset-0 bg-gradient-to-br from-blue-600/30 via-blue-500/20 to-cyan-500/30 rounded-2xl blur-3xl -z-10' 
                              style={{
@@ -85,29 +83,14 @@ function Hero2() {
                              }}
                         />
                     )}
-                    
-                    {/* MacBook Image */}
-                    <img 
-                        src="/macBook.png" 
-                        alt="MacBook" 
-                        className="w-full h-auto object-contain relative z-10"
-                    />
-                    
-                    {/* Content Area - Positioned inside MacBook screen */}
-                    <div 
-                        className="absolute pointer-events-none"
-                        style={{
-                            top: '8.5%',
-                            left: '12%',
-                            right: '12%',
-                            bottom: '12%',
-                        }}
+                 <div 
+                        className="absolute pointer-events-none z-10 top-[10%] left-[8%] right-[8%] bottom-[10%] sm:top-[9%] sm:left-[10%] sm:right-[10%] sm:bottom-[11%] md:top-[8.5%] md:left-[12%] md:right-[12%] md:bottom-[12%]"
                     >
                         <div 
                             className="h-full w-full rounded-lg transition-all duration-500 overflow-hidden pointer-events-auto"
                         >
                             <div
-                                className={`h-full w-full rounded-lg p-4 transition-all duration-500 overflow-y-auto ${isImmersive ? 'hide-scrollbar' : ''
+                                className={`h-full w-full rounded-lg p-3 sm:p-4 md:px-6 md:py-5 lg:px-8 lg:py-6 transition-all duration-500 overflow-y-auto ${isImmersive ? 'hide-scrollbar' : ''
                                     }`}
                                 style={isImmersive ? {
                                     background: 'linear-gradient(to top, #000000, #434343)',
@@ -117,28 +100,28 @@ function Hero2() {
                                     background: '#FBF3D1'
                                 }}
                             >
-                                <div className={ `flex justify-between items-center h-16 w-full px-6 md:px-8 border-b mt-8 transition-all duration-500 ${isImmersive
+                                <div className={ `flex justify-between items-center w-full border-b h-14 sm:h-16 md:h-20 px-3 sm:px-4 md:px-6 lg:px-8 mt-4 sm:mt-6 md:mt-6 transition-all duration-500 ${isImmersive
                                         ? 'bg-black backdrop-blur-md rounded-full border-gray-700/30 shadow-lg'
                                         : 'bg-[#E8D9B0] border-[#8b6f47] rounded-none shadow-none'
                                     }`}>
                                     {isImmersive && (
-                                        <div className='flex items-center gap-2'>
-                                            <div className='w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg'>
-                                                <span className='text-white font-bold text-lg'>L</span>
+                                        <div className='flex items-center gap-1.5 sm:gap-2'>
+                                            <div className='w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg'>
+                                                <span className='text-white font-bold text-sm sm:text-lg'>L</span>
                                             </div>
-                                            <span className='text-white font-semibold text-lg hidden sm:block'>Leezova</span>
+                                            <span className='text-white font-semibold text-sm sm:text-base md:text-lg hidden sm:block'>Leezova</span>
                                         </div>
                                     )}
                                     {!isImmersive && (
                                         <div className='flex items-center gap-2'>
-                                            <span className='text-[#5a4a3a] font-semibold text-lg'>Leezova</span>
+                                            <span className='text-[#5a4a3a] font-semibold text-sm sm:text-base md:text-lg'>Leezova</span>
                                         </div>
                                     )}
 
-                                    <div className='flex items-center gap-2 md:gap-6'>
+                                    <div className='flex items-center gap-1 sm:gap-2 md:gap-4 lg:gap-6'>
                                         <a
                                             href='#home'
-                                            className={`px-4 py-2 transition-all duration-200 text-sm md:text-base font-medium ${isImmersive
+                                            className={`px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 transition-all duration-200 text-xs sm:text-sm md:text-base font-medium ${isImmersive
                                                     ? 'text-gray-300 hover:text-white relative group'
                                                     : 'text-[#6b5a4a] hover:text-[#5a4a3a]'
                                                 }`}
@@ -150,7 +133,7 @@ function Hero2() {
                                         </a>
                                         <a
                                             href='#about'
-                                            className={`px-4 py-2 transition-all duration-200 text-sm md:text-base font-medium ${isImmersive
+                                            className={`px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 transition-all duration-200 text-xs sm:text-sm md:text-base font-medium ${isImmersive
                                                     ? 'text-gray-300 hover:text-white relative group'
                                                     : 'text-[#6b5a4a] hover:text-[#5a4a3a]'
                                                 }`}
@@ -162,7 +145,7 @@ function Hero2() {
                                         </a>
                                         <a
                                             href='#contact'
-                                            className={`px-4 py-2 transition-all duration-200 text-sm md:text-base font-medium ${isImmersive
+                                            className={`px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 transition-all duration-200 text-xs sm:text-sm md:text-base font-medium ${isImmersive
                                                     ? 'text-gray-300 hover:text-white relative group'
                                                     : 'text-[#6b5a4a] hover:text-[#5a4a3a]'
                                                 }`}
@@ -174,13 +157,13 @@ function Hero2() {
                                         </a>
                                     </div>
 
-                                    <div className='flex items-center gap-3'>
-                                        <button className={`w-10 h-10 rounded-full border transition-all duration-200 flex items-center justify-center shadow-md group ${isImmersive
+                                    <div className='flex items-center gap-2 sm:gap-3'>
+                                        <button className={`w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full border transition-all duration-200 flex items-center justify-center shadow-md group ${isImmersive
                                                 ? 'bg-gradient-to-br from-gray-700 to-gray-800 border-gray-600 hover:border-blue-500 hover:shadow-blue-500/20'
                                                 : 'bg-[#E8D9B0] border-[#8b6f47]'
                                             }`}>
                                             <svg
-                                                className={`w-5 h-5 transition-colors duration-200 ${isImmersive
+                                                className={`w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 transition-colors duration-200 ${isImmersive
                                                         ? 'text-gray-400 group-hover:text-blue-400'
                                                         : 'text-[#6b5a4a] group-hover:text-[#5a4a3a]'
                                                     }`}
@@ -199,10 +182,10 @@ function Hero2() {
                                     </div>
                                 </div>
 
-                                <div className='mt-12 px-4 md:px-8'>
-                                    <div className={`max-w-4xl mx-auto mb-16 transition-all duration-500 ${isImmersive ? 'text-center' : 'text-left'
+                                <div className="px-2 sm:px-4 md:px-6 lg:px-8 mt-6 sm:mt-8 md:mt-10 lg:mt-12">
+                                    <div className={`max-w-4xl mx-auto mb-8 sm:mb-12 md:mb-16 transition-all duration-500 ${isImmersive ? 'text-center' : 'text-left'
                                         }`}>
-                                        <h1 className={`text-4xl md:text-6xl font-bold mb-6 leading-tight transition-all duration-500 ${isImmersive
+                                        <h1 className={`font-bold mb-4 sm:mb-5 md:mb-6 leading-tight transition-all duration-500 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl ${isImmersive
                                                 ? 'text-white'
                                                 : 'text-[#5a4a3a]'
                                             }`} style={!isImmersive ? {
@@ -226,22 +209,22 @@ function Hero2() {
                                                 </>
                                             )}
                                         </h1>
-                                        <p className={`text-lg md:text-xl mb-8 max-w-2xl transition-all duration-500 ${isImmersive ? 'text-gray-300 mx-auto' : 'text-[#6b5a4a]'
+                                        <p className={`text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-7 md:mb-8 max-w-2xl transition-all duration-500 ${isImmersive ? 'text-gray-300 mx-auto' : 'text-[#6b5a4a]'
                                             }`}>
                                             {isImmersive
                                                 ? 'Experience products in a whole new way with interactive views, immersive environments, and engaging storytelling.'
                                                 : 'Traditional product pages with clear information, specifications, and straightforward navigation.'
                                             }
                                         </p>
-                                        <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-500 ${isImmersive ? 'justify-center' : 'justify-start'
+                                        <div className={`flex flex-col sm:flex-row gap-3 sm:gap-4 transition-all duration-500 ${isImmersive ? 'justify-center' : 'justify-start'
                                             }`}>
-                                            <button className={`px-8 py-3 font-semibold transition-all duration-300 ${isImmersive
+                                            <button className={`px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base font-semibold transition-all duration-300 ${isImmersive
                                                     ? 'rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:shadow-lg hover:shadow-blue-500/50 transform hover:scale-105'
                                                     : 'rounded-none bg-[#8b6f47] text-[#FBF3D1] border-2 border-[#a0826d]'
                                                 }`}>
                                                 Get Started
                                             </button>
-                                            <button className={`px-8 py-3 font-semibold transition-all duration-300 ${isImmersive
+                                            <button className={`px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base font-semibold transition-all duration-300 ${isImmersive
                                                     ? 'rounded-full bg-gray-800/50 backdrop-blur-sm text-white border border-gray-700 hover:border-gray-600'
                                                     : 'rounded-none bg-[#E8D9B0] text-[#6b5a4a] border-2 border-[#8b6f47]'
                                                 }`}>
@@ -253,6 +236,11 @@ function Hero2() {
                             </div>
                         </div>
                     </div>
+                    <img 
+                        src="/macBook.png" 
+                        alt="MacBook" 
+                        className="w-full h-auto object-contain relative z-20 pointer-events-none"
+                    />
                 </div>
             </div>
         </div>
