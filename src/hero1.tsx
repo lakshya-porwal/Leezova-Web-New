@@ -67,11 +67,11 @@ function Hero1({ onStartProject }: { onStartProject: () => void }) {
             />
 
             {/* Hero Content */}
-            <div className="relative z-20 px-6 md:px-0 max-w-2xl text-left">
+            <div className="relative z-20 px-6 w-full md:px-28 lg:px-48 text-left -mt-16">
                 <h1 className="
     text-white 
     font-semibold
-    text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+    text-3xl sm:text-4xl md:text-5xl lg:text-8xl
     leading-tight
     tracking-tight
   ">
