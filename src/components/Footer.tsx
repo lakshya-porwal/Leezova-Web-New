@@ -60,11 +60,11 @@ export default function Footer() {
           <div className="grid grid-cols-1 lg:grid-cols-4 items-start">
 
             {/* RED DIV (HORIZONTAL LINKS) */}
-            <div className="lg:col-span-2 rounded-xl py-6 pr-10 pl-4 ml-10 mr-20">
+            <div className="lg:col-span-2 rounded-xl py-6 md:pr-10 md:pl-4 px-10 md:ml-10 md:mr-20 mx-10">
               <div className="grid grid-cols-1 sm:grid-cols-3">
                 {/* ABOUT */}
                 <div>
-                  <h3 className="md:text-lg text-base font-semibold mb-3 font-mono">ABOUT</h3>
+                  <h3 className="md:text-lg text-base font-semibold md:mb-3 mb-2 font-mono">ABOUT</h3>
                   <ul className="space-y-2">
                     {footerLinks.about.map((link) => (
                       <li key={link.path}>
@@ -78,7 +78,7 @@ export default function Footer() {
 
                 {/* PRODUCTS */}
                 <div>
-                  <h3 className="md:text-lg text-base  font-semibold mb-3 font-mono">PRODUCTS</h3>
+                  <h3 className="md:text-lg text-base  font-semibold md:mb-3 mb-2 md:mt-0 mt-2 font-mono">PRODUCTS</h3>
                   <ul className="space-y-2">
                     {footerLinks.products.map((link) => (
                       <li key={link.path}>
@@ -92,7 +92,7 @@ export default function Footer() {
 
                 {/* COMPANY */}
                 <div>
-                  <h3 className="md:text-lg text-base font-semibold mb-3 font-mono">COMPANY</h3>
+                  <h3 className="md:text-lg text-base font-semibold md:mb-3 mb-2 md:mt-0 mt-2 font-mono">COMPANY</h3>
                   <ul className="space-y-2">
                     {footerLinks.company.map((link) => (
                       <li key={link.path}>
@@ -107,7 +107,7 @@ export default function Footer() {
             </div>
 
             {/* WHITE DIV (SLIGHTLY SMALLER) */}
-            <div className="lg:col-span-2 border-2  rounded-xl h-48 md:h-56 flex items-center justify-center mr-10">
+            <div className="lg:col-span-2 border-2  rounded-xl h-48 md:h-56 flex items-center justify-center md:mr-10 md:ml-0 mx-10">
               {/* <h3 className="text-lg font-semibold mb-4 font-mono">CONNECT</h3>
               
                   <button
