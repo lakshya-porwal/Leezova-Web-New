@@ -30,7 +30,7 @@ function App() {
     }, 100);
   }, [location.pathname]);
   return (
-    <div>
+    <div className="bg-black min-h-screen">
       <Navbar />
       <Routes>
         <Route path="/" element={<Hero1 />} />
