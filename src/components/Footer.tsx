@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ScheduleModal } from "./ContactUs";
 import { FacebookIcon, InstagramIcon, LinkedInIcon } from "../heroIcons/icons";
+import LeezovaStamp from "../LeezovaStamp";
 
 export default function Footer() {
   const [scheduleModalOpen, setScheduleModalOpen] = useState(false);
@@ -57,15 +58,16 @@ export default function Footer() {
       <div className="relative bg-black text-white">
         <div className="relative z-10 max-w-full  py-14">
           {/* MAIN GRID */}
-          <div className="grid grid-cols-1 lg:grid-cols-4 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-3 items-start">
 
             {/* RED DIV (HORIZONTAL LINKS) */}
-            <div className="lg:col-span-2 rounded-xl py-6 md:pr-10 md:pl-4 px-10 md:ml-10 md:mr-20 mx-10">
-              <div className="grid grid-cols-1 sm:grid-cols-3">
+            <div className="lg:col-span-1 rounded-xl py-6 md:px-6 px-10 md:ml-10 md:w-full">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                 {/* ABOUT */}
                 <div>
-                  <h3 className="md:text-lg text-base font-semibold md:mb-3 mb-2 font-mono">ABOUT</h3>
-                  <ul className="space-y-2">
+                  <h3 className="md:text-lg text-base font-semibold md:mb-3 mb-2 font-mono text-left">ABOUT</h3>
+                  <ul className="space-y-2 text-left">
+
                     {footerLinks.about.map((link) => (
                       <li key={link.path}>
                         <Link to={link.path} className="text-gray-400 hover:text-white md:text-base text-sm">
@@ -78,8 +80,8 @@ export default function Footer() {
 
                 {/* PRODUCTS */}
                 <div>
-                  <h3 className="md:text-lg text-base  font-semibold md:mb-3 mb-2 md:mt-0 mt-2 font-mono">PRODUCTS</h3>
-                  <ul className="space-y-2">
+                  <h3 className="md:text-lg text-base  font-semibold md:mb-3 mb-2 md:mt-0 mt-2 text-left font-mono">PRODUCTS</h3>
+                  <ul className="space-y-2 text-left">
                     {footerLinks.products.map((link) => (
                       <li key={link.path}>
                         <Link to={link.path} className="text-gray-400 hover:text-white md:text-base text-sm">
@@ -92,8 +94,8 @@ export default function Footer() {
 
                 {/* COMPANY */}
                 <div>
-                  <h3 className="md:text-lg text-base font-semibold md:mb-3 mb-2 md:mt-0 mt-2 font-mono">COMPANY</h3>
-                  <ul className="space-y-2">
+                  <h3 className="md:text-lg text-base font-semibold md:mb-3 mb-2 md:mt-0 mt-2 text-left font-mono ">COMPANY</h3>
+                  <ul className="space-y-2 text-left">
                     {footerLinks.company.map((link) => (
                       <li key={link.path}>
                         <Link to={link.path} className="text-gray-400 hover:text-white md:text-base text-sm">
@@ -106,17 +108,40 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* WHITE DIV (SLIGHTLY SMALLER) */}
-            <div className="lg:col-span-2 border-2  rounded-xl h-48 md:h-56 flex items-center justify-center md:mr-10 md:ml-0 mx-10">
-              {/* <h3 className="text-lg font-semibold mb-4 font-mono">CONNECT</h3>
-              
-                  <button
-                    onClick={() => setScheduleModalOpen(true)}
-                    className="text-gray-400 hover:text-white transition-colors text-sm font-semibold"
-                  >
-                    Contact Us
-                  </button> */}
+            <div className="lg:col-span-1 flex justify-center pb-4 md:pb-0 items-center">
+              <LeezovaStamp />
             </div>
+
+            <div className="lg:col-span-1 rounded-xl border-2 h-48 md:h-56 flex flex-col justify-center gap-2 md:pr-6 px-6 text-white">
+
+              {/* Phone */}
+              <div className="flex items-center gap-3 text-right">
+                {/* <span className="md:text-lg text-base">📞</span> */}
+                <span className="md:text-lg text-base">+91 9202155929</span>
+              </div>
+
+              {/* Email */}
+              <div className="flex items-center gap-3">
+                {/* <span className="md:text-lg text-base">✉️</span> */}
+                <a className="md:text-lg text-base" href="mailto:contact@Leezova.com">
+                  contact@Leezova.com
+                </a>
+              </div>
+
+              {/* Address */}
+              <div className="flex items-center gap-3">
+                {/* <span className="md:text-lg text-base">📍</span> */}
+                <span className="md:text-lg text-base text-left">56-Vigyan Nagar,Indore,Madhya Pradesh 452009</span>
+              </div>
+
+              {/* Timing */}
+              <div className="flex items-center gap-3">
+                {/* <span className="md:text-lg text-base">🕒</span> */}
+                <span className="md:text-lg text-base">Monday – Friday: 10:30am –6:30 pm</span>
+              </div>
+
+            </div>
+
           </div>
 
           {/* BOTTOM BAR */}
@@ -126,9 +151,16 @@ export default function Footer() {
             </p>
 
             <div className="flex gap-3">
-              <FacebookIcon className="h-7 w-10" />
-              <InstagramIcon className="h-7 w-10" />
-              <LinkedInIcon className="h-7 w-10" />
+              <a
+                href="https://facebook.com">
+                <FacebookIcon className="h-7 w-10 hover:opacity-80 transition-opacity cursor-pointer" />
+              </a>
+              <a
+                href="https://instagram.com"><InstagramIcon className="h-7 w-10 cursor-pointer" />
+              </a>
+              <a
+                href="https://linkedin.com"><LinkedInIcon className="h-7 w-10 cursor-pointer" /></a>
+
             </div>
           </div>
         </div>
@@ -138,13 +170,3 @@ export default function Footer() {
     </footer>
   );
 }
-
-
- {/* <h3 className="text-lg font-semibold mb-4 font-mono">CONNECT</h3>
-              
-                  <button
-                    onClick={() => setScheduleModalOpen(true)}
-                    className="text-gray-400 hover:text-white transition-colors text-sm font-semibold"
-                  >
-                    Contact Us
-                  </button> */}

@@ -21,6 +21,10 @@ export default function OurMission() {
   return (
     <div className="min-h-screen bg-black pt-8 md:pt-24 px-6 pb-16">
       <div className="max-w-7xl mx-auto">
+        {/* heading */}
+        <h1 className="mt-8 md:mt-8 md:text-[50px] text-[40px] font-bold text-white  select-none mb-6">
+          OUR MISSION
+        </h1>
         {/* Top Introduction Section */}
         <div className="mb-12 md:mb-16">
           <p className="text-lg text-white leading-relaxed max-w-auto text-left">

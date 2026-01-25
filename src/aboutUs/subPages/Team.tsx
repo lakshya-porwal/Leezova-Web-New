@@ -62,19 +62,19 @@ export default function Team() {
   }, []);
 
   return (
-    <div className="min-h-screen w-full md:pt-20 mt-5 relative" ref={containerRef}>
+    <div className="min-h-screen w-full md:pt-20 mt-5 relative bg-black" ref={containerRef}>
       <div className="md:h-[450px] flex items-center justify-center">
         <div className="text-left flex flex-col pl-4">
-          <span className="text-gray-200 text-[56px] md:text-9xl leading-tight">
-            The Crew who brew
+          <span className="text-gray-200 text-[45px] md:text-[108px] leading-tight">
+            Moments with
           </span>
 
-          <span className="text-gray-200 text-[56px] md:text-9xl leading-tight mt-1 md:mt-0">
-            the
+          <span className="text-[#4169E1] text-[45px] md:text-[108px] font-bold leading-tight mt-1 md:mt-0">
+            LEEZOVA
           </span>
 
-          <span className="text-[#4169E1] text-[56px] md:text-9xl font-bold leading-tight mt-1 md:mt-0">
-            Code
+          <span className="text-gray-200 text-[45px] md:text-[108px] leading-tight mt-1 md:mt-0">
+            Family
           </span>
         </div>
       </div>
@@ -82,7 +82,7 @@ export default function Team() {
       <div className="h-[100vh] w-full relative items-center content-center" ref={redDivRef}>
         <div className="absolute inset-0 pointer-events-none flex items-center justify-center h-[97vh] max-w-full">
           <div style={{
-            background: 'radial-gradient(circle,rgba(255, 255, 255, 0) 14%, rgba(36, 36, 36, 1) 100%)'
+            background: 'radial-gradient(circle,rgba(0, 0, 0, 0) 15%,rgba(0, 0, 0, 0.4) 60%,rgba(0, 0, 0, 1) 100%)'
           }} className="w-full h-[100vh] z-20" />
         </div>
 

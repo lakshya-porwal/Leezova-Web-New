@@ -73,47 +73,47 @@ export default function Values() {
   ];
 
   useEffect(() => {
-  if (!containerRef.current) return;
+    if (!containerRef.current) return;
 
-  const cards = cardRefs.current.filter(Boolean) as HTMLDivElement[];
-  if (cards.length !== 6) return;
+    const cards = cardRefs.current.filter(Boolean) as HTMLDivElement[];
+    if (cards.length !== 6) return;
 
-  const mm = gsap.matchMedia();
+    const mm = gsap.matchMedia();
 
-  mm.add("(min-width: 768px)", () => {
-    const middleCardIndices = [1, 4];
+    mm.add("(min-width: 768px)", () => {
+      const middleCardIndices = [1, 4];
 
-    cards.forEach((card, index) => {
-      const isMiddleCard = middleCardIndices.includes(index);
+      cards.forEach((card, index) => {
+        const isMiddleCard = middleCardIndices.includes(index);
 
-      gsap.set(card, { y: 0 });
+        gsap.set(card, { y: 0 });
 
-      gsap.to(card, {
-        y: isMiddleCard ? 80 : -80,
-        ease: "power1.out",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
-          end: "bottom 20%",
-          scrub: 1.5,
-        },
+        gsap.to(card, {
+          y: isMiddleCard ? 80 : -80,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            scrub: 1.5,
+          },
+        });
       });
-    });
 
-    ScrollTrigger.refresh();
-  });
-  return () => {
-    mm.revert();
-  };
-}, []);
+      ScrollTrigger.refresh();
+    });
+    return () => {
+      mm.revert();
+    };
+  }, []);
 
 
   return (
     <div className="min-h-screen bg-black pt-24 pb-12 relative">
       <div className="absolute inset-0 flex justify-center pointer-events-none z-0">
-        <h1 className="mt-8 md:mt-16 md:text-[50px] font-bold text-white  select-none">
-   OUR VALUES
-</h1>
+        <h1 className="mt-8 md:mt-20 md:text-[50px] text-[40px] font-bold text-white select-none">
+          OUR VALUES
+        </h1>
       </div>
       <div className="w-full h-full flex items-center justify-center my-[100px] relative z-10 md:px-8 px-12 mt-5 md:mt-24">
         <div ref={containerRef} className="flex flex-col  gap-6 md:grid md:grid-cols-3 md:gap-4  mx-auto">
@@ -128,7 +128,7 @@ export default function Values() {
               <div
                 className={`flex items-center justify-center flex-col ${value.borderColor} border-2 h-full w-full rounded-xl p-1 border-white`}
               >
-                <div 
+                <div
                   className={`flex flex-col ${value.bgColor} h-full w-full rounded-lg relative overflow-hidden`}
                 >
                   <div className="absolute inset-0 opacity-10">
@@ -166,7 +166,7 @@ export default function Values() {
                     <p className="text-sm text-gray-400 text-center leading-relaxed max-w-xs">
                       {value.description}
                     </p>
-                   
+
                   </div>
                 </div>
               </div>
