@@ -13,8 +13,8 @@ const LeezovaStamp = () => {
         }, []);
   return (
     <div>
-      <div className="flex justify-center lg:justify-start border-4 border-green-500">
-                <div className="relative w-64 h-64">
+      <div className="flex justify-center lg:justify-start " >
+                <div className="h-20 md:h-48 w-20 md:w-48">
                   <svg
                     className="w-full h-full"
                     viewBox="0 0 200 200"

@@ -98,7 +98,7 @@ const DropdownPreview = ({
     <div className="lg:p-6 bg-[#252b3f]">
       <div className="lg:mb-4">
         {item.image ? (
-          <div className="w-full h-48 rounded-lg overflow-hidden mb-4 backdrop-blur-md bg-black/20">
+          <div className="w-72 h-48 rounded-lg overflow-hidden mb-4 backdrop-blur-md bg-black/20">
             <div
               className={`w-full h-full rounded-lg transition-transform duration-500 ease-in-out ${animate ? 'lg:translate-x-0 lg:translate-y-0' : 'lg:translate-x-2 lg:translate-y-2'}`}
             >
@@ -141,7 +141,7 @@ const DesktopDropdown = React.memo(({
   return (
     <div className="lg:absolute lg:top-full lg:left-0 lg:pt-2 lg:w-[600px] z-[9999]">
       <div className="bg-[#2d3447] lg:rounded-lg shadow-2xl overflow-hidden">
-        <div className="lg:grid lg:grid-cols-2 lg:gap-0">
+        <div className=" grid lg:grid lg:grid-cols-[1fr_1.4fr] lg:gap-0">
           <div className="lg:p-6 lg:space-y-4">
             <div className="lg:space-y-1">
               {route.dropdownItems.map((item, idx) => (

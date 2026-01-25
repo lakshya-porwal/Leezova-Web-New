@@ -34,8 +34,8 @@ function Hero2() {
                 <button
                     onClick={() => setIsImmersive(!isImmersive)}
                     className={`relative w-[120px] h-[50px] rounded-full border overflow-hidden transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-black ${isImmersive
-                            ? 'border-blue-400 shadow-[0_0_30px_rgba(59,130,246,0.6)]'
-                            : 'bg-gray-800 border-gray-600'
+                        ? 'border-blue-400 shadow-[0_0_30px_rgba(59,130,246,0.6)]'
+                        : 'bg-gray-800 border-gray-600'
                         }`}
                 >
                     <div className={`absolute inset-0 transition-opacity duration-300 ${isImmersive ? 'opacity-100' : 'opacity-0'
@@ -74,19 +74,19 @@ function Hero2() {
             <div className='h-full w-full flex items-center justify-center px-4 md:px-8 lg:px-12 py-6 relative z-10'>
                 <div className='relative w-full max-w-6xl'>
                     {isImmersive && (
-                        <div className='absolute inset-0 bg-gradient-to-br from-blue-600/30 via-blue-500/20 to-cyan-500/30 rounded-2xl blur-3xl -z-10' 
-                             style={{
-                                 top: '-10%',
-                                 left: '-10%',
-                                 right: '-10%',
-                                 bottom: '-10%',
-                             }}
+                        <div className='absolute inset-0 bg-gradient-to-br from-blue-600/30 via-blue-500/20 to-cyan-500/30 rounded-2xl blur-3xl -z-10'
+                            style={{
+                                top: '-10%',
+                                left: '-10%',
+                                right: '-10%',
+                                bottom: '-10%',
+                            }}
                         />
                     )}
-                 <div 
+                    <div
                         className="absolute pointer-events-none z-10 top-[10%] left-[8%] right-[8%] bottom-[10%] sm:top-[9%] sm:left-[10%] sm:right-[10%] sm:bottom-[11%] md:top-[8.5%] md:left-[12%] md:right-[12%] md:bottom-[12%]"
                     >
-                        <div 
+                        <div
                             className="h-full w-full rounded-lg transition-all duration-500 overflow-hidden pointer-events-auto"
                         >
                             <div
@@ -100,9 +100,9 @@ function Hero2() {
                                     background: '#FBF3D1'
                                 }}
                             >
-                                <div className={ `flex justify-between items-center w-full border-b h-14 sm:h-16 md:h-20 px-3 sm:px-4 md:px-6 lg:px-8 mt-4 sm:mt-6 md:mt-6 transition-all duration-500 ${isImmersive
-                                        ? 'bg-black backdrop-blur-md rounded-full border-gray-700/30 shadow-lg'
-                                        : 'bg-[#E8D9B0] border-[#8b6f47] rounded-none shadow-none'
+                                <div className={`flex justify-between items-center w-full border-b h-14 sm:h-16 md:h-20 px-3 sm:px-4 md:px-6 lg:px-8 mt-4 sm:mt-6 md:mt-6 transition-all duration-500 ${isImmersive
+                                    ? 'bg-black backdrop-blur-md rounded-full border-gray-700/30 shadow-lg'
+                                    : 'bg-[#E8D9B0] border-[#8b6f47] rounded-none shadow-none'
                                     }`}>
                                     {isImmersive && (
                                         <div className='flex items-center gap-1.5 sm:gap-2'>
@@ -122,8 +122,8 @@ function Hero2() {
                                         <a
                                             href='#home'
                                             className={`px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 transition-all duration-200 text-xs sm:text-sm md:text-base font-medium ${isImmersive
-                                                    ? 'text-gray-300 hover:text-white relative group'
-                                                    : 'text-[#6b5a4a] hover:text-[#5a4a3a]'
+                                                ? 'text-gray-300 hover:text-white relative group'
+                                                : 'text-[#6b5a4a] hover:text-[#5a4a3a]'
                                                 }`}
                                         >
                                             Home
@@ -134,8 +134,8 @@ function Hero2() {
                                         <a
                                             href='#about'
                                             className={`px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 transition-all duration-200 text-xs sm:text-sm md:text-base font-medium ${isImmersive
-                                                    ? 'text-gray-300 hover:text-white relative group'
-                                                    : 'text-[#6b5a4a] hover:text-[#5a4a3a]'
+                                                ? 'text-gray-300 hover:text-white relative group'
+                                                : 'text-[#6b5a4a] hover:text-[#5a4a3a]'
                                                 }`}
                                         >
                                             About
@@ -146,8 +146,8 @@ function Hero2() {
                                         <a
                                             href='#contact'
                                             className={`px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 transition-all duration-200 text-xs sm:text-sm md:text-base font-medium ${isImmersive
-                                                    ? 'text-gray-300 hover:text-white relative group'
-                                                    : 'text-[#6b5a4a] hover:text-[#5a4a3a]'
+                                                ? 'text-gray-300 hover:text-white relative group'
+                                                : 'text-[#6b5a4a] hover:text-[#5a4a3a]'
                                                 }`}
                                         >
                                             Contact
@@ -159,13 +159,13 @@ function Hero2() {
 
                                     <div className='flex items-center gap-2 sm:gap-3'>
                                         <button className={`w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full border transition-all duration-200 flex items-center justify-center shadow-md group ${isImmersive
-                                                ? 'bg-gradient-to-br from-gray-700 to-gray-800 border-gray-600 hover:border-blue-500 hover:shadow-blue-500/20'
-                                                : 'bg-[#E8D9B0] border-[#8b6f47]'
+                                            ? 'bg-gradient-to-br from-gray-700 to-gray-800 border-gray-600 hover:border-blue-500 hover:shadow-blue-500/20'
+                                            : 'bg-[#E8D9B0] border-[#8b6f47]'
                                             }`}>
                                             <svg
                                                 className={`w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 transition-colors duration-200 ${isImmersive
-                                                        ? 'text-gray-400 group-hover:text-blue-400'
-                                                        : 'text-[#6b5a4a] group-hover:text-[#5a4a3a]'
+                                                    ? 'text-gray-400 group-hover:text-blue-400'
+                                                    : 'text-[#6b5a4a] group-hover:text-[#5a4a3a]'
                                                     }`}
                                                 fill='none'
                                                 viewBox='0 0 24 24'
@@ -186,8 +186,8 @@ function Hero2() {
                                     <div className={`max-w-4xl mx-auto mb-8 sm:mb-12 md:mb-16 transition-all duration-500 ${isImmersive ? 'text-center' : 'text-left'
                                         }`}>
                                         <h1 className={`font-bold mb-4 sm:mb-5 md:mb-6 leading-tight transition-all duration-500 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl ${isImmersive
-                                                ? 'text-white'
-                                                : 'text-[#5a4a3a]'
+                                            ? 'text-white'
+                                            : 'text-[#5a4a3a]'
                                             }`} style={!isImmersive ? {
                                                 textShadow: '1px 1px 2px rgba(0,0,0,0.1)'
                                             } : {}}>
@@ -219,14 +219,14 @@ function Hero2() {
                                         <div className={`flex flex-col sm:flex-row gap-3 sm:gap-4 transition-all duration-500 ${isImmersive ? 'justify-center' : 'justify-start'
                                             }`}>
                                             <button className={`px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base font-semibold transition-all duration-300 ${isImmersive
-                                                    ? 'rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:shadow-lg hover:shadow-blue-500/50 transform hover:scale-105'
-                                                    : 'rounded-none bg-[#8b6f47] text-[#FBF3D1] border-2 border-[#a0826d]'
+                                                ? 'rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:shadow-lg hover:shadow-blue-500/50 transform hover:scale-105'
+                                                : 'rounded-none bg-[#8b6f47] text-[#FBF3D1] border-2 border-[#a0826d]'
                                                 }`}>
                                                 Get Started
                                             </button>
                                             <button className={`px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base font-semibold transition-all duration-300 ${isImmersive
-                                                    ? 'rounded-full bg-gray-800/50 backdrop-blur-sm text-white border border-gray-700 hover:border-gray-600'
-                                                    : 'rounded-none bg-[#E8D9B0] text-[#6b5a4a] border-2 border-[#8b6f47]'
+                                                ? 'rounded-full bg-gray-800/50 backdrop-blur-sm text-white border border-gray-700 hover:border-gray-600'
+                                                : 'rounded-none bg-[#E8D9B0] text-[#6b5a4a] border-2 border-[#8b6f47]'
                                                 }`}>
                                                 Learn More
                                             </button>
@@ -236,9 +236,9 @@ function Hero2() {
                             </div>
                         </div>
                     </div>
-                    <img 
-                        src="/macBook.png" 
-                        alt="MacBook" 
+                    <img
+                        src="/macBook.png"
+                        alt="MacBook"
                         className="w-full h-auto object-contain relative z-20 pointer-events-none"
                     />
                 </div>
