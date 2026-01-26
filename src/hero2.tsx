@@ -72,7 +72,8 @@ function Hero2() {
             </div>
 
             <div className='h-full w-full flex items-center justify-center px-4 md:px-8 lg:px-12 py-6 relative z-10'>
-                <div className='relative w-full max-w-6xl'>
+                <div className="relative w-full max-w-6xl mx-auto aspect-[16/10]">
+
                     {isImmersive && (
                         <div className='absolute inset-0 bg-gradient-to-br from-blue-600/30 via-blue-500/20 to-cyan-500/30 rounded-2xl blur-3xl -z-10'
                             style={{
@@ -83,14 +84,22 @@ function Hero2() {
                             }}
                         />
                     )}
-                    <div
-                        className="absolute pointer-events-none z-10 top-[10%] left-[8%] right-[8%] bottom-[10%] sm:top-[9%] sm:left-[10%] sm:right-[10%] sm:bottom-[11%] md:top-[8.5%] md:left-[12%] md:right-[12%] md:bottom-[12%]"
-                    >
+                  <div
+  className="
+    absolute z-10 pointer-events-none
+    top-[12%] bottom-[14%]
+    left-[11%] right-[11%]
+    sm:top-[11%] sm:bottom-[13%] sm:left-[12%] sm:right-[12%]
+    md:top-[10.5%] md:bottom-[12%] md:left-[13%] md:right-[13%]
+  "
+>
+
+
                         <div
                             className="h-full w-full rounded-lg transition-all duration-500 overflow-hidden pointer-events-auto"
                         >
                             <div
-                                className={`h-full w-full rounded-lg p-3 sm:p-4 md:px-6 md:py-5 lg:px-8 lg:py-6 transition-all duration-500 overflow-y-auto ${isImmersive ? 'hide-scrollbar' : ''
+                                className={`h-full w-full rounded-lg p-3 sm:p-4 md:px-6 md:py-5 lg:px-8 lg:py-6 max-w-full overflow-hidden transition-all border-4 border-green-600 duration-500 overflow-y-auto ${isImmersive ? 'hide-scrollbar' : ''
                                     }`}
                                 style={isImmersive ? {
                                     background: 'linear-gradient(to top, #000000, #434343)',
@@ -105,8 +114,8 @@ function Hero2() {
                                     : 'bg-[#E8D9B0] border-[#8b6f47] rounded-none shadow-none'
                                     }`}>
                                     {isImmersive && (
-                                        <div className='flex items-center gap-1.5 sm:gap-2'>
-                                            <div className='w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg'>
+                                        <div className='flex items-center gap-1.5 sm:gap-2 '>
+                                            <div className='w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg '>
                                                 <span className='text-white font-bold text-sm sm:text-lg'>L</span>
                                             </div>
                                             <span className='text-white font-semibold text-sm sm:text-base md:text-lg hidden sm:block'>Leezova</span>
@@ -157,7 +166,7 @@ function Hero2() {
                                         </a>
                                     </div>
 
-                                    <div className='flex items-center gap-2 sm:gap-3'>
+                                    <div className='flex items-center gap-2 sm:gap-3 '>
                                         <button className={`w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full border transition-all duration-200 flex items-center justify-center shadow-md group ${isImmersive
                                             ? 'bg-gradient-to-br from-gray-700 to-gray-800 border-gray-600 hover:border-blue-500 hover:shadow-blue-500/20'
                                             : 'bg-[#E8D9B0] border-[#8b6f47]'
@@ -182,7 +191,7 @@ function Hero2() {
                                     </div>
                                 </div>
 
-                                <div className="px-2 sm:px-4 md:px-6 lg:px-8 mt-6 sm:mt-8 md:mt-10 lg:mt-12">
+                                <div className="px-2 sm:px-4 md:px-6 lg:px-8 mt-6 sm:mt-8 md:mt-10 lg:mt-12 border-4 border-red-600">
                                     <div className={`max-w-4xl mx-auto mb-8 sm:mb-12 md:mb-16 transition-all duration-500 ${isImmersive ? 'text-center' : 'text-left'
                                         }`}>
                                         <h1 className={`font-bold mb-4 sm:mb-5 md:mb-6 leading-tight transition-all duration-500 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl ${isImmersive
@@ -239,7 +248,7 @@ function Hero2() {
                     <img
                         src="/macBook.png"
                         alt="MacBook"
-                        className="w-full h-auto object-contain relative z-20 pointer-events-none"
+                        className="absolute inset-0 w-full h-full object-contain z-20 pointer-events-none"
                     />
                 </div>
             </div>
