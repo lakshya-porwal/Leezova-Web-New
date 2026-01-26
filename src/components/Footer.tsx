@@ -24,14 +24,14 @@ export default function Footer() {
       {/* TOP BAR */}
       <div className="relative bg-[#090979]">
         <div className="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center flex-wrap gap-4">
-          <div className="flex gap-6 text-sm font-mono text-white">
+          {/* <div className="flex gap-6 text-sm font-mono text-white">
             <Link to="/terms-of-service" className="hover:underline">
               TERMS OF SERVICE
             </Link>
             <Link to="/privacy-policy" className="hover:underline">
               PRIVACY POLICY
             </Link>
-          </div>
+          </div> */}
 
           <Link to="/" className="flex items-center gap-2">
             <img src="/logoSmall.png" className="h-4 md:h-8 brightness-0 invert" />
@@ -58,19 +58,19 @@ export default function Footer() {
       <div className="relative bg-black text-white">
         <div className="relative z-10 max-w-full  py-14">
           {/* MAIN GRID */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 md:items-start items-center">
 
             {/* RED DIV (HORIZONTAL LINKS) */}
-            <div className="lg:col-span-1 rounded-xl py-6 md:px-6 px-10 md:ml-10 md:w-full">
+            <div className="lg:col-span-1 rounded-xl py-6 md:px-6 px-10 md:ml-10 md:w-full flex justify-center items-center">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                 {/* ABOUT */}
                 <div>
-                  <h3 className="md:text-lg text-base font-semibold md:mb-3 mb-2 font-mono text-left">ABOUT</h3>
-                  <ul className="space-y-2 text-left">
+                  <h3 className="md:text-[14px] lg:text-lg text-sm font-semibold md:mb-3 mb-2 font-mono md:text-left">ABOUT</h3>
+                  <ul className="space-y-2 md:text-left">
 
                     {footerLinks.about.map((link) => (
                       <li key={link.path}>
-                        <Link to={link.path} className="text-gray-400 hover:text-white md:text-base text-sm">
+                        <Link to={link.path} className="text-gray-400 hover:text-white md:text-sm lg:text-base text-xs">
                           {link.label}
                         </Link>
                       </li>
@@ -80,11 +80,11 @@ export default function Footer() {
 
                 {/* PRODUCTS */}
                 <div>
-                  <h3 className="md:text-lg text-base  font-semibold md:mb-3 mb-2 md:mt-0 mt-2 text-left font-mono">PRODUCTS</h3>
-                  <ul className="space-y-2 text-left">
+                  <h3 className="md:text-[14px] lg:text-lg text-sm  font-semibold md:mb-3 mb-2 md:mt-0 mt-2 md:text-left font-mono">PRODUCTS</h3>
+                  <ul className="space-y-2 md:text-left">
                     {footerLinks.products.map((link) => (
                       <li key={link.path}>
-                        <Link to={link.path} className="text-gray-400 hover:text-white md:text-base text-sm">
+                        <Link to={link.path} className="text-gray-400 hover:text-white md:text-sm lg:text-base text-xs">
                           {link.label}
                         </Link>
                       </li>
@@ -94,11 +94,11 @@ export default function Footer() {
 
                 {/* COMPANY */}
                 <div>
-                  <h3 className="md:text-lg text-base font-semibold md:mb-3 mb-2 md:mt-0 mt-2 text-left font-mono ">COMPANY</h3>
-                  <ul className="space-y-2 text-left">
+                  <h3 className="md:text-[14px] lg:text-lg text-sm font-semibold md:mb-3 mb-2 md:mt-0 mt-2 md:text-left font-mono ">COMPANY</h3>
+                  <ul className="space-y-2 md:text-left">
                     {footerLinks.company.map((link) => (
                       <li key={link.path}>
-                        <Link to={link.path} className="text-gray-400 hover:text-white md:text-base text-sm">
+                        <Link to={link.path} className="text-gray-400 hover:text-white md:text-sm lg:text-base text-xs">
                           {link.label}
                         </Link>
                       </li>
@@ -112,18 +112,18 @@ export default function Footer() {
               <LeezovaStamp />
             </div>
 
-            <div className="lg:col-span-1 rounded-xl border-2 h-48 md:h-56 flex flex-col justify-center gap-2 md:pr-6 px-6 text-white">
+            <div className="lg:col-span-1 rounded-xl h-48 md:h-56 flex flex-col justify-center gap-2 md:pr-6 px-6 text-white">
 
               {/* Phone */}
               <div className="flex items-center gap-3 text-right">
                 {/* <span className="md:text-lg text-base">📞</span> */}
-                <span className="md:text-lg text-base">+91 9202155929</span>
+                <span className="lg:text-lg md:text-sm text-sm text-left">+91 9202155929</span>
               </div>
 
               {/* Email */}
               <div className="flex items-center gap-3">
                 {/* <span className="md:text-lg text-base">✉️</span> */}
-                <a className="md:text-lg text-base" href="mailto:contact@Leezova.com">
+                <a className="lg:text-lg md:text-sm text-sm text-left" href="mailto:contact@Leezova.com">
                   contact@Leezova.com
                 </a>
               </div>
@@ -131,13 +131,13 @@ export default function Footer() {
               {/* Address */}
               <div className="flex items-center gap-3">
                 {/* <span className="md:text-lg text-base">📍</span> */}
-                <span className="md:text-lg text-base text-left">56-Vigyan Nagar,Indore,Madhya Pradesh 452009</span>
+                <span className="lg:text-lg md:text-sm text-sm text-left">56-Vigyan Nagar,Indore,Madhya Pradesh 452009</span>
               </div>
 
               {/* Timing */}
               <div className="flex items-center gap-3">
                 {/* <span className="md:text-lg text-base">🕒</span> */}
-                <span className="md:text-lg text-base">Monday – Friday: 10:30am –6:30 pm</span>
+                <span className="lg:text-lg md:text-sm text-sm text-left">Monday – Friday: 10:30am –6:30 pm</span>
               </div>
 
             </div>

@@ -9,66 +9,43 @@ if (typeof window !== "undefined") {
 export default function Values() {
   const containerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
   const values = [
     {
       title: "Integrity",
       description: "We conduct our business with honesty, transparency, and ethical practices in all our interactions.",
-      bgColor: "bg-black",
-      borderColor: "border-transparent",
-      icon: (
-        <img src="/Integrity.svg" alt="Integrity" className="w-32 h-32 transition-all duration-300 group-hover:brightness-0 group-hover:invert" />
-      ),
-      padding: "md:pt-10 pt-8 ",
+      icon: <img src="/Integrity.svg" alt="Integrity" className="w-32 h-32 group-hover:brightness-0 group-hover:invert transition-all" />,
+      padding: "md:pt-10 pt-8",
     },
     {
       title: "Innovation",
       description: "We embrace new technologies and creative solutions to solve complex challenges and drive progress.",
-      bgColor: "bg-black",
-      borderColor: "border-transparent",
-      icon: (
-        <img src="/Vector (1).svg" alt="Innovation" className="w-32 h-32 transition-all duration-300 group-hover:brightness-0 group-hover:invert" />
-      ),
-      padding: "md:pb-10 pb-0",
+      icon: <img src="/Vector (1).svg" alt="Innovation" className="w-32 h-32 group-hover:brightness-0 group-hover:invert transition-all" />,
+      padding: "md:pb-10",
     },
     {
       title: "Excellence",
       description: "We strive for the highest quality in every project, setting and exceeding industry standards.",
-      bgColor: "bg-black",
-      borderColor: "border-transparent",
-      icon: (
-        <img src="/Vector.svg" alt="Excellence" className="w-32 h-32 transition-all duration-300 group-hover:brightness-0 group-hover:invert" />
-      ),
-      padding: "md:pt-10 pt-0",
+      icon: <img src="/Vector.svg" alt="Excellence" className="w-32 h-32 group-hover:brightness-0 group-hover:invert transition-all" />,
+      padding: "md:pt-10",
     },
     {
       title: "Collaboration",
       description: "We believe in the power of teamwork, both within our organization and with our clients.",
-      bgColor: "bg-black",
-      borderColor: "border-transparent",
-      icon: (
-        <img src="/Group.svg" alt="Collaboration" className="w-32 h-32 transition-all duration-300 group-hover:brightness-0 group-hover:invert" />
-      ),
-      padding: "md:pt-10 pt-0 ",
+      icon: <img src="/Group.svg" alt="Collaboration" className="w-32 h-32 group-hover:brightness-0 group-hover:invert transition-all" />,
+      padding: "md:pt-10",
     },
     {
       title: "Customer Focus",
       description: "Our clients' success is our success. We prioritize their needs and work tirelessly to deliver value.",
-      bgColor: "bg-black",
-      borderColor: "border-transparent",
-      icon: (
-        <img src="/User Focus.svg" alt="Customer Focus" className="w-32 h-32 transition-all duration-300 group-hover:brightness-0 group-hover:invert" />
-      ),
-      padding: "md:pb-10 pb-0",
+      icon: <img src="/User Focus.svg" alt="Customer Focus" className="w-32 h-32 group-hover:brightness-0 group-hover:invert transition-all" />,
+      padding: "md:pb-10",
     },
     {
       title: "Sustainability",
       description: "We are committed to sustainable practices and long-term thinking in all our endeavors.",
-      bgColor: "bg-black",
-      borderColor: "border-transparent",
-      icon: (
-        <img src="/Sustainability.svg" alt="Sustainability" className="w-32 h-32 transition-all duration-300 group-hover:brightness-0 group-hover:invert" />
-      ),
-      padding: "md:pt-10 pt-0",
+      icon: <img src="/Sustainability.svg" alt="Sustainability" className="w-32 h-32 group-hover:brightness-0 group-hover:invert transition-all" />,
+      padding: "md:pt-10",
     },
   ];
 
@@ -76,21 +53,15 @@ export default function Values() {
     if (!containerRef.current) return;
 
     const cards = cardRefs.current.filter(Boolean) as HTMLDivElement[];
-    if (cards.length !== 6) return;
+    const middleCardIndices = [1, 4];
 
     const mm = gsap.matchMedia();
 
-    mm.add("(min-width: 768px)", () => {
-      const middleCardIndices = [1, 4];
-
+    // ✅ Enable animation only on lg and above
+    mm.add("(min-width: 1024px)", () => {
       cards.forEach((card, index) => {
-        const isMiddleCard = middleCardIndices.includes(index);
-
-        gsap.set(card, { y: 0 });
-
         gsap.to(card, {
-          y: isMiddleCard ? 80 : -80,
-          ease: "power1.out",
+          y: middleCardIndices.includes(index) ? 80 : -80,
           scrollTrigger: {
             trigger: containerRef.current,
             start: "top 80%",
@@ -102,8 +73,16 @@ export default function Values() {
 
       ScrollTrigger.refresh();
     });
+
+    // No animations on sm and md screens
+    mm.add("(max-width: 1023px)", () => {
+      cards.forEach((card) => {
+        gsap.to(card, { y: 0 });
+      });
+    });
+
     return () => {
-      mm.revert();
+      mm.revert(); // cleanup on resize/unmount
     };
   }, []);
 
@@ -115,58 +94,34 @@ export default function Values() {
           OUR VALUES
         </h1>
       </div>
-      <div className="w-full h-full flex items-center justify-center my-[100px] relative z-10 md:px-8 px-12 mt-5 md:mt-24">
-        <div ref={containerRef} className="flex flex-col  gap-6 md:grid md:grid-cols-3 md:gap-4  mx-auto">
+
+      <div className="relative z-10 mt-24 px-4 sm:px-6">
+        <div
+          ref={containerRef}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-x-8 place-items-center max-w-7xl mx-auto"
+        >
           {values.map((value, index) => (
             <div
               key={index}
               ref={(el) => {
                 cardRefs.current[index] = el;
               }}
-              className={`h-[400px] flex items-center justify-center w-[350px] px-6 ${value.padding} group`}
+
+              className={`h-[400px] w-full max-w-[350px] ${value.padding} group px-4 sm:px-0`}
             >
-              <div
-                className={`flex items-center justify-center flex-col ${value.borderColor} border-2 h-full w-full rounded-xl p-1 border-white`}
-              >
-                <div
-                  className={`flex flex-col ${value.bgColor} h-full w-full rounded-lg relative overflow-hidden`}
-                >
-                  <div className="absolute inset-0 opacity-10">
-                    <svg className="w-full h-full" viewBox="0 0 400 400" preserveAspectRatio="none">
-                      <path
-                        d="M 0 200 Q 100 150 200 200 T 400 200"
-                        fill="none"
-                        stroke="#4169E1"
-                        strokeWidth="2"
-                        opacity="0.3"
-                      />
-                      <path
-                        d="M 0 250 Q 150 200 300 250 T 400 250"
-                        fill="none"
-                        stroke="#4169E1"
-                        strokeWidth="2"
-                        opacity="0.2"
-                      />
-                    </svg>
+              <div className="h-full w-full border-2 border-white rounded-xl p-1">
+                <div className="h-full w-full bg-black rounded-lg flex flex-col justify-between">
+                  <div className="flex-1 flex items-center justify-center">
+                    {value.icon}
                   </div>
 
-                  <div className="w-full h-full flex items-center justify-center p-4 relative z-10">
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="w-40 h-40 rounded-full bg-gradient-to-br from-white/20 via-white/10 to-transparent blur-2xl"></div>
-                    </div>
-                    <div className="relative z-10">
-                      {value.icon}
-                    </div>
-                  </div>
-
-                  <div className="w-full h-full flex items-center justify-center flex-col gap-2 p-4 relative z-10">
-                    <h1 className="text-2xl font-semibold text-[#4169E1] text-center">
+                  <div className="px-4 pb-6 text-center">
+                    <h3 className="text-2xl font-semibold text-[#4169E1]">
                       {value.title}
-                    </h1>
-                    <p className="text-sm text-gray-400 text-center leading-relaxed max-w-xs">
+                    </h3>
+                    <p className="text-sm text-gray-400 mt-2">
                       {value.description}
                     </p>
-
                   </div>
                 </div>
               </div>
@@ -177,4 +132,3 @@ export default function Values() {
     </div>
   );
 }
-
