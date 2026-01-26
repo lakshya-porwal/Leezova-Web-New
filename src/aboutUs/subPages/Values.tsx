@@ -14,37 +14,37 @@ export default function Values() {
     {
       title: "Integrity",
       description: "We conduct our business with honesty, transparency, and ethical practices in all our interactions.",
-      icon: <img src="/Integrity.svg" alt="Integrity" className="w-32 h-32 group-hover:brightness-0 group-hover:invert transition-all" />,
+      icon: <img src="/Integrity.svg" alt="Integrity" loading="lazy" decoding="async" className="w-32 h-32 group-hover:brightness-0 group-hover:invert transition-all" />,
       padding: "md:pt-10 pt-8",
     },
     {
       title: "Innovation",
       description: "We embrace new technologies and creative solutions to solve complex challenges and drive progress.",
-      icon: <img src="/Vector (1).svg" alt="Innovation" className="w-32 h-32 group-hover:brightness-0 group-hover:invert transition-all" />,
+      icon: <img src="/Vector (1).svg" alt="Innovation" loading="lazy" decoding="async" className="w-32 h-32 group-hover:brightness-0 group-hover:invert transition-all" />,
       padding: "md:pb-10",
     },
     {
       title: "Excellence",
       description: "We strive for the highest quality in every project, setting and exceeding industry standards.",
-      icon: <img src="/Vector.svg" alt="Excellence" className="w-32 h-32 group-hover:brightness-0 group-hover:invert transition-all" />,
+      icon: <img src="/Vector.svg" alt="Excellence" loading="lazy" decoding="async" className="w-32 h-32 group-hover:brightness-0 group-hover:invert transition-all" />,
       padding: "md:pt-10",
     },
     {
       title: "Collaboration",
       description: "We believe in the power of teamwork, both within our organization and with our clients.",
-      icon: <img src="/Group.svg" alt="Collaboration" className="w-32 h-32 group-hover:brightness-0 group-hover:invert transition-all" />,
+      icon: <img src="/Group.svg" alt="Collaboration" loading="lazy" decoding="async" className="w-32 h-32 group-hover:brightness-0 group-hover:invert transition-all" />,
       padding: "md:pt-10",
     },
     {
       title: "Customer Focus",
       description: "Our clients' success is our success. We prioritize their needs and work tirelessly to deliver value.",
-      icon: <img src="/User Focus.svg" alt="Customer Focus" className="w-32 h-32 group-hover:brightness-0 group-hover:invert transition-all" />,
+      icon: <img src="/User Focus.svg" alt="Customer Focus" loading="lazy" decoding="async" className="w-32 h-32 group-hover:brightness-0 group-hover:invert transition-all" />,
       padding: "md:pb-10",
     },
     {
       title: "Sustainability",
       description: "We are committed to sustainable practices and long-term thinking in all our endeavors.",
-      icon: <img src="/Sustainability.svg" alt="Sustainability" className="w-32 h-32 group-hover:brightness-0 group-hover:invert transition-all" />,
+      icon: <img src="/Sustainability.svg" alt="Sustainability" loading="lazy" decoding="async" className="w-32 h-32 group-hover:brightness-0 group-hover:invert transition-all" />,
       padding: "md:pt-10",
     },
   ];

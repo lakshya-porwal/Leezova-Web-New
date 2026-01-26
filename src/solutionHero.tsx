@@ -118,7 +118,9 @@ function SolutionHero() {
       >
         <img 
           src="/floating head.svg" 
-          alt="Floating Head" 
+          alt="Floating Head"
+          loading="eager"
+          decoding="async"
           className='w-full h-auto object-contain'
         />
       </div>
@@ -136,7 +138,9 @@ function SolutionHero() {
       >
         <img 
           src="/backscreen.svg" 
-          alt="Backscreen" 
+          alt="Backscreen"
+          loading="eager"
+          decoding="async"
           className='w-full h-full object-cover'
           style={{
             objectPosition: 'center top'

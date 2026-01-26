@@ -5,6 +5,14 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>my-project</title>
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preload" as="image" href="/logoSmall.png" fetchpriority="high" />
+    <link rel="preload" as="image" href="/mainLogo.png" fetchpriority="high" />
+    <link rel="preload" as="image" href="/macBook.png" fetchpriority="low" />
+    
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   </head>
   <body>
     <div id="root"></div>
