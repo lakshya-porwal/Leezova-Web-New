@@ -169,7 +169,7 @@ function Hero3() {
 
       <section className="w-full py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl sm:text-4xl md:text-8xl font-bold text-white text-center mb-4">
+          <h2 className="text-5xl sm:text-6xl md:text-8xl font-bold text-white text-center mb-6">
             Our Process
           </h2>
 
@@ -230,7 +230,7 @@ function Hero3() {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
 
                 <div className="relative z-10 text-center">
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 sm:mb-8 md:mb-10">
+                  <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 sm:mb-8 md:mb-10">
                     The Road We've Paved Together
                   </h2>
 

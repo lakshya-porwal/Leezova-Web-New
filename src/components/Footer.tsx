@@ -34,8 +34,20 @@ export default function Footer() {
           </div> */}
 
           <Link to="/" className="flex items-center gap-2">
-            <img src="/logoSmall.png" className="h-4 md:h-8 brightness-0 invert" />
-            <img src="/mainLogo.png" className="hidden md:block h-4 brightness-0 invert" />
+            <img 
+              src="/logoSmall.png" 
+              alt="LEEZOVA Logo"
+              loading="lazy"
+              decoding="async"
+              className="h-4 md:h-8 brightness-0 invert" 
+            />
+            <img 
+              src="/mainLogo.png" 
+              alt="LEEZOVA"
+              loading="lazy"
+              decoding="async"
+              className="hidden md:block h-4 brightness-0 invert" 
+            />
           </Link>
         </div>
 

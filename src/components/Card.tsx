@@ -88,9 +88,23 @@ const Media = ({ media }: { media?: string }) => {
   return (
     <div className="h-[70%] relative overflow-hidden rounded-b-[39px]">
       {isVideo ? (
-        <video src={media} autoPlay muted loop playsInline className="h-full w-full object-cover" />
+        <video 
+          src={media} 
+          autoPlay 
+          muted 
+          loop 
+          playsInline 
+          preload="metadata"
+          className="h-full w-full object-cover" 
+        />
       ) : (
-        <img src={media} className="h-full w-full object-cover" alt="" />
+        <img 
+          src={media} 
+          alt="Card media"
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover" 
+        />
       )}
       <div className="absolute inset-0 pointer-events-none gradient" />
     </div>

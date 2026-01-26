@@ -36,8 +36,22 @@ PlaceholderIcon.displayName = 'PlaceholderIcon';
 
 const Logo = React.memo(() => (
   <Link to="/" className="flex items-center gap-2">
-    <img src="/logoSmall.png" alt="LEEZOVA" className="h-8 md:h-6 w-auto brightness-0 invert" />
-    <img src="/mainLogo.png" alt="LEEZOVA" className="hidden md:block h-2 md:h-4 w-auto brightness-0 invert" />
+    <img 
+      src="/logoSmall.png" 
+      alt="LEEZOVA" 
+      loading="eager"
+      decoding="async"
+      fetchPriority="high"
+      className="h-8 md:h-6 w-auto brightness-0 invert" 
+    />
+    <img 
+      src="/mainLogo.png" 
+      alt="LEEZOVA" 
+      loading="eager"
+      decoding="async"
+      fetchPriority="high"
+      className="hidden md:block h-2 md:h-4 w-auto brightness-0 invert" 
+    />
   </Link>
 ));
 Logo.displayName = 'Logo';
