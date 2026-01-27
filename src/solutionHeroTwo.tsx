@@ -1,57 +1,57 @@
 function SolutionHeroTwo() {
-  const powerPlatformApps = [
+  const domainSolutions1 = [
     {
-      name: 'Power Apps',
-      logo: '🔄',
-      description: 'Build apps in hours instead of months that can easily connect to data, use Excel-like expressions to add logic, and work on the web and on iOS and Android devices.'
+      name: 'Healthcare',
+      logo: '🏥',
+      description: 'Electronic Health Records (EHR), Telemedicine platforms, Patient management systems, Medical billing solutions, and Healthcare analytics dashboards.'
     },
     {
-      name: 'Power BI',
-      logo: '📊',
-      description: 'Integrate data from numerous data sources to create interactive, engaging dashboards and reports that provide useful insights and drive business results.'
+      name: 'Finance & Banking',
+      logo: '💳',
+      description: 'Core banking systems, Payment processing platforms, Risk management tools, Financial reporting dashboards, and Loan management systems.'
     },
     {
-      name: 'Power automate',
-      logo: '✈️',
-      description: 'Connect to hundreds of popular apps and services to embed powerful workflow automation directly into your apps without writing code.'
+      name: 'E-Commerce & Retail',
+      logo: '🛒',
+      description: 'Online storefronts, Inventory management systems, Order processing platforms, Customer relationship management, and Analytics dashboards.'
     },
     {
-      name: 'Power Virtual Agents',
-      logo: '🤖',
-      description: 'Easily build chatbots to engage in natural language conversations with customers and employees. No code required.'
+      name: 'Manufacturing',
+      logo: '🏭',
+      description: 'Production planning systems, Quality control management, Supply chain optimization, Equipment monitoring dashboards, and ERP integration.'
     }
   ];
 
-  const office365Apps = [
+  const domainSolutions2 = [
     {
-      name: 'Word',
-      logo: '📝',
-      description: 'Create impressive documents and improve your writing skills with built-in intelligent features.'
+      name: 'Education',
+      logo: '🎓',
+      description: 'Learning Management Systems (LMS), Student information systems, Online course platforms, and Academic performance analytics.'
     },
     {
-      name: 'Excel',
-      logo: '📈',
-      description: 'Create impressive documents and improve your writing skills with built-in intelligent features.'
+      name: 'Real Estate',
+      logo: '🏠',
+      description: 'Property management systems, Virtual tour platforms, CRM for agents, and Real estate analytics dashboards.'
     },
     {
-      name: 'Powerpoint',
-      logo: '📊',
-      description: 'Create impressive documents and improve your writing skills with built-in intelligent features.'
+      name: 'Logistics & Transportation',
+      logo: '🚚',
+      description: 'Fleet management systems, Route optimization tools, Delivery tracking platforms, and Logistics analytics dashboards.'
     },
     {
-      name: 'Microsoft teams',
-      logo: '👥',
-      description: 'Create impressive documents and improve your writing skills with built-in intelligent features.'
+      name: 'Hospitality',
+      logo: '🏨',
+      description: 'Hotel management systems, Booking platforms, Guest experience apps, and Revenue management dashboards.'
     },
     {
-      name: 'Outlook',
-      logo: '📧',
-      description: 'Create impressive documents and improve your writing skills with built-in intelligent features.'
+      name: 'Energy & Utilities',
+      logo: '⚡',
+      description: 'Smart grid management, Energy monitoring systems, Utility billing platforms, and Consumption analytics dashboards.'
     },
     {
-      name: 'OneDrive',
-      logo: '☁️',
-      description: 'Create impressive documents and improve your writing skills with built-in intelligent features.'
+      name: 'Government & Public Sector',
+      logo: '🏛️',
+      description: 'Citizen service portals, Document management systems, Public service platforms, and Government analytics dashboards.'
     }
   ];
 
@@ -64,59 +64,56 @@ function SolutionHeroTwo() {
     >
 
       <div className='relative z-10 px-8 md:px-16 lg:px-24 py-12 md:py-16'>
-        {/* Section 1: Power Platform - Business intelligence */}
+        {/* Section 1: Core Domains */}
         <div className='mb-20'>
-          <h2 className='text-2xl md:text-3xl font-semibold text-white mb-10'>Power Platform - Business intelligence</h2>
+          <h2 className='text-2xl md:text-3xl font-semibold text-white mb-4'>Core Domains & Solutions</h2>
+          <div className="h-px block border-none bg-gradient-line w-full mb-10" style={{ background: 'linear-gradient(90deg, #fff0 15%, #ffffffb3 50%, #fff0 85%)' }}></div>
 
           <div className='relative'>
-            {/* Connecting line - passes through the center of circles */}
-            <div className='absolute top-10 left-[5%] right-[5%] h-0.5 bg-gray-600/50 hidden lg:block' />
-
+           
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 relative'>
-              {powerPlatformApps.map((app, index) => (
+              {domainSolutions1.map((domain, index) => (
                 <div key={index} className='flex flex-col items-center'>
                   {/* Logo with circular white background */}
                   <div className='relative mb-5 z-10'>
                     <div className='w-16 h-16 rounded-full bg-white flex items-center justify-center text-3xl shadow-md relative'>
-                      {app.logo}
+                      {domain.logo}
                     </div>
                   </div>
 
-                  {/* App name */}
-                  <h3 className='text-lg font-medium text-white mb-3 text-center'>{app.name}</h3>
+                  {/* Domain name */}
+                  <h3 className='text-lg font-medium text-white mb-3 text-center'>{domain.name}</h3>
 
                   {/* Description */}
-                  <p className='text-gray-300 text-sm leading-relaxed text-center'>{app.description}</p>
+                  <p className='text-gray-300 text-sm leading-relaxed text-center'>{domain.description}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Section 2: Microsoft Office 365 */}
+        {/* Section 2: Additional Domains */}
         <div>
-          <h2 className='text-2xl md:text-3xl font-semibold text-white mb-10'>Microsoft Office 365</h2>
+          <h2 className='text-2xl md:text-3xl font-semibold text-white mb-4'>Additional Domains & Solutions</h2>
+          <div className="h-px block border-none bg-gradient-line w-full mb-10" style={{ background: 'linear-gradient(90deg, #fff0 15%, #ffffffb3 50%, #fff0 85%)' }}></div>
 
           <div className='relative'>
-            {/* Connecting lines - two rows, each connecting 3 circles */}
-            <div className='absolute top-10 left-[8%] right-[8%] h-0.5 bg-gray-600/50 hidden lg:block' />
-            <div className='absolute top-[calc(10rem+2.5rem)] left-[8%] right-[8%] h-0.5 bg-gray-600/50 hidden lg:block' />
-
+          
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-4 relative'>
-              {office365Apps.map((app, index) => (
+              {domainSolutions2.map((domain, index) => (
                 <div key={index} className='flex flex-col items-center'>
                   {/* Logo with circular white background */}
                   <div className='relative mb-5 z-10'>
                     <div className='w-16 h-16 rounded-full bg-white flex items-center justify-center text-3xl shadow-md relative'>
-                      {app.logo}
+                      {domain.logo}
                     </div>
                   </div>
 
-                  {/* App name */}
-                  <h3 className='text-lg font-medium text-white mb-3 text-center'>{app.name}</h3>
+                  {/* Domain name */}
+                  <h3 className='text-lg font-medium text-white mb-3 text-center'>{domain.name}</h3>
 
                   {/* Description */}
-                  <p className='text-gray-300 text-sm leading-relaxed text-center'>{app.description}</p>
+                  <p className='text-gray-300 text-sm leading-relaxed text-center'>{domain.description}</p>
                 </div>
               ))}
             </div>
