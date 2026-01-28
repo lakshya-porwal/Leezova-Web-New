@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Grid } from "../../components";
+import { Arrow } from "../../heroIcons/icons";
 
 export default function Team() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -19,6 +20,25 @@ export default function Team() {
     setSelectedImage(null);
   };
 
+  // arrow left right 
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollLeft = () => {
+    scrollRef.current?.scrollBy({
+      left: -400, // how much it moves per click
+      behavior: "smooth",
+    });
+  };
+
+  const scrollRight = () => {
+    scrollRef.current?.scrollBy({
+      left: 400,
+      behavior: "smooth",
+    });
+  };
+
+
+
   return (
     <>
       <div className="min-h-screen w-full md:pt-20 mt-5 relative bg-black">
@@ -37,7 +57,7 @@ export default function Team() {
               at Leezova
             </span>
           </div>
-          
+
           {/* Gradient Line */}
           <div className="relative w-full max-w-4xl mt-8">
             <div className="h-px block border-none w-full" style={{ background: 'linear-gradient(90deg, #fff0 15%, #ffffffb3 50%, #fff0 85%)' }}></div>
@@ -45,7 +65,9 @@ export default function Team() {
         </div>
 
         {/* Gallery Grid Section */}
-        <div className="flex flex-col md:flex-row items-center h-full gap-8 p-8 pt-22 md:pt-44 md:pb-0 overflow-x-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <div
+          ref={scrollRef}
+          className="flex flex-col md:flex-row items-center h-full gap-8 p-8 pt-22 md:pt-44 md:pb-0 overflow-x-scroll hide-scrollbar scroll-smooth">
           {Array.from({ length: 3 }).map((_, index) => (
             <Grid
               key={index}
@@ -56,10 +78,16 @@ export default function Team() {
           ))}
         </div>
 
+        {/* arrow Section */}
+        <div className=" hidden lg:flex h-full justify-center items-center gap-6">
+          <span onClick={scrollLeft} className="cursor-pointer"><Arrow className="rotate-90 h-10 fill-white" /></span>
+          <span onClick={scrollRight} className="cursor-pointer"> <Arrow className="-rotate-90 h-10 fill-white" /></span>
+        </div>
+
         {/* Bottom Section */}
         <div className="h-screen flex items-center justify-center px-6 my-20">
           <div className="w-full max-w-6xl aspect-[21/9] rounded-2xl overflow-hidden bg-gray-900 p-2">
-            <div className="w-full h-full rounded-lg"></div>
+            <div className="w-full h-full rounded-lg flex justify-center items-center"> video</div>
           </div>
         </div>
       </div>
