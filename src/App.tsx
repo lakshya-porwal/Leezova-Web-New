@@ -17,6 +17,7 @@ import Hero1 from './heroMain'
 import Navbar from './components/NavBar'
 import Footer from './components/Footer'
 import Erp from './products/subPages/Erp'
+import RockBottom from './trustedBy/RockBottom'
 // import LeezovaStamp from './leezovaStamp'
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
         {/* <Route path="/products/policy-engine" element={<PolicyEngine />} /> */}
         {/* <Route path="/products/data-platform" element={<DataPlatform />} /> */}
         <Route path="/products/Erp" element={<Erp/>} />
+        <Route path="/trustedBy/RockBottom.tsx" element={<RockBottom/>} />
         <Route path="/solutions" element={<Solution />} />
       </Routes>
       <Footer />

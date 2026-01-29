@@ -52,6 +52,21 @@ export const navRoutes: NavRoute[] = [
     ],
   },
   {
+    label: "Trusted By",
+    path: null,
+    hasDropdown: true,
+    dropdownItems: [
+      
+      {
+        label: "Rock Bottom ",
+        path: "/trustedBy/RockBottom.tsx",
+        description: "Experience luxury amidst nature's paradise",
+        image: "/Platform.webp",
+      },
+     
+    ],
+  },
+  {
     label: "Solutions",
     hasDropdown:false,
     path: "/solutions",
