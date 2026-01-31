@@ -64,28 +64,6 @@ export default function OurMission() {
                 }}
               />
 
-              {/* Ribbon-like text overlay wrapping bottom-left */}
-              <div className="absolute bottom-0 left-0 overflow-hidden pointer-events-none">
-                <div
-                  className="absolute bottom-4 left-4 transform -rotate-12 origin-bottom-left"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, rgba(135, 206, 235, 0.2) 0%, rgba(135, 206, 235, 0.1) 100%)",
-                    padding: "8px 20px",
-                    borderRadius: "20px",
-                  }}
-                >
-                  <span
-                    className="text-xs md:text-sm font-bold whitespace-nowrap border-4"
-                    style={{
-                      color: "#4A90E2",
-                      opacity: 0.6,
-                    }}
-                  >
-                    Solutions, Global Grow
-                  </span>
-                </div>
-              </div>
 
               {/* Angular N/M logo in top-left */}
               <div className="absolute top-3 left-3 z-10">
