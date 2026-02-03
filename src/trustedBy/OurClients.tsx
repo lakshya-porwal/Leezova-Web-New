@@ -1,16 +1,16 @@
 
 
-function RockBottom() {
+function OurClients() {
   return (
     <div className="h-full w-full flex flex-col items-center justify-center mt-8 sm:mt-16 px-4 sm:px-8 md:px-16 py-6 sm:py-10">
       <p className="text-2xl sm:text-3xl md:text-5xl text-blue-400  tracking-widest uppercase">
         Trusted By
       </p>
-      <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold leading-tight">
+      <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold leading-tight md:mb-3">
         Rockbottom.in <br />
         <span className="text-blue-500">Elevated by Leezova</span>
       </h1>
-      <p className="text-gray-300 text-sm sm:text-lg md:text-3xl mb-4 px-3">
+      <p className="text-gray-300 text-sm sm:text-lg md:text-xl mb-4 px-3 md:px-8">
         We transformed Rockbottom’s digital presence with a faster,
         modern and conversion-focused website experience.
       </p>
@@ -117,4 +117,4 @@ function RockBottom() {
   );
 }
 
-export default RockBottom;
+export default OurClients;
