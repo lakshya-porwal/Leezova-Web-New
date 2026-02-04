@@ -38,18 +38,33 @@ export const navRoutes: NavRoute[] = [
   },
   {
     label: "Products",
-    path: null,
-    hasDropdown: true,
-    dropdownItems: [
+    path:"/products/Erp",
+    hasDropdown: false,
+    // dropdownItems: [
       
-      {
-        label: "Erp",
-        path: "/products/Erp",
-        description: "Continuous compliance and re-KYC",
-        image: "/Platform.webp",
-      },
+    //   {
+    //     label: "Erp",
+    //     path: "/products/Erp",
+    //     description: "Continuous compliance and re-KYC",
+    //     image: "/Platform.webp",
+    //   },
      
-    ],
+    // ],
+  },
+  {
+    label: "Trusted By",
+    path:  "/trustedBy/RockBottom.tsx",
+    hasDropdown: false,
+    // dropdownItems: [
+      
+    //   {
+    //     label: "Rock Bottom ",
+    //     path: "/trustedBy/RockBottom.tsx",
+    //     description: "Experience luxury amidst nature's paradise",
+    //     image: "/public/rockBottomSs.png",
+    //   },
+     
+    // ],
   },
   {
     label: "Solutions",
