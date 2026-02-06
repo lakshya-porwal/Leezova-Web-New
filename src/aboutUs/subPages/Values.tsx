@@ -1,14 +1,4 @@
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
 export default function Values() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const values = [
     {
@@ -49,45 +39,7 @@ export default function Values() {
     },
   ];
 
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    const cards = cardRefs.current.filter(Boolean) as HTMLDivElement[];
-    const middleCardIndices = [1, 4];
-
-    const mm = gsap.matchMedia();
-
-    // ✅ Enable animation only on lg and above
-    mm.add("(min-width: 1024px)", () => {
-      cards.forEach((card, index) => {
-        gsap.to(card, {
-          y: middleCardIndices.includes(index) ? 80 : -80,
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            scrub: 1.5,
-          },
-        });
-      });
-
-      ScrollTrigger.refresh();
-    });
-
-    // No animations on sm and md screens
-    mm.add("(max-width: 1023px)", () => {
-      cards.forEach((card) => {
-        gsap.to(card, { y: 0 });
-      });
-    });
-
-    return () => {
-      mm.revert(); // cleanup on resize/unmount
-    };
-  }, []);
-
-
-  return (
+return (
     <div className="min-h-screen bg-black pt-24 pb-12 relative">
       <div className="absolute inset-0 flex justify-center pointer-events-none z-0">
         <h1 className="mt-8 md:mt-20 md:text-[50px] text-[40px] font-bold text-white select-none">
@@ -96,17 +48,10 @@ export default function Values() {
       </div>
 
       <div className="relative z-10 mt-24 px-4 sm:px-6">
-        <div
-          ref={containerRef}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-x-8 place-items-center max-w-7xl mx-auto"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-x-8 place-items-center max-w-7xl mx-auto">
           {values.map((value, index) => (
             <div
               key={index}
-              ref={(el) => {
-                cardRefs.current[index] = el;
-              }}
-
               className={`h-[400px] w-full max-w-[350px] ${value.padding} group px-4 sm:px-0`}
             >
               <div className="h-full w-full border-2 border-white rounded-xl p-1">
