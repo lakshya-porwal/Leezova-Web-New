@@ -6,145 +6,58 @@ export interface ScheduleModalProps {
   onClose: () => void;
 }
 
-const EMAILJS_SERVICE_ID = "service_t5pep46"; // Your EmailJS Service ID
-const EMAILJS_TEMPLATE_ID = "template_ygfnv6c"; // Replace with your EmailJS Template ID (get from Email Templates section)
-const EMAILJS_PUBLIC_KEY = "XmJ-Y5bkY3VCVlBYh"; // Replace with your EmailJS Public Key (get from Account > API Keys)
-const RECIPIENT_EMAIL = "lakshya.porwal@leezova.com"; // Email address to receive submissions
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as
+  | string
+  | undefined;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as
+  | string
+  | undefined;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as
+  | string
+  | undefined;
+const RECIPIENT_EMAIL = import.meta.env.VITE_EMAILJS_RECIPIENT_EMAIL as
+  | string
+  | undefined;
 
-const CustomTimeDropdown = ({
-  value,
-  onChange,
-  slots,
-  timeError,
-}: {
-  value: string;
-  onChange: (val: string) => void;
-  slots: string[];
-  timeError: string;
-}) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+type ScheduleFormData = {
+  name: string;
+  email: string;
+  phone: string;
+  description: string;
+};
 
-  const formatTimeForDisplay = (time: string): string => {
-    if (!time) return "";
-    const [hours, minutes] = time.split(":").map(Number);
-    const period = hours >= 12 ? "PM" : "AM";
-    const displayHours = hours > 12 ? hours - 12 : hours === 0 ? 12 : hours;
-    return `${displayHours}:${minutes.toString().padStart(2, "0")} ${period}`;
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(e.target as Node)
-      ) {
-        setIsOpen(false);
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-      return () =>
-        document.removeEventListener("mousedown", handleClickOutside);
-    }
-  }, [isOpen]);
-
-  return (
-    <div className="relative" ref={dropdownRef}>
-      <button
-        type="button"
-        onClick={() => setIsOpen(!isOpen)}
-        className={`w-full px-3.5 py-2.5 pr-10 bg-white/5 backdrop-blur-sm border ${timeError ? "border-red-400/50" : "border-white/20"} rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all cursor-pointer text-left flex items-center justify-between`}
-      >
-        <span className="text-xs sm:text-sm lg:text-base">
-          {value ? formatTimeForDisplay(value) : "Select Time"}
-        </span>
-        <svg
-          className="w-5 h-5 text-gray-400 flex-shrink-0"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </button>
-
-      {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-1 bg-[#1a1f2e] border border-white/20 rounded-lg shadow-lg z-50 max-h-64 overflow-y-auto">
-          <div className="p-2 space-y-1">
-            {slots.map((slot) => (
-              <button
-                key={slot}
-                type="button"
-                onClick={() => {
-                  onChange(slot);
-                  setIsOpen(false);
-                }}
-                className={`w-full px-3 py-2 text-sm rounded-md transition-colors text-left ${
-                  value === slot
-                    ? "bg-blue-600 text-white"
-                    : "text-gray-300 hover:bg-white/10"
-                }`}
-              >
-                {formatTimeForDisplay(slot)}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
-  );
+const INITIAL_FORM_DATA: ScheduleFormData = {
+  name: "",
+  email: "",
+  phone: "",
+  description: "",
 };
 
 export const ScheduleModal = React.memo(
   ({ isOpen, onClose }: ScheduleModalProps) => {
-    // Generate time slots from 10:00 AM to 6:30 PM in 30-minute intervals
-    const generateTimeSlots = (): string[] => {
-      const slots: string[] = [];
-      for (let hour = 10; hour <= 18; hour++) {
-        for (let minute = 0; minute < 60; minute += 30) {
-          if (hour === 18 && minute > 30) break; // Stop at 6:30 PM
-          const timeString = `${hour.toString().padStart(2, "0")}:${minute.toString().padStart(2, "0")}`;
-          slots.push(timeString);
-        }
-      }
-      return slots;
-    };
-
-    const timeSlots = generateTimeSlots();
-
-    const [formData, setFormData] = useState({
-      name: "",
-      email: "",
-      phone: "",
-      date: "",
-      time: "",
-      description: "",
-    });
-    const [timeError, setTimeError] = useState("");
+    const [formData, setFormData] =
+      useState<ScheduleFormData>(INITIAL_FORM_DATA);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<
       "idle" | "success" | "error"
     >("idle");
     const [errorMessage, setErrorMessage] = useState("");
+    const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    const isEmailConfigured = Boolean(
+      EMAILJS_SERVICE_ID &&
+        EMAILJS_TEMPLATE_ID &&
+        EMAILJS_PUBLIC_KEY &&
+        RECIPIENT_EMAIL
+    );
 
     // Reset form and close modal
     const handleClose = useCallback(() => {
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        date: "",
-        time: "",
-        description: "",
-      });
-      setTimeError("");
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+        closeTimeoutRef.current = null;
+      }
+      setFormData(INITIAL_FORM_DATA);
       setSubmitStatus("idle");
       setErrorMessage("");
       setIsSubmitting(false);
@@ -174,24 +87,22 @@ export const ScheduleModal = React.memo(
       }
     }, [isOpen, handleClose]);
 
-    const handleTimeChange = (time: string) => {
-      setFormData((prev) => ({ ...prev, time }));
-      setTimeError("");
-    };
+    useEffect(() => {
+      return () => {
+        if (closeTimeoutRef.current) {
+          clearTimeout(closeTimeoutRef.current);
+        }
+      };
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
 
-      if (!formData.time) {
-        setTimeError("Please select a time slot");
-        return;
-      }
-
       // Validate EmailJS configuration
-      if (!EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      if (!isEmailConfigured) {
         setSubmitStatus("error");
         setErrorMessage(
-          "Email service is not configured. Please set up EmailJS Template ID and Public Key.",
+          "Email service is not configured. Please complete the EmailJS setup."
         );
         return;
       }
@@ -201,30 +112,33 @@ export const ScheduleModal = React.memo(
       setErrorMessage("");
 
       try {
+        const trimmedForm = {
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          description: formData.description.trim(),
+        };
+
         // Prepare template parameters for EmailJS
         const templateParams = {
-          to_email: RECIPIENT_EMAIL,
-          from_name: formData.name,
-          from_email: formData.email,
-          phone: formData.phone || "Not provided",
-          preferred_date: formData.date,
-          preferred_time: formData.time,
+          to_email: RECIPIENT_EMAIL ?? "",
+          from_name: trimmedForm.name,
+          from_email: trimmedForm.email,
+          phone: trimmedForm.phone || "Not provided",
           description:
-            formData.description || "No additional description provided.",
-          subject: `New Contact Request from ${formData.name}`,
+            trimmedForm.description || "No additional description provided.",
+          subject: `New Contact Request from ${trimmedForm.name}`,
           message: `Dear Team,
 
 A potential client wants to set up a call with us. Please find the details below:
 
 Contact Details:
-- Name: ${formData.name}
-- Email: ${formData.email}
-- Phone: ${formData.phone || "Not provided"}
-- Preferred Date: ${formData.date}
-- Preferred Time: ${formData.time}
+- Name: ${trimmedForm.name}
+- Email: ${trimmedForm.email}
+- Phone: ${trimmedForm.phone || "Not provided"}
 
 Description:
-${formData.description || "No additional description provided."}
+${trimmedForm.description || "No additional description provided."}
 
 Please contact them to schedule the call.
 
@@ -234,35 +148,40 @@ Website Contact Form`,
 
         // Send email using EmailJS
         await emailjs.send(
-          EMAILJS_SERVICE_ID,
-          EMAILJS_TEMPLATE_ID,
+          EMAILJS_SERVICE_ID as string,
+          EMAILJS_TEMPLATE_ID as string,
           templateParams,
-          EMAILJS_PUBLIC_KEY,
+          EMAILJS_PUBLIC_KEY as string
         );
 
         setSubmitStatus("success");
+        setIsSubmitting(false);
 
         // Reset form and close modal after a short delay
-        setTimeout(() => {
+        closeTimeoutRef.current = setTimeout(() => {
           handleClose();
         }, 2000);
       } catch (error) {
         console.error("Email sending failed:", error);
         setSubmitStatus("error");
         setErrorMessage(
-          "Failed to send email. Please try again later or contact us directly.",
+          "Failed to send email. Please try again later or contact us directly."
         );
         setIsSubmitting(false);
       }
     };
 
     const handleChange = (
-      e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+      e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
     ) => {
       setFormData((prev) => ({
         ...prev,
         [e.target.name]: e.target.value,
       }));
+      if (submitStatus !== "idle") {
+        setSubmitStatus("idle");
+        setErrorMessage("");
+      }
     };
 
     if (!isOpen) return null;
@@ -284,8 +203,12 @@ Website Contact Form`,
           <div className="relative px-5 pt-5 pb-3 border-b border-white/10 flex-shrink-0">
             <div className="flex items-start justify-between">
               <div>
-              <h2 className="text-lg font-bold text-white text-left">Start Our Journey Together</h2>
-                            <p className="text-xs text-gray-300 mt-1">Tell us about your vision-let's build it together!</p>
+                <h2 className="text-lg font-bold text-white text-left">
+                  Start Our Journey Together
+                </h2>
+                <p className="text-xs text-gray-300 mt-1">
+                  Tell us about your vision-let's build it together!
+                </p>
               </div>
               <button
                 onClick={handleClose}
@@ -373,65 +296,6 @@ Website Contact Form`,
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label
-                  htmlFor="date"
-                  className="block text-sm font-medium text-gray-200 mb-1.5"
-                >
-                  Date <span className="text-red-400">*</span>
-                </label>
-                <div className="relative">
-                  <input
-                    type="date"
-                    id="date"
-                    name="date"
-                    required
-                    value={formData.date}
-                    onChange={handleChange}
-                    min={new Date().toISOString().split("T")[0]}
-                    className="w-full px-3.5 py-2.5 pr-10 bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all cursor-pointer [color-scheme:dark]"
-                  />
-                  <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                    <svg
-                      className="w-5 h-5 text-gray-400"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="time"
-                  className="block text-sm font-medium text-gray-200 mb-1.5"
-                >
-                  Time <span className="text-red-400">*</span>{" "}
-                  <span className="md:text-xs text-[8px] text-gray-400 font-normal">
-                    (10 AM - 6:30 PM)
-                  </span>
-                </label>
-                <CustomTimeDropdown
-                  value={formData.time}
-                  onChange={handleTimeChange}
-                  slots={timeSlots}
-                  timeError={timeError}
-                />
-                {timeError && (
-                  <p className="mt-1 text-xs text-red-400">{timeError}</p>
-                )}
-              </div>
-            </div>
-
             <div>
               <label
                 htmlFor="description"
@@ -450,6 +314,15 @@ Website Contact Form`,
                 placeholder="Tell us about your requirements..."
               />
             </div>
+
+            {!isEmailConfigured && (
+              <div className="pt-2 px-4 py-3 bg-amber-500/20 backdrop-blur-sm border border-amber-500/30 rounded-lg">
+                <p className="text-sm text-amber-200 font-medium">
+                  Email service is not configured. Please complete the EmailJS
+                  setup before accepting submissions.
+                </p>
+              </div>
+            )}
 
             {/* Success/Error Messages */}
             {submitStatus === "success" && (
@@ -479,7 +352,11 @@ Website Contact Form`,
               </button>
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={
+                  isSubmitting ||
+                  submitStatus === "success" ||
+                  !isEmailConfigured
+                }
                 className="flex-1 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
@@ -515,6 +392,6 @@ Website Contact Form`,
         </div>
       </div>
     );
-  },
+  }
 );
 ScheduleModal.displayName = "ScheduleModal";
