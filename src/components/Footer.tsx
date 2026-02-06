@@ -149,7 +149,7 @@ export default function Footer() {
               {/* Timing */}
               <div className="flex items-center gap-3">
                 {/* <span className="md:text-lg text-base">🕒</span> */}
-                <span className="lg:text-lg md:text-sm text-sm text-left">Monday – Friday: 10:30am –6:30 pm</span>
+                <span className="lg:text-lg md:text-sm text-sm text-left">Monday – Friday: 10:30am – 6:30 pm</span>
               </div>
 
             </div>
