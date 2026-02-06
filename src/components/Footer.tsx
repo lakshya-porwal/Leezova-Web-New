@@ -106,6 +106,19 @@ export default function Footer() {
               <a href="https://linkedin.com" aria-label="LinkedIn">
                 <LinkedInIcon className="h-6 w-6 text-slate-300 hover:text-blue-400 transition-colors" />
               </a>
+              <a
+                href="https://maps.app.goo.gl/MMwzmSQ1XnRjbVwWA"
+                aria-label="Google Maps"
+              >
+                <svg
+                  className="h-6 w-6 text-slate-300 hover:text-blue-400 transition-colors"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M12 2.5c-3.59 0-6.5 2.9-6.5 6.5 0 4.69 6.5 12.5 6.5 12.5s6.5-7.81 6.5-12.5c0-3.6-2.91-6.5-6.5-6.5zm0 9.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z" />
+                </svg>
+              </a>
             </div>
             <div className="mt-3 space-y-1 text-sm text-slate-300">
               <a
