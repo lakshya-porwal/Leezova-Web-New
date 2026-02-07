@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Hero2 from './hero2';
-import Hero3 from './hero3';
-import Hero1 from './hero1';
-import { ScheduleModal } from './components/ContactUs';
+import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Hero2 from "./hero2";
+import Hero3 from "./hero3";
+import Hero1 from "./hero1";
+import { ScheduleModal } from "./components/ContactUs";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -63,12 +63,11 @@ const HeroMain = () => {
 
     return () => {
       ctx.revert();
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [location]); // Re-run when location changes
 
   return (
-
     // GSAP CODE
     // <div
     //   ref={containerRef}
@@ -96,18 +95,19 @@ const HeroMain = () => {
 
     // </div>
     <>
-      <div className='h-full w-full flex flex-col'>
-        <div className='h-screen w-full flex flex-col'>
+      <div className="h-auto w-full flex flex-col">
+        <div className="h-[65vh] sm:h-screen w-full flex flex-col">
           <Hero1 onStartProject={() => setScheduleModalOpen(true)} />
         </div>
-        <div className='h-full w-full flex flex-col'>
-
+        <div className="h-full w-full flex flex-col">
           <Hero2 />
           <Hero3 />
         </div>
-
       </div>
-      <ScheduleModal isOpen={scheduleModalOpen} onClose={() => setScheduleModalOpen(false)} />
+      <ScheduleModal
+        isOpen={scheduleModalOpen}
+        onClose={() => setScheduleModalOpen(false)}
+      />
     </>
   );
 };

@@ -103,6 +103,12 @@ body::-webkit-scrollbar {
   animation-delay: -16s;
 }
 
+@media (max-width: 640px) {
+  .hero-icon-filter {
+    filter: none !important;
+  }
+}
+
 .gradient{
    background:
            
