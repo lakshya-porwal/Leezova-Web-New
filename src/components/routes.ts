@@ -31,7 +31,7 @@ export const navRoutes: NavRoute[] = [
       {
         label: "Team",
         path: "/about-us/team",
-        description: "Meet our experts",
+        description: "Our Culture",
         image: "/TeamSs.png",
       },
     ],
