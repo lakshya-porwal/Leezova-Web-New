@@ -27,11 +27,11 @@ function Hero2() {
     <div className="h-full w-full relative overflow-hidden bg-black/[0.96] flex flex-col items-center justify-center py-[25px]">
       <div className="flex items-center gap-6 relative z-50">
         <span
-          className={`text-sm font-medium transition-colors duration-300 ${
+          className={`text-sm md:text-base font-medium transition-colors duration-300 ${
             !isImmersive ? "text-white" : "text-gray-400"
           }`}
         >
-          Traditional Web Page
+          Traditional Approach
         </span>
 
         <button
@@ -74,11 +74,11 @@ function Hero2() {
         </button>
 
         <span
-          className={`text-sm font-medium transition-colors duration-300 ${
+          className={`text-sm md:text-base font-medium transition-colors duration-300 ${
             isImmersive ? "text-white" : "text-gray-400"
           }`}
         >
-          Modern Web Page
+         Leezova Approach
         </span>
       </div>
 

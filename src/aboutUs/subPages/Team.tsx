@@ -6,10 +6,10 @@ export default function Team() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const desktopImagesOrder = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
   ];
   const mobileImagesOrder = [
-    1, 2, 3, 7, 8, 9, 13, 14, 15, 4, 5, 6, 10, 11, 12, 16, 17, 18,
+    1, 2, 3, 7, 8, 9, 4, 5, 6, 10, 11, 12,
   ];
 
   const handleImageClick = (imageNumber: number) => {
@@ -68,7 +68,7 @@ export default function Team() {
         <div
           ref={scrollRef}
           className="flex flex-col md:flex-row items-center h-full gap-8 p-8 pt-22 md:pt-44 md:pb-0 overflow-x-scroll hide-scrollbar scroll-smooth">
-          {Array.from({ length: 3 }).map((_, index) => (
+          {Array.from({ length: 2 }).map((_, index) => (
             <Grid
               key={index}
               desktopImages={desktopImagesOrder.slice(index * 6, (index + 1) * 6)}
