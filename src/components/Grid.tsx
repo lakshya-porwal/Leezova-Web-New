@@ -19,7 +19,7 @@ export const Grid = ({
             loading="lazy"
             decoding="async"
             onClick={() => onImageClick(mobileImages[index])}
-            className={`md:hidden bg-gray-300 w-full rounded-[20px] object-cover cursor-pointer hover:opacity-90 transition-opacity ${(index + 1) % 3 === 0 ? "h-[330px]" : "h-[182px]"}`}
+            className="md:hidden bg-gray-300 w-full h-[200px] rounded-[20px] object-cover cursor-pointer hover:opacity-90 transition-opacity"
           />
           {/* Desktop Images */}
           <img
