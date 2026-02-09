@@ -25,7 +25,7 @@ const generateRouteId = (route: NavRoute, index: number): string => {
   return route.path || `nav-${index}-${route.label.toLowerCase().replace(/\s+/g, '-')}`;
 };
 const PlaceholderIcon = React.memo(({ size = 24 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className="text-gray-400">
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className="text-gray-600">
     <rect x="3" y="3" width="6" height="6" stroke="currentColor" strokeWidth="2" fill="none" />
     <rect x="15" y="3" width="6" height="6" stroke="currentColor" strokeWidth="2" fill="none" />
     <rect x="3" y="15" width="6" height="6" stroke="currentColor" strokeWidth="2" fill="none" />
@@ -36,21 +36,22 @@ PlaceholderIcon.displayName = 'PlaceholderIcon';
 
 const Logo = React.memo(() => (
   <Link to="/" className="flex items-center gap-2">
-    <img 
-      src="/logoSmall.png" 
-      alt="LEEZOVA" 
+    <img
+      src="/logoSmall.png"
+      alt="LEEZOVA"
       loading="eager"
       decoding="async"
       fetchPriority="high"
-      className="h-8 md:h-6 w-auto brightness-0 invert" 
+      className="h-8 md:h-12 w-auto"
+
     />
-    <img 
-      src="/mainLogo.png" 
-      alt="LEEZOVA" 
+    <img
+      src="/mainLogo.png"
+      alt="LEEZOVA"
       loading="eager"
       decoding="async"
       fetchPriority="high"
-      className="hidden md:block h-2 md:h-4 w-auto brightness-0 invert" 
+      className="hidden md:block h-2 md:h-4 w-auto"
     />
   </Link>
 ));
@@ -68,7 +69,7 @@ const ImageWithFallback = React.memo(({
   const [failed, setFailed] = useState(false);
 
   return failed ? (
-    <div className="w-full h-48 bg-[#3a4155] rounded-lg flex items-center justify-center">
+    <div className="w-full h-48 bg-[#f3d8a7] rounded-lg flex items-center justify-center">
       <PlaceholderIcon size={48} />
     </div>
   ) : (
@@ -109,10 +110,10 @@ const DropdownPreview = ({
   }, [animationKey, isHovered]);
 
   return (
-    <div className="lg:p-6 bg-[#252b3f]">
+    <div className="lg:p-6 bg-[#fef3c7]">
       <div className="lg:mb-4">
         {item.image ? (
-          <div className="w-72 h-48 rounded-lg overflow-hidden mb-4 backdrop-blur-md bg-black/20">
+          <div className="w-72 h-48 rounded-lg overflow-hidden mb-4 backdrop-blur-md bg-white/20">
             <div
               className={`w-full h-full rounded-lg transition-transform duration-500 ease-in-out ${animate ? 'lg:translate-x-0 lg:translate-y-0' : 'lg:translate-x-2 lg:translate-y-2'}`}
             >
@@ -125,12 +126,12 @@ const DropdownPreview = ({
             </div>
           </div>
         ) : (
-          <div className="w-16 h-16 bg-[#3a4155] rounded-lg flex items-center justify-center mb-4">
+          <div className="w-16 h-16 bg-[#f3d8a7] rounded-lg flex items-center justify-center mb-4">
             <PlaceholderIcon size={24} />
           </div>
         )}
-        <h3 className="text-xl font-semibold text-white mb-2">{item.label}</h3>
-        <p className="text-sm text-gray-300 leading-relaxed">
+        <h3 className="text-xl font-semibold text-black mb-2">{item.label}</h3>
+        <p className="text-sm text-gray-700 leading-relaxed">
           {item.description || DEFAULT_DESCRIPTION}
         </p>
       </div>
@@ -154,7 +155,7 @@ const DesktopDropdown = React.memo(({
 
   return (
     <div className="lg:absolute lg:top-full lg:left-0 lg:pt-2 lg:w-[600px] z-[9999]">
-      <div className="bg-[#2d3447] lg:rounded-lg shadow-2xl overflow-hidden">
+      <div className="bg-[#fef3c7] lg:rounded-lg shadow-2xl overflow-hidden">
         <div className=" grid lg:grid lg:grid-cols-[1fr_1.4fr] lg:gap-0">
           <div className="lg:p-6 lg:space-y-4">
             <div className="lg:space-y-1">
@@ -162,13 +163,13 @@ const DesktopDropdown = React.memo(({
                 <Link
                   key={idx}
                   to={item.path}
-                  className="lg:block lg:px-3 lg:py-2 lg:rounded-md hover:bg-[#3a4155] cursor-pointer transition-colors text-left"
+                  className="lg:block lg:px-3 lg:py-2 lg:rounded-md hover:bg-[#f3d8a7] cursor-pointer transition-colors text-left"
                   onMouseEnter={() => onItemHover(idx)}
                   onMouseLeave={() => onItemHover(null)}
                 >
-                  <div className="font-medium text-white">{item.label}</div>
+                  <div className="font-medium text-black">{item.label}</div>
                   {item.description && (
-                    <div className="text-sm text-gray-400">{item.description}</div>
+                    <div className="text-sm text-gray-600">{item.description}</div>
                   )}
                 </Link>
               ))}
@@ -208,7 +209,7 @@ const DesktopNav = React.memo(({
     <div
       className="absolute inset-0 pointer-events-none"
       style={{
-        background: 'linear-gradient(360deg, rgba(255, 255, 255, 0) 0%, rgb(0, 0, 0) 100%)'
+        background: 'linear-gradient(360deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%)'
       }}
     />
     <div className="w-full px-6 py-4 relative z-10">
@@ -231,8 +232,8 @@ const DesktopNav = React.memo(({
                   <Link
                     to={route.path}
                     className={`px-4 py-2 rounded-lg transition-colors ${isActive
-                      ? 'bg-[#2d3447] text-white'
-                      : 'text-gray-300 hover:bg-[#2d3447] hover:text-white'
+                      ? 'bg-[#fef3c7] text-black'
+                      : 'text-gray-700 hover:bg-[#fef3c7] hover:text-black'
                       }`}
                   >
                     {route.label}
@@ -240,8 +241,8 @@ const DesktopNav = React.memo(({
                 ) : (
                   <div
                     className={`px-4 py-2 rounded-lg transition-colors cursor-pointer ${isActive
-                      ? 'bg-[#2d3447] text-white'
-                      : 'text-gray-300 hover:bg-[#2d3447] hover:text-white'
+                      ? 'bg-[#fef3c7] text-black'
+                      : 'text-gray-700 hover:bg-[#fef3c7] hover:text-black'
                       }`}
                   >
                     {route.label}
@@ -262,7 +263,7 @@ const DesktopNav = React.memo(({
 
         <button
           onClick={onScheduleClick}
-          className="px-6 py-2 bg-[#2d3447] hover:bg-[#3a4155] rounded-lg font-medium transition-colors text-white"
+          className="px-6 py-2 bg-[#fef3c7] hover:bg-[#f3d8a7] rounded-lg font-medium transition-colors text-black"
         >
           Contact Us
         </button>
@@ -293,11 +294,11 @@ const MobileNav = React.memo(({
   return (
     <>
       {/* Mobile/Tablet Header */}
-      <div className="lg:hidden flex items-center justify-between px-4 py-3 bg-[#1f2433]">
+      <div className="lg:hidden flex items-center justify-between px-4 py-3 bg-[#fef3c7]">
         <Logo />
         <button
           onClick={onToggle}
-          className="text-2xl hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-[#3a4155] rounded p-1"
+          className="text-2xl hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-[#f3d8a7] rounded p-1"
           aria-label="Open menu"
           aria-expanded={isOpen}
         >
@@ -308,7 +309,7 @@ const MobileNav = React.memo(({
       {/* Backdrop Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/60 z-40 lg:hidden transition-opacity duration-300"
+          className="fixed inset-0 bg-white/60 z-40 lg:hidden transition-opacity duration-300"
           onClick={onClose}
           aria-hidden="true"
         />
@@ -317,18 +318,18 @@ const MobileNav = React.memo(({
       {/* Sidebar */}
       <div
         ref={sidebarRef}
-        className={`fixed top-0 left-0 h-full w-[85%] sm:w-[75%] md:w-[60%] bg-[#1f2433] z-50 transform transition-transform duration-300 ease-out overflow-y-auto ${isOpen ? "translate-x-0" : "-translate-x-full"
+        className={`fixed top-0 left-0 h-full w-[85%] sm:w-[75%] md:w-[60%] bg-[#f7f1dc] z-50 transform transition-transform duration-300 ease-out overflow-y-auto ${isOpen ? "translate-x-0" : "-translate-x-full"
           } lg:hidden`}
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
       >
         {/* Sidebar Header */}
-        <div className="sticky top-0 bg-[#1f2433] z-10 flex justify-between items-center px-4 py-4 border-b border-gray-700">
-          <span className="text-lg font-semibold text-white">Menu</span>
+        <div className="sticky top-0 bg-[#fef3c7] z-10 flex justify-between items-center px-4 py-4 border-b border-gray-700">
+          <span className="text-lg font-semibold text-black">Menu</span>
           <button
             onClick={onClose}
-            className="text-2xl text-gray-300 hover:text-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#3a4155] rounded p-1 transition-colors"
+            className="text-2xl text-gray-700 hover:text-black cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#f3d8a7] rounded p-1 transition-colors"
             aria-label="Close menu"
           >
             ✕
@@ -347,13 +348,13 @@ const MobileNav = React.memo(({
                   <Link
                     to={route.path}
                     onClick={onClose}
-                    className="flex items-center justify-between px-3 py-3 rounded-md text-gray-200 hover:bg-[#2d3447] active:bg-[#3a4155] cursor-pointer transition-colors touch-manipulation"
+                    className="flex items-center justify-between px-3 py-3 rounded-md text-black hover:bg-[#fef3c7] active:bg-[#f3d8a7] cursor-pointer transition-colors touch-manipulation"
                   >
                     <span className="flex-1">{route.label}</span>
                   </Link>
                 ) : (
                   <div
-                    className="flex items-center justify-between px-3 py-3 rounded-md text-gray-200 hover:bg-[#2d3447] active:bg-[#3a4155] cursor-pointer transition-colors touch-manipulation"
+                    className="flex items-center justify-between px-3 py-3 rounded-md text-black hover:bg-[#fef3c7] active:bg-[#f3d8a7] cursor-pointer transition-colors touch-manipulation"
                     onClick={() => {
                       if (route.hasDropdown && route.dropdownItems) {
                         onMenuToggle(routeId);
@@ -362,7 +363,7 @@ const MobileNav = React.memo(({
                   >
                     <span className="flex-1">{route.label}</span>
                     {route.dropdownItems && (
-                      <span className="text-lg font-bold text-gray-400 ml-2">
+                      <span className="text-lg font-bold text-black ml-2">
                         {isMenuOpen ? "−" : "+"}
                       </span>
                     )}
@@ -376,7 +377,7 @@ const MobileNav = React.memo(({
                         key={idx}
                         to={item.path}
                         onClick={onClose}
-                        className="block px-3 py-2.5 text-sm rounded-md text-gray-400 hover:bg-[#2d3447] hover:text-white active:bg-[#3a4155] transition-colors touch-manipulation"
+                        className="block px-3 py-2.5 text-sm rounded-md text-black hover:bg-[#fef3c7] hover:text-black active:bg-[#f3d8a7] transition-colors touch-manipulation"
                       >
                         {item.label}
                       </Link>
@@ -388,7 +389,7 @@ const MobileNav = React.memo(({
           })}
 
           <button
-            className="mt-6 px-4 py-3 bg-[#2d3447] hover:bg-[#3a4155] active:bg-[#4a5568] rounded-lg font-7xl text-white transition-colors touch-manipulation"
+            className="mt-6 px-4 py-3 bg-[#fef3c7] hover:bg-[#f3d8a7] active:bg-[#4a5568] rounded-lg font-7xl text-black transition-colors touch-manipulation"
             onClick={() => {
               onScheduleClick();
               onClose();
@@ -495,11 +496,11 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="lg:fixed lg:top-0 lg:left-0 lg:right-0 z-[9999] text-white relative">
+      <nav className="lg:fixed lg:top-0 lg:left-0 lg:right-0 z-[9999] text-black relative">
         <div
           className="hidden lg:block absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(360deg, rgba(255, 255, 255, 0) 0%, rgba(9, 9, 121, 1) 100%)'
+            background: 'linear-gradient(360deg, rgba(255, 255, 255, 0) 0%, rgba(250, 235, 215, 1) 100%)'
           }}
         />
         <div className="relative z-10">
@@ -527,3 +528,4 @@ export default function Navbar() {
     </>
   );
 }
+

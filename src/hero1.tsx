@@ -73,7 +73,7 @@ function Hero1({ onStartProject }: { onStartProject: () => void }) {
   return (
     <div
       ref={containerRef}
-      className="h-[65vh] sm:h-screen w-full flex items-center justify-center relative bg-black overflow-hidden cursor-none"
+      className="h-[65vh] sm:h-screen w-full flex items-center justify-center relative bg-white overflow-hidden cursor-none"
     >
       {/* Custom rounded cursor */}
       <div
@@ -85,7 +85,7 @@ function Hero1({ onStartProject }: { onStartProject: () => void }) {
           width: "40px",
           height: "40px",
           borderRadius: "50%",
-          background: "white",
+          background: "#ca8a04",
           transition: "width 0.2s ease, height 0.2s ease",
         }}
       />
@@ -94,7 +94,7 @@ function Hero1({ onStartProject }: { onStartProject: () => void }) {
       <div className="relative z-20 px-6 w-full md:px-28 lg:px-48 text-left sm:-mt-16">
         <h1
           className="
-    text-white 
+    text-black 
     font-semibold
     text-5xl sm:text-5xl md:text-6xl lg:text-8xl
     leading-tight
@@ -107,7 +107,7 @@ function Hero1({ onStartProject }: { onStartProject: () => void }) {
           className="
     mt-4
     max-w-xl
-    text-gray-300
+    text-gray-700
     text-base sm:text-lg md:text-xl
     leading-relaxed
   "
@@ -122,9 +122,9 @@ function Hero1({ onStartProject }: { onStartProject: () => void }) {
       inline-flex items-center justify-center
       px-7 py-3
       rounded-full
-      bg-white/10 backdrop-blur-md
-      border border-white/20
-      text-white
+      bg-amber-50/40 backdrop-blur-md
+      border border-yellow-300/40
+      text-black
       text-sm md:text-base
       font-medium
       
@@ -133,11 +133,11 @@ function Hero1({ onStartProject }: { onStartProject: () => void }) {
     "
         >
           <div
-            className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 opacity-0 group-hover:opacity-60 transition-opacity duration-300 blur-2xl -z-10"
+            className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-400 via-yellow-300 to-amber-400 opacity-0 group-hover:opacity-60 transition-opacity duration-300 blur-2xl -z-10"
             style={{ top: "-8px", left: "-8px", right: "-8px", bottom: "-8px" }}
           ></div>
           <div
-            className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/40 via-cyan-400/30 to-blue-600/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-3xl -z-10"
+            className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-400/40 via-amber-300/30 to-yellow-500/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-3xl -z-10"
             style={{
               top: "-20px",
               left: "-20px",
@@ -169,7 +169,7 @@ function Hero1({ onStartProject }: { onStartProject: () => void }) {
               style={{
                 filter:
                   glowIntensity > 0
-                    ? `drop-shadow(0 0 ${glowSize}px rgba(255, 255, 255, ${glowOpacity}))`
+                    ? `drop-shadow(0 0 ${glowSize}px rgba(202, 138, 4, ${glowOpacity}))`
                     : "none",
                 transition: "filter 0.1s ease-out",
               }}
@@ -196,7 +196,7 @@ function Hero1({ onStartProject }: { onStartProject: () => void }) {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(46deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 21%, rgba(0, 0, 0, 1) 28%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0.81) 90%, rgba(0, 0, 0, 0.7) 92%, rgba(0, 0, 0, 0.57) 94%, rgba(0, 0, 0, 0.28) 96%, rgba(0, 0, 0, 0.08) 98%, rgba(0, 0, 0, 0) 100%)",
+            "linear-gradient(46deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 21%, rgba(255, 255, 255, 1) 28%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0.81) 90%, rgba(255, 255, 255, 0.7) 92%, rgba(255, 255, 255, 0.57) 94%, rgba(255, 255, 255, 0.28) 96%, rgba(255, 255, 255, 0.08) 98%, rgba(255, 255, 255, 0) 100%)",
         }}
       ></div>
     </div>

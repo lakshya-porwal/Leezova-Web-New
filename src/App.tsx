@@ -1,12 +1,12 @@
 import './App.css'
-import { Route, Routes,useLocation } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Solution from './Solution'
 import AboutUs from './aboutUs/AboutUs'
-import OurMission from './aboutUs/subPages/OurMission'
-import Values from './aboutUs/subPages/Values'
-import Team from './aboutUs/subPages/Team'
+// import OurMission from './aboutUs/subPages/OurMission'
+// import Values from './aboutUs/subPages/Values'
+// import Team from './aboutUs/subPages/Team'
 import Hero1 from './heroMain'
 import Navbar from './components/NavBar'
 import Footer from './components/Footer'
@@ -25,16 +25,16 @@ function App() {
     }, 100);
   }, [location.pathname]);
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-white min-h-screen">
       <Navbar />
       <Routes>
         <Route path="/" element={<Hero1 />} />
-        <Route path="null" element={<AboutUs />} />
-        <Route path="/about-us/our-mission" element={<OurMission />} />
-        <Route path="/about-us/values" element={<Values />} />
-        <Route path="/about-us/team" element={<Team />} />
-        <Route path="/products/Erp" element={<OurProducts/>} />
-        <Route path="/trustedBy/RockBottom.tsx" element={<OurClients/>} />
+        <Route path="/aboutUs/AboutUs.tsx" element={<AboutUs />} />
+        {/* <Route path="/about-us/our-mission" element={<OurMission />} /> */}
+        {/* <Route path="/about-us/values" element={<Values />} /> */}
+        {/* <Route path="/about-us/team" element={<Team />} /> */}
+        <Route path="/products/Erp" element={<OurProducts />} />
+        <Route path="/trustedBy/RockBottom.tsx" element={<OurClients />} />
         <Route path="/solutions" element={<Solution />} />
       </Routes>
       <Footer />

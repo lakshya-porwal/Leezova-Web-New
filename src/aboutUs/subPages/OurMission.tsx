@@ -20,11 +20,11 @@ export default function OurMission() {
   ];
 
   return (
-    <div className="min-h-screen bg-black pt-8 md:pt-24 px-6 pb-16">
+    <div className="min-h-screen bg-white pt-8 md:pt-24 px-6 pb-16">
       <div className="max-w-7xl mx-auto">
         {/* heading */}
         <div className="mt-8 md:mt-8">
-          <h1 className="md:text-[80px] text-[60px] font-bold text-white select-none mb-6 text-center">
+          <h1 className="md:text-[80px] text-[60px] font-bold text-black select-none mb-6 text-center">
             OUR MISSION
           </h1>
           {/* Gradient Line */}
@@ -34,7 +34,7 @@ export default function OurMission() {
         </div>
         {/* Top Introduction Section */}
         <div className="mb-12 md:mb-16">
-          <p className="text-lg text-white leading-relaxed max-w-auto text-left">
+          <p className="text-lg text-black leading-relaxed max-w-auto text-left">
             At Leezova Technologies, we deliver reliable and scalable IT
             services that help businesses grow with confidence. We specialize in
             IT staff augmentation, custom software development, and digital
@@ -47,22 +47,9 @@ export default function OurMission() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 md:mb-20">
           {statistics.map((stat, index) => (
             <div
-              key={index}
-              className="relative rounded-2xl overflow-hidden"
-              style={{
-                background:
-                  "linear-gradient(90deg, rgba(15, 15, 35, 1) 0%, rgba(30, 30, 65, 0.95) 100%)",
-              }}
-            >
-              {/* Dotted lines pattern */}
-              <div
-                className="absolute inset-0 opacity-10"
-                style={{
-                  backgroundImage:
-                    "radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1px)",
-                  backgroundSize: "8px 8px",
-                }}
-              />
+                key={index}
+                 className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-amber-100 via-yellow-50 to-amber-200 border border-amber-200/40 shadow-md hover:shadow-xl transition-all duration-300"
+>
 
 
               {/* Angular N/M logo in top-left */}
@@ -83,10 +70,10 @@ export default function OurMission() {
 
               {/* Content */}
               <div className="relative z-10 p-8 pt-12 min-h-[200px] flex flex-col items-center justify-center text-center">
-                <div className="text-5xl md:text-6xl font-bold text-white mb-2">
+                <div className="text-5xl md:text-6xl font-bold text-black mb-2">
                   {stat.number}
                 </div>
-                <div className="text-white text-sm md:text-base font-normal">
+                <div className="text-black text-sm md:text-base font-normal">
                   {stat.label}
                 </div>
               </div>
@@ -96,7 +83,7 @@ export default function OurMission() {
 
         {/* Our Story Section */}
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-5xl md:text-8xl font-bold text-white text-center mb-6">
+          <h2 className="text-5xl md:text-8xl font-bold text-black text-center mb-6">
             Our Story
           </h2>
           {/* Gradient Line */}
@@ -104,7 +91,7 @@ export default function OurMission() {
             <div className="h-px block border-none w-full" style={{ background: 'linear-gradient(90deg, #fff0 15%, #ffffffb3 50%, #fff0 85%)' }}></div>
           </div>
 
-          <div className="space-y-6 text-lg text-white leading-relaxed">
+          <div className="space-y-6 text-lg text-black leading-relaxed">
             <p>
               Leezova Technologies was founded with a clear objective—to provide
               dependable and flexible IT services to startups and growing
@@ -137,19 +124,19 @@ export default function OurMission() {
 
           {/* Services & Values Section */}
           <div className="mt-12 md:mt-16">
-            <h3 className="text-4xl md:text-6xl font-bold text-white mb-6 text-center">
+            <h3 className="text-4xl md:text-6xl font-bold text-black mb-6 text-center">
               Our Services & Values
             </h3>
             {/* Gradient Line */}
             <div className="relative w-full max-w-4xl mx-auto mb-8">
-              <div className="h-px block border-none w-full" style={{ background: 'linear-gradient(90deg, #fff0 15%, #ffffffb3 50%, #fff0 85%)' }}></div>
+              <div className="h-px block border-none w-full" style={{ background: 'linear-gradient(90deg, #ca8a040 15%, #ca8a04b3 50%, #ca8a040 85%)' }}></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6">
               {/* Card 1 - IT Staff Augmentation */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-yellow-100/40 via-yellow-50/50 to-amber-100/60 border border-yellow-200/30 hover:border-yellow-400/30 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-400/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-yellow-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 <div className="relative z-10 flex flex-col h-full items-center text-center">
-                  <div className="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mb-4 bg-black/30 backdrop-blur-sm border border-white/10 flex-shrink-0">
+                  <div className="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mb-4 bg-white/30 backdrop-blur-sm border border-yellow-200/20 flex-shrink-0">
                     <svg
                       className="w-12 h-12 text-black"
                       fill="none"
@@ -164,20 +151,20 @@ export default function OurMission() {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-3">
+                  <h3 className="text-lg font-semibold text-black mb-3">
                     IT Staff Augmentation
                   </h3>
-                  <p className="text-gray-300 text-sm leading-relaxed flex-grow">
+                  <p className="text-gray-700 text-sm leading-relaxed flex-grow">
                     IT staff augmentation and dedicated development teams
                   </p>
                 </div>
               </div>
 
               {/* Card 2 - Custom Software */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-yellow-100/40 via-yellow-50/50 to-amber-100/60 border border-yellow-200/30 hover:border-yellow-400/30 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-400/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-yellow-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 <div className="relative z-10 flex flex-col h-full items-center text-center">
-                  <div className="w-20 h-20 bg-purple-300 rounded-full flex items-center justify-center mb-4 bg-black/30 backdrop-blur-sm border border-white/10 flex-shrink-0">
+                  <div className="w-20 h-20 bg-purple-300 rounded-full flex items-center justify-center mb-4 bg-white/30 backdrop-blur-sm border border-yellow-200/30 flex-shrink-0">
                     <svg
                       className="w-12 h-12 text-black"
                       fill="none"
@@ -192,20 +179,20 @@ export default function OurMission() {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-3">
+                  <h3 className="text-lg font-semibold text-black mb-3">
                     Custom Software Development
                   </h3>
-                  <p className="text-gray-300 text-sm leading-relaxed flex-grow">
+                  <p className="text-gray-700 text-sm leading-relaxed flex-grow">
                     Custom software development
                   </p>
                 </div>
               </div>
 
               {/* Card 3 - Web & Mobile */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-yellow-100/40 via-yellow-50/50 to-amber-100/60 border border-yellow-200/30 hover:border-yellow-400/30 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-400/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-yellow-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 <div className="relative z-10 flex flex-col h-full items-center text-center">
-                  <div className="w-20 h-20 bg-blue-300 rounded-full flex items-center justify-center mb-4 bg-black/30 backdrop-blur-sm border border-white/10 flex-shrink-0">
+                  <div className="w-20 h-20 bg-blue-300 rounded-full flex items-center justify-center mb-4 bg-white/30 backdrop-blur-sm border border-yellow-200/30 flex-shrink-0">
                     <svg
                       className="w-12 h-12 text-black"
                       fill="none"
@@ -220,20 +207,20 @@ export default function OurMission() {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-3">
+                  <h3 className="text-lg font-semibold text-black mb-3">
                     Web & Application Development
                   </h3>
-                  <p className="text-gray-300 text-sm leading-relaxed flex-grow">
+                  <p className="text-gray-700 text-sm leading-relaxed flex-grow">
                     Web and application development
                   </p>
                 </div>
               </div>
 
               {/* Card 4 - Partnership Approach */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-yellow-100/40 via-yellow-50/50 to-amber-100/60 border border-yellow-200/30 hover:border-yellow-400/30 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-400/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-yellow-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 <div className="relative z-10 flex flex-col h-full items-center text-center">
-                  <div className="w-20 h-20 bg-orange-300 rounded-full flex items-center justify-center mb-4 bg-black/30 backdrop-blur-sm border border-white/10 flex-shrink-0">
+                  <div className="w-20 h-20 bg-orange-300 rounded-full flex items-center justify-center mb-4 bg-white/30 backdrop-blur-sm border border-yellow-200/30 flex-shrink-0">
                     <svg
                       className="w-12 h-12 text-black"
                       fill="none"
@@ -248,10 +235,10 @@ export default function OurMission() {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-3">
+                  <h3 className="text-lg font-semibold text-black mb-3">
                     Partnership-Driven
                   </h3>
-                  <p className="text-gray-300 text-sm leading-relaxed flex-grow">
+                  <p className="text-gray-700 text-sm leading-relaxed flex-grow">
                     Service-first and partnership-driven approach with strong
                     focus on long-term value and client success
                   </p>
@@ -259,10 +246,10 @@ export default function OurMission() {
               </div>
 
               {/* Card 5 - Skilled Team */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-yellow-100/40 via-yellow-50/50 to-amber-100/60 border border-yellow-200/30 hover:border-yellow-400/30 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-400/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-yellow-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 <div className="relative z-10 flex flex-col h-full items-center text-center">
-                  <div className="w-20 h-20 bg-cyan-300 rounded-full flex items-center justify-center mb-4 bg-black/30 backdrop-blur-sm border border-white/10 flex-shrink-0">
+                  <div className="w-20 h-20 bg-cyan-300 rounded-full flex items-center justify-center mb-4 bg-white/30 backdrop-blur-sm border border-yellow-200/30 flex-shrink-0">
                     <svg
                       className="w-12 h-12 text-black"
                       fill="none"
@@ -277,20 +264,20 @@ export default function OurMission() {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-3">
+                  <h3 className="text-lg font-semibold text-black mb-3">
                     Skilled Developers
                   </h3>
-                  <p className="text-gray-300 text-sm leading-relaxed flex-grow">
+                  <p className="text-gray-700 text-sm leading-relaxed flex-grow">
                     Skilled developers with real-world project experience
                   </p>
                 </div>
               </div>
 
               {/* Card 6 - Flexible & Proven */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-yellow-100/40 via-yellow-50/50 to-amber-100/60 border border-yellow-200/30 hover:border-yellow-400/30 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-400/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-yellow-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 <div className="relative z-10 flex flex-col h-full items-center text-center">
-                  <div className="w-20 h-20 bg-green-300 rounded-full flex items-center justify-center mb-4 bg-black/30 backdrop-blur-sm border border-white/10 flex-shrink-0">
+                  <div className="w-20 h-20 bg-green-300 rounded-full flex items-center justify-center mb-4 bg-white/30 backdrop-blur-sm border border-yellow-200/30 flex-shrink-0">
                     <svg
                       className="w-12 h-12 text-black"
                       fill="none"
@@ -305,10 +292,10 @@ export default function OurMission() {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-3">
+                  <h3 className="text-lg font-semibold text-black mb-3">
                     Flexible & Proven
                   </h3>
-                  <p className="text-gray-300 text-sm leading-relaxed flex-grow">
+                  <p className="text-gray-700 text-sm leading-relaxed flex-grow">
                     Flexible engagement and staffing models with proven
                     capability in delivering both services and structured
                     platforms
@@ -322,3 +309,4 @@ export default function OurMission() {
     </div>
   );
 }
+

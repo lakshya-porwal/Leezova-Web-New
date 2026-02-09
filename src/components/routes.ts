@@ -13,28 +13,28 @@ export interface NavRoute {
 export const navRoutes: NavRoute[] = [
   {
     label: "About us",
-    path: null,
-    hasDropdown: true,
-    dropdownItems: [
-      {
-        label: "Our Mission",
-        path: "/about-us/our-mission",
-        description: "What drives us forward",
-        image: "/OurMissionSs.png",
-      },
-      {
-        label: "Values",
-        path: "/about-us/values",
-        description: "Our core principles",
-        image: "/OurValuesSs.png",
-      },
-      {
-        label: "Team",
-        path: "/about-us/team",
-        description: "Our Culture",
-        image: "/TeamSs.png",
-      },
-    ],
+    path: "/aboutUs/AboutUs.tsx",
+    hasDropdown: false,
+    // dropdownItems: [
+    //   {
+    //     label: "Our Mission",
+    //     path: "/about-us/our-mission",
+    //     description: "What drives us forward",
+    //     image: "/ourMissionSs.png",
+    //   },
+    //   {
+    //     label: "Values",
+    //     path: "/about-us/values",
+    //     description: "Our core principles",
+    //     image: "/ourValuesSs.png",
+    //   },
+    //   {
+    //     label: "Team",
+    //     path: "/about-us/team",
+    //     description: "Our Culture",
+    //     image: "/teamSs.png",
+    //   },
+    // ],
   },
   {
     label: "Products",

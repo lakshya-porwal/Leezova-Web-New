@@ -59,18 +59,18 @@ function SolutionHeroTwo() {
     <div
       className='min-h-screen w-full relative overflow-hidden h-full'
       style={{
-        background: 'linear-gradient(158deg,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 28%, rgba(1, 1, 26, 1) 55%, rgba(9, 9, 121, 1) 100%)'
+        background: 'linear-gradient(158deg,rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 28%, rgba(254, 252, 232, 1) 55%, rgba(250, 235, 215, 1) 100%)'
       }}
     >
 
       <div className='relative z-10 px-8 md:px-16 lg:px-24 py-12 md:py-16'>
         {/* Section 1: Core Domains */}
         <div className='mb-20'>
-          <h2 className='text-2xl md:text-3xl font-semibold text-white mb-4'>Core Domains & Solutions</h2>
-          <div className="h-px block border-none bg-gradient-line w-full mb-10" style={{ background: 'linear-gradient(90deg, #fff0 15%, #ffffffb3 50%, #fff0 85%)' }}></div>
+          <h2 className='text-2xl md:text-3xl font-semibold text-black mb-4'>Core Domains & Solutions</h2>
+          <div className="h-px block border-none bg-gradient-line w-full mb-10" style={{ background: 'linear-gradient(90deg, #ca8a040 15%, #ca8a04b3 50%, #ca8a040 85%)' }}></div>
 
           <div className='relative'>
-           
+
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 relative'>
               {domainSolutions1.map((domain, index) => (
                 <div key={index} className='flex flex-col items-center'>
@@ -82,10 +82,10 @@ function SolutionHeroTwo() {
                   </div>
 
                   {/* Domain name */}
-                  <h3 className='text-lg font-medium text-white mb-3 text-center'>{domain.name}</h3>
+                  <h3 className='text-lg font-medium text-black mb-3 text-center'>{domain.name}</h3>
 
                   {/* Description */}
-                  <p className='text-gray-300 text-sm leading-relaxed text-center'>{domain.description}</p>
+                  <p className='text-gray-700 text-sm leading-relaxed text-center'>{domain.description}</p>
                 </div>
               ))}
             </div>
@@ -94,11 +94,11 @@ function SolutionHeroTwo() {
 
         {/* Section 2: Additional Domains */}
         <div>
-          <h2 className='text-2xl md:text-3xl font-semibold text-white mb-4'>Additional Domains & Solutions</h2>
-          <div className="h-px block border-none bg-gradient-line w-full mb-10" style={{ background: 'linear-gradient(90deg, #fff0 15%, #ffffffb3 50%, #fff0 85%)' }}></div>
+          <h2 className='text-2xl md:text-3xl font-semibold text-black mb-4'>Additional Domains & Solutions</h2>
+          <div className="h-px block border-none bg-gradient-line w-full mb-10" style={{ background: 'linear-gradient(90deg, #ca8a040 15%, #ca8a04b3 50%, #ca8a040 85%)' }}></div>
 
           <div className='relative'>
-          
+
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-4 relative'>
               {domainSolutions2.map((domain, index) => (
                 <div key={index} className='flex flex-col items-center'>
@@ -110,10 +110,10 @@ function SolutionHeroTwo() {
                   </div>
 
                   {/* Domain name */}
-                  <h3 className='text-lg font-medium text-white mb-3 text-center'>{domain.name}</h3>
+                  <h3 className='text-lg font-medium text-black mb-3 text-center'>{domain.name}</h3>
 
                   {/* Description */}
-                  <p className='text-gray-300 text-sm leading-relaxed text-center'>{domain.description}</p>
+                  <p className='text-gray-700 text-sm leading-relaxed text-center'>{domain.description}</p>
                 </div>
               ))}
             </div>
