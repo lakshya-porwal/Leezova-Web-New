@@ -46,7 +46,7 @@ interface Service {
   id: number;
   title: string;
   description: string;
-  iconColor: string;
+  iconColor?: string;
   icon: ReactElement;
 }
 
@@ -63,7 +63,7 @@ function Hero3() {
       id: 1,
       title: "Website Design & Development",
       description: "From responsive designs to robust back-end solutions, we have the skills and creativity to bring your vision to life.",
-      iconColor: "bg-yellow-400",
+      // iconColor: "bg-yellow-400",
       icon: <MonitorIcon />
     },
     {
@@ -91,7 +91,7 @@ function Hero3() {
       id: 5,
       title: "Support",
       description: "Our dedicated team is available 24/7 to assist you with any inquiries or issues you may encounter.",
-      iconColor: "bg-yellow-400",
+      // iconColor: "bg-yellow-400",
       icon: <HeartIcon />
     },
     {

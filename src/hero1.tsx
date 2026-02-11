@@ -91,63 +91,64 @@ function Hero1({ onStartProject }: { onStartProject: () => void }) {
       />
 
       {/* Hero Content */}
-      <div className="relative z-20 px-6 w-full md:px-28 lg:px-48 text-left sm:-mt-16">
-        <h1
-          className="
-    text-black 
-    font-semibold
-    text-5xl sm:text-5xl md:text-6xl lg:text-8xl
-    leading-tight
-    tracking-tight
-  "
-        >
-          Where clean UI meets scalable code.
-        </h1>
-        <p
-          className="
-    mt-4
-    max-w-xl
-    text-gray-700
-    text-base sm:text-lg md:text-xl
-    leading-relaxed
-  "
-        >
-          We design and build digital products that feel effortless and perform
-          flawlessly.
-        </p>
-        <button
-          onClick={onStartProject}
-          className="
+    
+<div className="relative z-20 w-full px-6 sm:px-10 md:px-20 lg:px-32 xl:px-48 text-left py-12 sm:py-16 md:py-20">
+
+  <h1
+    className="
+      text-black font-semibold
+      text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl
+      leading-tight tracking-tight
+      max-w-4xl
+    "
+  >
+    Where clean UI meets scalable code.
+  </h1>
+
+  <p
+    className="
+      mt-5
+      max-w-xl
+      text-gray-700
+      text-base sm:text-lg md:text-xl
+      leading-relaxed
+    "
+  >
+    We design and build digital products that feel effortless and perform
+    flawlessly.
+  </p>
+
+  <button
+    onClick={onStartProject}
+    className=" ml-14 md:ml-0
       mt-8
       inline-flex items-center justify-center
-      px-7 py-3
+      px-6 sm:px-7 py-3
       rounded-full
       bg-amber-50/40 backdrop-blur-md
       border border-yellow-300/40
       text-black
-      text-sm md:text-base
+      text-sm sm:text-base
       font-medium
-      
       relative group
       shadow-lg
     "
-        >
-          <div
-            className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-400 via-yellow-300 to-amber-400 opacity-0 group-hover:opacity-60 transition-opacity duration-300 blur-2xl -z-10"
-            style={{ top: "-8px", left: "-8px", right: "-8px", bottom: "-8px" }}
-          ></div>
-          <div
-            className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-400/40 via-amber-300/30 to-yellow-500/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-3xl -z-10"
-            style={{
-              top: "-20px",
-              left: "-20px",
-              right: "-20px",
-              bottom: "-20px",
-            }}
-          ></div>
-          Start a Project
-        </button>
-      </div>
+  >
+    {/* Glow Layer 1 */}
+    <div
+      className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-400 via-yellow-300 to-amber-400 opacity-0 group-hover:opacity-60 transition-opacity duration-300 blur-2xl -z-10"
+      style={{ top: "-8px", left: "-8px", right: "-8px", bottom: "-8px" }}
+    />
+
+    {/* Glow Layer 2 */}
+    <div
+      className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-400/40 via-amber-300/30 to-yellow-500/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-3xl -z-10"
+      style={{ top: "-20px", left: "-20px", right: "-20px", bottom: "-20px" }}
+    />
+
+    Start a Project
+  </button>
+</div>
 
       <div
         className="absolute top-0 right-0 grid grid-cols-8 sm:grid-cols-7 md:grid-cols-9 lg:grid-cols-12 xl:grid-cols-18 gap-2 xl:gap-12 bg-transparent"

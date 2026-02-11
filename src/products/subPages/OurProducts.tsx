@@ -2,25 +2,25 @@ import ProductShowcase from '../../components/productCard'
 
 const OurProducts = () => {
   return (
-    <div>
+    <div className='mt-10'>
   <ProductShowcase
   title="Relywa"
   tagline="Smarter Attendance. Smoother Workdays."
 
   img1="/public/ErpDashbord.png"
-  desc1="Get a complete overview of your workforce at a glance. The Rilywa admin dashboard gives managers instant access to employee data, attendance insights, and quick actions - all from one powerful control center designed to simplify daily operations."
+  desc1="Get a complete overview of your workforce at a glance. The Relywa admin dashboard gives managers instant access to employee data, attendance insights, and quick actions - all from one powerful control center designed to simplify daily operations."
   view1="Admin View"
 
-  img2="/public/ErpPhoneDashbord.jpeg"
-  desc2="Start and track workdays in a single tap. With Rilywa's mobile punch-in system, employees can log their shifts instantly while managers get real-time attendance updates - making workforce tracking seamless and accurate."
+  img2="/public/ErpDashbordPhone.jpeg"
+  desc2="Start and track workdays in a single tap. With Relywa's mobile punch-in system, employees can log their shifts instantly while managers get real-time attendance updates - making workforce tracking seamless and accurate."
   view2="User View"
 
   img3="/public/ErpLeaveReport.png"
-  desc3="Track, filter, and manage employee leave requests with ease. Rilywa's leave management system keeps everything organized - from request reasons to approval status - helping HR teams make faster, more informed decisions without paperwork chaos"
+  desc3="Track, filter, and manage employee leave requests with ease. Relywa's leave management system keeps everything organized - from request reasons to approval status - helping HR teams make faster, more informed decisions without paperwork chaos"
   view3="Admin View"
 
   img4="/public/ErpPhoneRecord2.jpeg"
-  desc4="Employees can view their daily attendance records anytime, anywhere. Rilywa's mobile interface shows punch-in times, punch-out times, and total hours worked in a clean, easy-to-read format - keeping everyone informed and accountable."
+  desc4="Employees can view their daily attendance records anytime, anywhere. Relywa's mobile interface shows punch-in times, punch-out times, and total hours worked in a clean, easy-to-read format - keeping everyone informed and accountable."
   view4="User View"
 />
 
@@ -29,6 +29,7 @@ const OurProducts = () => {
 <ProductShowcase
   title="Merutix"
   tagline="Hospitality at Your Fingertips."
+  reverse
 
   img1="/public/BmaFrontSs.png"
    desc1="A centralized hotel operations dashboard that gives staff a real-time snapshot of check-ins, room occupancy, and room status. From upcoming arrivals to housekeeping alerts, everything is organized in one clean interface to help teams manage daily operations smoothly and efficiently."

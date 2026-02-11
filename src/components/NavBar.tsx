@@ -187,6 +187,13 @@ const DesktopDropdown = React.memo(({
 });
 DesktopDropdown.displayName = 'DesktopDropdown';
 
+// Helper function to check if a route is active
+const isRouteActive = (routePath: string | null | undefined, currentPath: string): boolean => {
+  if (!routePath) return false;
+  if (routePath === '/') return currentPath === '/';
+  return currentPath.startsWith(routePath);
+};
+
 // DESKTOP NAVIGATION
 const DesktopNav = React.memo(({
   routes,
@@ -195,7 +202,8 @@ const DesktopNav = React.memo(({
   onDropdownEnter,
   onDropdownLeave,
   onItemHover,
-  onScheduleClick
+  onScheduleClick,
+  currentPath
 }: {
   routes: NavRoute[];
   activeDropdown: string | null;
@@ -204,6 +212,7 @@ const DesktopNav = React.memo(({
   onDropdownLeave: () => void;
   onItemHover: (routeId: string, idx: number | null) => void;
   onScheduleClick: () => void;
+  currentPath: string;
 }) => (
   <div className="hidden lg:block relative w-full">
     <div
@@ -220,6 +229,7 @@ const DesktopNav = React.memo(({
           {routes.map((route, index) => {
             const routeId = generateRouteId(route, index);
             const isActive = activeDropdown === routeId;
+            const isCurrentRoute = isRouteActive(route.path, currentPath);
 
             return (
               <div
@@ -231,18 +241,20 @@ const DesktopNav = React.memo(({
                 {route.path ? (
                   <Link
                     to={route.path}
-                    className={`px-4 py-2 rounded-lg transition-colors ${isActive
-                      ? 'bg-[#fef3c7] text-black'
-                      : 'text-gray-700 hover:bg-[#fef3c7] hover:text-black'
+                    className={`px-4 py-2 transition-colors relative ${isCurrentRoute
+                      ? 'text-black font-semibold border-b-2 border-black'
+                      : isActive
+                        ? 'rounded-lg bg-[#fef3c7] text-black'
+                        : 'rounded-lg text-gray-700 hover:bg-[#fef3c7] hover:text-black'
                       }`}
                   >
                     {route.label}
                   </Link>
                 ) : (
                   <div
-                    className={`px-4 py-2 rounded-lg transition-colors cursor-pointer ${isActive
-                      ? 'bg-[#fef3c7] text-black'
-                      : 'text-gray-700 hover:bg-[#fef3c7] hover:text-black'
+                    className={`px-4 py-2 transition-colors cursor-pointer ${isActive
+                      ? 'rounded-lg bg-[#fef3c7] text-black'
+                      : 'rounded-lg text-gray-700 hover:bg-[#fef3c7] hover:text-black'
                       }`}
                   >
                     {route.label}
@@ -279,7 +291,8 @@ const MobileNav = React.memo(({
   onToggle,
   onMenuToggle,
   onClose,
-  onScheduleClick
+  onScheduleClick,
+  currentPath
 }: {
   routes: NavRoute[];
   isOpen: boolean;
@@ -288,6 +301,7 @@ const MobileNav = React.memo(({
   onMenuToggle: (routeId: string) => void;
   onClose: () => void;
   onScheduleClick: () => void;
+  currentPath: string;
 }) => {
   const sidebarRef = useRef<HTMLDivElement>(null);
 
@@ -318,7 +332,7 @@ const MobileNav = React.memo(({
       {/* Sidebar */}
       <div
         ref={sidebarRef}
-        className={`fixed top-0 left-0 h-full w-[85%] sm:w-[75%] md:w-[60%] bg-[#f7f1dc] z-50 transform transition-transform duration-300 ease-out overflow-y-auto ${isOpen ? "translate-x-0" : "-translate-x-full"
+        className={`fixed top-0 left-0 h-full w-[65%] sm:w-[75%] md:w-[50%] bg-[#f7f1dc] z-50 transform transition-transform duration-300 ease-out overflow-y-auto ${isOpen ? "translate-x-0" : "-translate-x-full"
           } lg:hidden`}
         role="dialog"
         aria-modal="true"
@@ -326,7 +340,7 @@ const MobileNav = React.memo(({
       >
         {/* Sidebar Header */}
         <div className="sticky top-0 bg-[#fef3c7] z-10 flex justify-between items-center px-4 py-4 border-b border-gray-700">
-          <span className="text-lg font-semibold text-black">Menu</span>
+          <span className="text-lg font-semibold text-black pl-6">Menu</span>
           <button
             onClick={onClose}
             className="text-2xl text-gray-700 hover:text-black cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#f3d8a7] rounded p-1 transition-colors"
@@ -337,10 +351,11 @@ const MobileNav = React.memo(({
         </div>
 
         {/* Nav Links */}
-        <div className="flex flex-col p-4 space-y-2">
+        <div className="flex flex-col p-4 items-start px-7">
           {routes.map((route, index) => {
             const routeId = route.path || `mobile-${index}-${route.label.toLowerCase()}`;
             const isMenuOpen = activeMenu === routeId;
+            const isCurrentRoute = isRouteActive(route.path, currentPath);
 
             return (
               <div key={routeId}>
@@ -348,13 +363,19 @@ const MobileNav = React.memo(({
                   <Link
                     to={route.path}
                     onClick={onClose}
-                    className="flex items-center justify-between px-3 py-3 rounded-md text-black hover:bg-[#fef3c7] active:bg-[#f3d8a7] cursor-pointer transition-colors touch-manipulation"
+                    className={`flex items-center justify-between px-3 py-3 cursor-pointer transition-colors touch-manipulation w-full ${isCurrentRoute
+                        ? 'text-black font-semibold border-l-4 border-black'
+                        : 'rounded-md text-black hover:bg-[#fef3c7] active:bg-[#f3d8a7]'
+                      }`}
                   >
                     <span className="flex-1">{route.label}</span>
                   </Link>
                 ) : (
                   <div
-                    className="flex items-center justify-between px-3 py-3 rounded-md text-black hover:bg-[#fef3c7] active:bg-[#f3d8a7] cursor-pointer transition-colors touch-manipulation"
+                    className={`flex items-center justify-between px-3 py-3 cursor-pointer transition-colors touch-manipulation w-full ${isCurrentRoute && route.hasDropdown
+                        ? 'text-black font-semibold border-l-4 border-black'
+                        : 'rounded-md text-black hover:bg-[#fef3c7] active:bg-[#f3d8a7]'
+                      }`}
                     onClick={() => {
                       if (route.hasDropdown && route.dropdownItems) {
                         onMenuToggle(routeId);
@@ -372,16 +393,22 @@ const MobileNav = React.memo(({
 
                 {isMenuOpen && route.dropdownItems && (
                   <div className="ml-2 mt-1 mb-2 space-y-1 border-l-2 border-gray-700 pl-4 transition-all duration-200">
-                    {route.dropdownItems.map((item, idx) => (
-                      <Link
-                        key={idx}
-                        to={item.path}
-                        onClick={onClose}
-                        className="block px-3 py-2.5 text-sm rounded-md text-black hover:bg-[#fef3c7] hover:text-black active:bg-[#f3d8a7] transition-colors touch-manipulation"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
+                    {route.dropdownItems.map((item, idx) => {
+                      const isDropdownItemActive = isRouteActive(item.path, currentPath);
+                      return (
+                        <Link
+                          key={idx}
+                          to={item.path}
+                          onClick={onClose}
+                          className={`block px-3 py-2.5 text-sm transition-colors touch-manipulation ${isDropdownItemActive
+                              ? 'text-black font-semibold border-l-2 border-black pl-[10px]'
+                              : 'rounded-md text-black hover:bg-[#fef3c7] hover:text-black active:text-[#c48003]'
+                            }`}
+                        >
+                          {item.label}
+                        </Link>
+                      );
+                    })}
                   </div>
                 )}
               </div>
@@ -512,6 +539,7 @@ export default function Navbar() {
             onDropdownLeave={handleDropdownLeave}
             onItemHover={handleItemHover}
             onScheduleClick={handleScheduleClick}
+            currentPath={location.pathname}
           />
           <MobileNav
             routes={navRoutes}
@@ -521,6 +549,7 @@ export default function Navbar() {
             onMenuToggle={handleMobileMenuToggle}
             onClose={handleMobileClose}
             onScheduleClick={handleScheduleClick}
+            currentPath={location.pathname}
           />
         </div>
       </nav>

@@ -49,7 +49,7 @@ export default function Team() {
               Our Journey
             </span>
 
-            <span className="text-[#4169E1] text-[60px] md:text-[120px] font-bold leading-tight mt-1 md:mt-0">
+            <span className="text-[#4169E1] text-[55px] md:text-[120px] font-bold leading-tight mt-1 md:mt-0">
               TOGETHER
             </span>
 

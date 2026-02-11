@@ -11,7 +11,7 @@ const SVGScrollBar = () => {
         }}
       ></div>
 
-      <div className=' flex gap-3 flex-row h-44  w-max animate-marquee  justify-center items-center'>
+      <div className=' flex gap-3 flex-row md:h-44 h-24  w-max animate-marquee  justify-center items-center'>
         <div> <ReactIcon className='h-28 p-2' /></div>
         <div><ReactQueryIcon className='h-28 p-2' /></div>
         <div><NextJsIcon className='h-28 p-2' /></div>

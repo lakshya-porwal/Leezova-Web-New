@@ -13,7 +13,7 @@ export interface NavRoute {
 export const navRoutes: NavRoute[] = [
   {
     label: "About us",
-    path: "/aboutUs/AboutUs.tsx",
+    path: "/aboutUs",
     hasDropdown: false,
     // dropdownItems: [
     //   {
@@ -38,7 +38,7 @@ export const navRoutes: NavRoute[] = [
   },
   {
     label: "Products",
-    path:"/products/Erp",
+    path:"/products",
     hasDropdown: false,
     // dropdownItems: [
       
@@ -53,7 +53,7 @@ export const navRoutes: NavRoute[] = [
   },
   {
     label: "Trusted By",
-    path:  "/trustedBy/RockBottom.tsx",
+    path:  "/trustedBy",
     hasDropdown: false,
     // dropdownItems: [
       

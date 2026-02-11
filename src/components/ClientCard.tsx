@@ -38,6 +38,8 @@ function ClientCard({
         <img
           src={imgSrc}
           alt={title}
+           loading="lazy"
+          decoding="async"
           className="w-full h-full object-contain transition duration-500 rounded-3xl"
         />
 

@@ -34,7 +34,7 @@ export default function OurMission() {
         </div>
         {/* Top Introduction Section */}
         <div className="mb-12 md:mb-16">
-          <p className="text-lg text-black leading-relaxed max-w-auto text-left">
+          <p className="text-lg text-black leading-relaxed max-w-auto md:text-left text-center">
             At Leezova Technologies, we deliver reliable and scalable IT
             services that help businesses grow with confidence. We specialize in
             IT staff augmentation, custom software development, and digital
@@ -47,9 +47,9 @@ export default function OurMission() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 md:mb-20">
           {statistics.map((stat, index) => (
             <div
-                key={index}
-                 className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-amber-100 via-yellow-50 to-amber-200 border border-amber-200/40 shadow-md hover:shadow-xl transition-all duration-300"
->
+              key={index}
+              className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-amber-100 via-yellow-50 to-amber-200 border border-amber-200/40 shadow-md hover:shadow-xl transition-all duration-300"
+            >
 
 
               {/* Angular N/M logo in top-left */}
@@ -136,7 +136,7 @@ export default function OurMission() {
               <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-yellow-100/40 via-yellow-50/50 to-amber-100/60 border border-yellow-200/30 hover:border-yellow-400/30 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-400/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-yellow-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 <div className="relative z-10 flex flex-col h-full items-center text-center">
-                  <div className="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mb-4 bg-white/30 backdrop-blur-sm border border-yellow-200/20 flex-shrink-0">
+                  <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4 bg-white/30 backdrop-blur-sm border border-yellow-200/20 flex-shrink-0">
                     <svg
                       className="w-12 h-12 text-black"
                       fill="none"

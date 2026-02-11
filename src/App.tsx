@@ -29,12 +29,12 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Hero1 />} />
-        <Route path="/aboutUs/AboutUs.tsx" element={<AboutUs />} />
+        <Route path="/aboutUs" element={<AboutUs />} />
         {/* <Route path="/about-us/our-mission" element={<OurMission />} /> */}
         {/* <Route path="/about-us/values" element={<Values />} /> */}
         {/* <Route path="/about-us/team" element={<Team />} /> */}
-        <Route path="/products/Erp" element={<OurProducts />} />
-        <Route path="/trustedBy/RockBottom.tsx" element={<OurClients />} />
+        <Route path="/products" element={<OurProducts />} />
+        <Route path="/trustedBy" element={<OurClients />} />
         <Route path="/solutions" element={<Solution />} />
       </Routes>
       <Footer />
