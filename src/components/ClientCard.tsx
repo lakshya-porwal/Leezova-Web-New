@@ -22,8 +22,8 @@ function ClientCard({
     >
 
       {/* TEXT SIDE */}
-      <div className="md:w-1/2 text-center md:text-left px-4 md:px-8 mx-6">
-        <h1 className="text-3xl sm:text-5xl font-bold leading-tight mt-2 text-black">
+      <div className="md:w-1/2 text-center md:text-left px-4 md:px-8">
+        <h1 className="text-3xl md:text-3xl font-bold leading-tight mt-2 text-black">
           {title} <br />
           <span className="text-blue-600">{subtitle}</span>
         </h1>
@@ -34,7 +34,7 @@ function ClientCard({
       </div>
 
       {/* IMAGE SIDE */}
-      <div className="md:w-1/2 relative group cursor-pointer aspect-[16/9] max-w-xl mx-6">
+      <div className="md:w-1/2 relative group cursor-pointer aspect-[16/9] w-full">
         <img
           src={imgSrc}
           alt={title}

@@ -59,7 +59,7 @@ function ProductCard({
       {/* LEFT CONTENT */}
       <div className="w-full lg:w-1/2 flex flex-col items-center justify-center px-6 sm:px-6 lg:px-16 py-10 text-center ">
 
-        <div className="text-5xl sm:text-6xl lg:text-7xl 2xl:text-9xl font-bold pb-4 md:pb-4 lg:pb-6 text-blue-600">
+        <div className="text-5xl sm:text-6xl lg:text-7xl 2xl:text-9xl font-bold pb-4 md:pb-4 lg:pb-6 text-black">
           {title}
         </div>
 

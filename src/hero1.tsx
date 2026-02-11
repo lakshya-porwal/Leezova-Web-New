@@ -73,10 +73,10 @@ function Hero1({ onStartProject }: { onStartProject: () => void }) {
   return (
     <div
       ref={containerRef}
-      className="h-[65vh] sm:h-screen w-full flex items-center justify-center relative bg-white overflow-hidden cursor-none"
+      className="h-[65vh] sm:h-screen w-full flex items-center justify-center relative bg-white overflow-hidden"
     >
       {/* Custom rounded cursor */}
-      <div
+      {/* <div
         className="fixed pointer-events-none z-50 mix-blend-difference hidden lg:block"
         style={{
           left: `${mousePosition.x}px`,
@@ -85,10 +85,10 @@ function Hero1({ onStartProject }: { onStartProject: () => void }) {
           width: "40px",
           height: "40px",
           borderRadius: "50%",
-          background: "#ca8a04",
+          background: "#fff",
           transition: "width 0.2s ease, height 0.2s ease",
         }}
-      />
+      /> */}
 
       {/* Hero Content */}
     
@@ -120,10 +120,11 @@ function Hero1({ onStartProject }: { onStartProject: () => void }) {
 
   <button
     onClick={onStartProject}
-    className=" ml-14 md:ml-0
+    className="
       mt-8
       inline-flex items-center justify-center
       px-6 sm:px-7 py-3
+      bg-[#f2e4aa] 
       rounded-full
       bg-amber-50/40 backdrop-blur-md
       border border-yellow-300/40

@@ -125,18 +125,18 @@ function Hero2() {
                     <div className="flex items-center gap-1.5 sm:gap-2 ">
                       <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-yellow-500 to-amber-400 flex items-center justify-center shadow-lg ">
                         <span className="text-white font-bold text-sm sm:text-lg">
-                          L
+                          Y
                         </span>
                       </div>
                       <span className="text-black font-semibold text-sm sm:text-base md:text-lg hidden sm:block">
-                        Leezova
+                        Your Company
                       </span>
                     </div>
                   )}
                   {!isImmersive && (
                     <div className="flex items-center gap-2">
                       <span className="text-black font-semibold text-sm sm:text-base md:text-lg">
-                        Leezova
+                        Your Company
                       </span>
                     </div>
                   )}

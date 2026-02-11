@@ -302,6 +302,88 @@ export default function OurMission() {
                   </p>
                 </div>
               </div>
+              {/* Card 7 -  AI Solutions */}
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-yellow-100/40 via-yellow-50/50 to-amber-100/60 border border-yellow-200/30 hover:border-yellow-400/30 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-400/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-yellow-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div className="relative z-10 flex flex-col h-full items-center text-center">
+                  <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4 bg-white/30 backdrop-blur-sm border border-yellow-200/20 flex-shrink-0">
+                    <svg
+                      className="w-12 h-12 text-black"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5a4 4 0 100-8 4 4 0 000 8z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-black mb-3">
+                    AI Solutions
+                  </h3>
+                  <p className="text-gray-700 text-sm leading-relaxed flex-grow">
+                    Intelligent AI-powered solutions to automate and optimize business processes
+                  </p>
+                </div>
+              </div>
+              {/* Card 8 -  Cloud Solutions */}
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-yellow-100/40 via-yellow-50/50 to-amber-100/60 border border-yellow-200/30 hover:border-yellow-400/30 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-400/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-yellow-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div className="relative z-10 flex flex-col h-full items-center text-center">
+                  <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4 bg-white/30 backdrop-blur-sm border border-yellow-200/20 flex-shrink-0">
+                    <svg
+                      className="w-12 h-12 text-black"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-black mb-3">
+                    Cloud Solutions
+                  </h3>
+                  <p className="text-gray-700 text-sm leading-relaxed flex-grow">
+                    Scalable cloud infrastructure and migration services for modern enterprises
+                  </p>
+                </div>
+              </div>
+              {/* Card 9 - Solution & Support*/}
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-yellow-100/40 via-yellow-50/50 to-amber-100/60 border border-yellow-200/30 hover:border-yellow-400/30 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-400/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-yellow-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div className="relative z-10 flex flex-col h-full items-center text-center">
+                  <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4 bg-white/30 backdrop-blur-sm border border-yellow-200/20 flex-shrink-0">
+                    <svg
+                      className="w-12 h-12 text-black"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-black mb-3">
+                    Solution & Support
+                  </h3>
+                  <p className="text-gray-700 text-sm leading-relaxed flex-grow">
+                    Comprehensive support and solution services for long-term success
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

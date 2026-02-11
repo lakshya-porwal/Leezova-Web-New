@@ -175,14 +175,15 @@ function Hero3() {
 
           <div className="relative">
             <div
-            className="absolute left-1/2 transform -translate-x-1/2 w-0.5 sm:w-1 bg-gradient-to-b from-amber-300 via-yellow-400 to-amber-300 hidden md:block shadow-[0_0_8px_rgba(250,204,21,0.6)]"
-            style={{ top: '0.5rem', height: 'calc(100% - 2rem)' }}
-></div>
+              className="absolute  left-1/2 transform -translate-x-1/2 w-0.5 sm:w-1 bg-gradient-to-b from-black via-black to-black hidden md:block shadow-[0_0_8px_rgba(0,0,0,0.4)]"
+              style={{ top: '0.5rem', height: 'calc(100% - 2rem)' }}>
 
-            <div className="relative mb-6 sm:mb-8 md:mb-10">
-              <div className="h-px block border-none bg-gradient-line w-full" style={{ background: 'linear-gradient(90deg, #fff0 15%, #ffffffb3 50%, #fff0 85%)' }}></div>
+            </div>
+
+            <div className="relative mb-6 sm:mb-8 md:mb-10 ">
+              <div className="h-px block border-none  bg-gradient-line w-full" style={{ background: 'linear-gradient(90deg, #fff0 15%, #ffffffb3 50%, #fff0 85%)' }}></div>
               <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-white rounded-full z-10 hidden md:block shadow-[0_0_10px_rgba(255,255,255,0.8),0_0_20px_rgba(255,255,255,0.5)]">
-                <div className="absolute inset-0 bg-white/80 rounded-full animate-pulse"></div>
+                <div className="absolute inset-0 rounded-full"></div>
               </div>
             </div>
 
@@ -197,15 +198,14 @@ function Hero3() {
                       className={`relative flex flex-col md:flex-row items-center mt-2 ${isLeft ? "md:flex-row-reverse" : ""
                         }`}
                     >
-                      <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-white rounded-full z-10 hidden md:block shadow-[0_0_10px_rgba(255,255,255,0.8),0_0_20px_rgba(255,255,255,0.5)]">
-                        <div className="absolute inset-0 bg-yellow-400 rounded-full animate-pulse"></div>
+                      <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ">
+                        <div className="absolute inset-0 bg-black rounded-full "></div>
                       </div>
 
                       <div className={`w-full md:w-[45%] ${isLeft ? "md:pr-8" : "md:pl-8"} relative z-0`}>
                         <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-yellow-100/40 via-yellow-50/50 to-amber-100/60 border border-yellow-200/30 hover:border-yellow-400/30 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-400/20 hover:-translate-y-1 group p-6 sm:p-7 md:p-8 min-h-[180px] sm:min-h-[200px] md:min-h-[220px] flex flex-col justify-center">
-                          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
 
-                          <div className="relative z-10">
+                          <div className="relative z-10 ">
                             <div className="text-black/80 text-xs sm:text-sm font-semibold mb-3 sm:mb-4">
                               STEP {step.id}
                             </div>
@@ -244,11 +244,11 @@ function Hero3() {
                   <div className="mt-8 sm:mt-10 md:mt-12 lg:mt-16">
                     <div className="w-full max-w-5xl mx-auto aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-white/10 flex items-center justify-center overflow-hidden">
                       <div className="text-gray-400 text-sm sm:text-base md:text-lg h-full w-full">
-                       <img
-                       src='/public/LeezovaDelivery.png'
-                       alt='Leezova Delivery'
-                       className='object-fill h-full w-full '
-                       />
+                        <img
+                          src='/public/LeezovaDelivery.png'
+                          alt='Leezova Delivery'
+                          className='object-fill h-full w-full '
+                        />
                       </div>
                     </div>
                   </div>
