@@ -46,9 +46,9 @@ export const ScheduleModal = React.memo(
 
     const isEmailConfigured = Boolean(
       EMAILJS_SERVICE_ID &&
-        EMAILJS_TEMPLATE_ID &&
-        EMAILJS_PUBLIC_KEY &&
-        RECIPIENT_EMAIL
+      EMAILJS_TEMPLATE_ID &&
+      EMAILJS_PUBLIC_KEY &&
+      RECIPIENT_EMAIL
     );
 
     // Reset form and close modal
@@ -192,27 +192,27 @@ Website Contact Form`,
         onClick={handleClose}
       >
         {/* Backdrop */}
-        <div className="absolute inset-0 bg-black/70 backdrop-blur-md" />
+        <div className="absolute inset-0 bg-amber-900/6 backdrop-blur-md" />
 
         {/* Modal */}
         <div
-          className="relative bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl w-full max-w-sm max-h-[90vh] overflow-y-auto flex flex-col"
+          className="relative bg-gradient-to-br from-amber-50 via-white to-amber-100/60 backdrop-blur-xl border border-amber-200 rounded-2xl shadow-2xl w-full max-w-sm max-h-[90vh] overflow-y-auto flex flex-col mt-24 text-amber-900"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="relative px-5 pt-5 pb-3 border-b border-white/10 flex-shrink-0">
+          <div className="relative px-5 pt-5 pb-3 border-b border-amber-200 flex-shrink-0">
             <div className="flex items-start justify-between">
               <div>
-                <h2 className="text-lg font-bold text-white text-left">
+                <h2 className="text-lg font-bold text-amber-900 text-left">
                   Start Our Journey Together
                 </h2>
-                <p className="text-xs text-gray-300 mt-1">
+                <p className="text-xs text-gray-700 mt-1">
                   Tell us about your vision-let's build it together!
                 </p>
               </div>
               <button
                 onClick={handleClose}
-                className="text-gray-400 hover:text-white transition-colors flex-shrink-0"
+                className="text-amber-600 hover:text-amber-900 transition-colors flex-shrink-0"
                 aria-label="Close modal"
               >
                 <svg
@@ -240,7 +240,7 @@ Website Contact Form`,
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-gray-200 mb-1.5"
+                className="block text-sm font-medium text-amber-900 mb-1.5"
               >
                 Name <span className="text-red-400">*</span>
               </label>
@@ -251,7 +251,7 @@ Website Contact Form`,
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-3.5 py-2.5 bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg text-white text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
+                className="w-full px-3.5 py-2.5 bg-white border border-amber-200 rounded-lg text-amber-900 text-sm placeholder-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400/50 transition-all"
                 placeholder="Enter your name"
               />
             </div>
@@ -260,7 +260,7 @@ Website Contact Form`,
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-200 mb-1.5"
+                  className="block text-sm font-medium text-amber-900 mb-1.5"
                 >
                   Email ID <span className="text-red-400">*</span>
                 </label>
@@ -271,7 +271,7 @@ Website Contact Form`,
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-3.5 py-2.5 bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg text-white text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
+                  className="w-full px-3.5 py-2.5 bg-white border border-amber-200 rounded-lg text-amber-900 text-sm placeholder-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400/50 transition-all"
                   placeholder="Enter email address"
                 />
               </div>
@@ -279,7 +279,7 @@ Website Contact Form`,
               <div>
                 <label
                   htmlFor="phone"
-                  className="block text-sm font-medium text-gray-200 mb-1.5"
+                  className="block text-sm font-medium text-amber-900 mb-1.5"
                 >
                   Phone number <span className="text-red-400">*</span>
                 </label>
@@ -290,7 +290,7 @@ Website Contact Form`,
                   required
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-3.5 py-2.5 bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg text-white text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
+                  className="w-full px-3.5 py-2.5 bg-white border border-amber-200 rounded-lg text-amber-900 text-sm placeholder-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400/50 transition-all"
                   placeholder="Enter phone number"
                 />
               </div>
@@ -299,7 +299,7 @@ Website Contact Form`,
             <div>
               <label
                 htmlFor="description"
-                className="block text-sm font-medium text-gray-200 mb-1.5"
+                className="block text-sm font-medium text-amber-900 mb-1.5"
               >
                 Description <span className="text-red-400">*</span>
               </label>
@@ -310,14 +310,14 @@ Website Contact Form`,
                 rows={3}
                 value={formData.description}
                 onChange={handleChange}
-                className="w-full px-3.5 py-2.5 bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg text-white text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all resize-none"
+                className="w-full px-3.5 py-2.5 bg-white border border-amber-200 rounded-lg text-amber-900 text-sm placeholder-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400/50 transition-all resize-none"
                 placeholder="Tell us about your requirements..."
               />
             </div>
 
             {!isEmailConfigured && (
               <div className="pt-2 px-4 py-3 bg-amber-500/20 backdrop-blur-sm border border-amber-500/30 rounded-lg">
-                <p className="text-sm text-amber-200 font-medium">
+                <p className="text-sm text-amber-700 font-medium">
                   Email service is not configured. Please complete the EmailJS
                   setup before accepting submissions.
                 </p>
@@ -327,14 +327,14 @@ Website Contact Form`,
             {/* Success/Error Messages */}
             {submitStatus === "success" && (
               <div className="pt-2 px-4 py-3 bg-green-500/20 backdrop-blur-sm border border-green-500/30 rounded-lg">
-                <p className="text-sm text-green-300 font-medium">
+                <p className="text-sm text-green-700 font-medium">
                   ✓ Message sent successfully! We'll get back to you soon.
                 </p>
               </div>
             )}
             {submitStatus === "error" && (
               <div className="pt-2 px-4 py-3 bg-red-500/20 backdrop-blur-sm border border-red-500/30 rounded-lg">
-                <p className="text-sm text-red-300 font-medium">
+                <p className="text-sm text-red-700 font-medium">
                   {errorMessage || "Failed to send message. Please try again."}
                 </p>
               </div>
@@ -346,7 +346,7 @@ Website Contact Form`,
                 type="button"
                 onClick={handleClose}
                 disabled={isSubmitting}
-                className="flex-1 px-4 py-2.5 text-white bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg font-medium hover:bg-white/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 px-4 py-2.5 text-amber-900 bg-white border border-amber-200 rounded-lg font-medium hover:bg-amber-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Cancel
               </button>
@@ -357,7 +357,7 @@ Website Contact Form`,
                   submitStatus === "success" ||
                   !isEmailConfigured
                 }
-                className="flex-1 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="flex-1 px-4 py-2.5 bg-amber-600 hover:bg-amber-700 text-white rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>

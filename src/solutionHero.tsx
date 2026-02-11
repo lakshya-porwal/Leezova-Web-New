@@ -16,22 +16,21 @@ function SolutionHero() {
 
     // Initial states - center elements using GSAP
     // Face starts hidden behind backscreen (low opacity, positioned lower/behind)
-    gsap.set(floatingHead, { 
-      xPercent: -50, 
-      yPercent: -50, 
-      x: 0, 
-      y: 100, 
+    gsap.set(floatingHead, {
+      xPercent: -50,
+      yPercent: -50,
+      x: 0,
+      y: 100,
       opacity: 0.2,
       scale: 0.95
     });
     // Text starts visible with semi-transparent white
-    gsap.set(text, { 
-      xPercent: -50, 
-      yPercent: -50, 
+    gsap.set(text, {
+      xPercent: -50,
+      yPercent: -50,
       x: 0,
       y: 0,
-      opacity: 0.8, 
-      color: '#ffffff' 
+      opacity: 0.8,
     });
 
     // Create hover timeline
@@ -55,7 +54,6 @@ function SolutionHero() {
 
     hoverTimeline.to(text, {
       opacity: 1,
-      color: '#ffffff',
       duration: 0.8,
       ease: 'power2.out'
     }, 0.4);
@@ -81,22 +79,22 @@ function SolutionHero() {
   }, []);
 
   return (
-    <div 
+    <div
       ref={containerRef}
       className='min-h-screen w-full relative flex flex-col items-center justify-center overflow-hidden cursor-pointer h-full'
     >
       {/* Blue to black gradient background */}
-      <div 
+      <div
         className='absolute inset-0 z-0'
         style={{
-          background: 'radial-gradient(circle,rgba(0, 0, 0, 1) 0%, rgba(9, 9, 121, 1) 58%, rgba(0, 0, 0, 1) 100%)'
+          background: 'radial-gradient(circle,rgba(255, 255, 255, 1) 0%, rgba(250, 235, 215, 1) 58%, rgba(255, 255, 255, 1) 100%)'
         }}
       />
 
       {/* Layer 1: SOLUTIONS Text (bottom layer - z-[1], behind head and screen) */}
-      <h1 
+      <h1
         ref={textRef}
-        className='absolute z-[1] text-7xl md:text-8xl lg:text-9xl font-bold pointer-events-none text-white'
+        className='absolute z-[1] text-5xl md:text-8xl lg:text-9xl font-bold pointer-events-none text-gray-600'
         style={{
           top: '25%',
           left: '50%'
@@ -106,7 +104,7 @@ function SolutionHero() {
       </h1>
 
       {/* Layer 2: Floating Head (middle layer - z-10, on top of text, behind backscreen) */}
-      <div 
+      <div
         ref={floatingHeadRef}
         className='absolute z-10 flex items-center justify-center pointer-events-none'
         style={{
@@ -116,8 +114,8 @@ function SolutionHero() {
           left: '50%'
         }}
       >
-        <img 
-          src="/floating head.svg" 
+        <img
+          src="/floating head.svg"
           alt="Floating Head"
           loading="eager"
           decoding="async"
@@ -126,7 +124,7 @@ function SolutionHero() {
       </div>
 
       {/* Layer 3: Backscreen (top layer - z-20, positioned at bottom exactly 50% height) */}
-      <div 
+      <div
         ref={backscreenRef}
         className='absolute z-20 pointer-events-none overflow-hidden px-10'
         style={{
@@ -136,8 +134,8 @@ function SolutionHero() {
           left: 0
         }}
       >
-        <img 
-          src="/backscreen.svg" 
+        <img
+          src="/backscreen.svg"
           alt="Backscreen"
           loading="eager"
           decoding="async"
@@ -150,14 +148,14 @@ function SolutionHero() {
 
       {/* Black gradient blend at bottom - TOPMOST layer (z-[30]) for smooth blending */}
       {/* Adjusted to start later so text is more visible */}
-      <div 
+      <div
         className='absolute z-[30] pointer-events-none'
         style={{
           width: '100%',
           height: '50%',
           bottom: 0,
           left: 0,
-          background: 'linear-gradient(180deg,rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 1) 100%)'
+          background: 'linear-gradient(180deg,rgba(255, 255, 255, 0) 0%, rgba(250, 235, 215, 0.3) 40%, rgba(250, 235, 215, 0.7) 70%, rgba(255, 255, 255, 1) 100%)'
         }}
       />
     </div>

@@ -7,11 +7,11 @@ const SVGScrollBar = () => {
       <div
         className='absolute inset-0 pointer-events-none z-10'
         style={{
-          background: 'linear-gradient(180deg,rgba(0, 0, 0, 0.85) 0%,rgba(0, 0, 0, 0.6) 8%,rgba(0, 0, 0, 0.35) 18%,rgba(0, 0, 0, 0.15) 30%,rgba(0, 0, 0, 0) 45%,rgba(0, 0, 0, 0) 100%)'
+          background: 'linear-gradient(180deg,rgba(250,235,215,0.85) 0%,rgba(250,235,215,0.6) 8%,rgba(250,235,215,0.35) 18%,rgba(250,235,215,0.15) 30%,rgba(250,235,215,0) 45%,rgba(250,235,215,0) 100%)'
         }}
       ></div>
 
-      <div className=' flex gap-3 flex-row h-44  w-max animate-marquee  justify-center items-center'>
+      <div className=' flex gap-3 flex-row md:h-44 h-24  w-max animate-marquee  justify-center items-center'>
         <div> <ReactIcon className='h-28 p-2' /></div>
         <div><ReactQueryIcon className='h-28 p-2' /></div>
         <div><NextJsIcon className='h-28 p-2' /></div>
@@ -22,7 +22,6 @@ const SVGScrollBar = () => {
         <div><GitIcon className='h-28 p-2' /></div>
         <div><GitHubIcon className='h-28 p-2' /></div>
         <div><HTMLIcon className='h-28 p-2' /></div>
-
         <div> <ReactIcon className='h-28 p-2' /></div>
         <div><ReactQueryIcon className='h-28 p-2' /></div>
         <div><NextJsIcon className='h-28 p-2' /></div>
@@ -37,7 +36,7 @@ const SVGScrollBar = () => {
       <div
         className='absolute inset-0 pointer-events-none z-10'
         style={{
-          background: 'linear-gradient(180deg,rgba(0, 0, 0, 0) 0%,rgba(0, 0, 0, 0) 55%,rgba(0, 0, 0, 0.15) 70%,rgba(0, 0, 0, 0.35) 82%,rgba(0, 0, 0, 0.6) 92%,rgba(0, 0, 0, 0.85) 100%)'
+          background: 'linear-gradient(180deg,rgba(250,235,215,0) 0%,rgba(250,235,215,0) 55%,rgba(250,235,215,0.15) 70%,rgba(250,235,215,0.35) 82%,rgba(250,235,215,0.6) 92%,rgba(250,235,215,0.85) 100%)'
         }}
       ></div>
     </div>

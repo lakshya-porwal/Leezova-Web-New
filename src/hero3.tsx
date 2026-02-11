@@ -39,14 +39,14 @@ const SearchIcon = (): ReactElement => (
 );
 
 // Common class names
-const GLASS_CARD_CLASSES = "relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 pt-12";
-const GLOW_EFFECT_CLASSES = "absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none";
+const GLASS_CARD_CLASSES = "relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-yellow-100/40 via-yellow-50/50 to-amber-100/60 border border-yellow-200/30 hover:border-yellow-400/30 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-400/20 hover:-translate-y-1 group p-6 pt-12";
+const GLOW_EFFECT_CLASSES = "absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-yellow-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none";
 
 interface Service {
   id: number;
   title: string;
   description: string;
-  iconColor: string;
+  iconColor?: string;
   icon: ReactElement;
 }
 
@@ -63,7 +63,7 @@ function Hero3() {
       id: 1,
       title: "Website Design & Development",
       description: "From responsive designs to robust back-end solutions, we have the skills and creativity to bring your vision to life.",
-      iconColor: "bg-yellow-400",
+      // iconColor: "bg-yellow-400",
       icon: <MonitorIcon />
     },
     {
@@ -91,7 +91,7 @@ function Hero3() {
       id: 5,
       title: "Support",
       description: "Our dedicated team is available 24/7 to assist you with any inquiries or issues you may encounter.",
-      iconColor: "bg-yellow-400",
+      // iconColor: "bg-yellow-400",
       icon: <HeartIcon />
     },
     {
@@ -138,7 +138,7 @@ function Hero3() {
 
 
   return (
-    <div className="w-full bg-black/[0.96]">
+    <div className="w-full bg-white/[0.96]">
       {/* Services Section */}
       <section className="w-full py-16 px-4 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
@@ -151,13 +151,13 @@ function Hero3() {
                 <div className={GLOW_EFFECT_CLASSES} />
 
                 <div className="relative z-10 flex flex-col h-full items-center text-center">
-                  <div className={`w-20 h-20 ${service.iconColor} rounded-full flex items-center justify-center mb-4 bg-black/30 backdrop-blur-sm border border-white/10 flex-shrink-0`}>
+                  <div className={`w-20 h-20 ${service.iconColor} rounded-full flex items-center justify-center mb-4 bg-white/30 backdrop-blur-sm border border-yellow-200/20 flex-shrink-0`}>
                     {service.icon}
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-3">
+                  <h3 className="text-lg font-semibold text-black mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-gray-300 text-sm leading-relaxed flex-grow">
+                  <p className="text-gray-700 text-sm leading-relaxed flex-grow">
                     {service.description}
                   </p>
                 </div>
@@ -169,17 +169,21 @@ function Hero3() {
 
       <section className="w-full py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-5xl sm:text-6xl md:text-8xl font-bold text-white text-center mb-6">
+          <h2 className="text-5xl sm:text-6xl md:text-8xl font-bold text-black text-center mb-6">
             Our Process
           </h2>
 
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 sm:w-1 bg-gradient-to-b from-white via-white/90 to-white hidden md:block" style={{ top: '0.5rem', height: 'calc(100% - 2rem)' }}></div>
+            <div
+              className="absolute  left-1/2 transform -translate-x-1/2 w-0.5 sm:w-1 bg-gradient-to-b from-black via-black to-black hidden md:block shadow-[0_0_8px_rgba(0,0,0,0.4)]"
+              style={{ top: '0.5rem', height: 'calc(100% - 2rem)' }}>
 
-            <div className="relative mb-6 sm:mb-8 md:mb-10">
-              <div className="h-px block border-none bg-gradient-line w-full" style={{ background: 'linear-gradient(90deg, #fff0 15%, #ffffffb3 50%, #fff0 85%)' }}></div>
+            </div>
+
+            <div className="relative mb-6 sm:mb-8 md:mb-10 ">
+              <div className="h-px block border-none  bg-gradient-line w-full" style={{ background: 'linear-gradient(90deg, #fff0 15%, #ffffffb3 50%, #fff0 85%)' }}></div>
               <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-white rounded-full z-10 hidden md:block shadow-[0_0_10px_rgba(255,255,255,0.8),0_0_20px_rgba(255,255,255,0.5)]">
-                <div className="absolute inset-0 bg-white/80 rounded-full animate-pulse"></div>
+                <div className="absolute inset-0 rounded-full"></div>
               </div>
             </div>
 
@@ -194,24 +198,23 @@ function Hero3() {
                       className={`relative flex flex-col md:flex-row items-center mt-2 ${isLeft ? "md:flex-row-reverse" : ""
                         }`}
                     >
-                      <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-white rounded-full z-10 hidden md:block shadow-[0_0_10px_rgba(255,255,255,0.8),0_0_20px_rgba(255,255,255,0.5)]">
-                        <div className="absolute inset-0 bg-white/80 rounded-full animate-pulse"></div>
+                      <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ">
+                        <div className="absolute inset-0 bg-black rounded-full "></div>
                       </div>
 
                       <div className={`w-full md:w-[45%] ${isLeft ? "md:pr-8" : "md:pl-8"} relative z-0`}>
-                        <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 sm:p-7 md:p-8 min-h-[180px] sm:min-h-[200px] md:min-h-[220px] flex flex-col justify-center">
-                          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                        <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-yellow-100/40 via-yellow-50/50 to-amber-100/60 border border-yellow-200/30 hover:border-yellow-400/30 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-400/20 hover:-translate-y-1 group p-6 sm:p-7 md:p-8 min-h-[180px] sm:min-h-[200px] md:min-h-[220px] flex flex-col justify-center">
 
-                          <div className="relative z-10">
-                            <div className="text-white/80 text-xs sm:text-sm font-semibold mb-3 sm:mb-4">
+                          <div className="relative z-10 ">
+                            <div className="text-black/80 text-xs sm:text-sm font-semibold mb-3 sm:mb-4">
                               STEP {step.id}
                             </div>
 
-                            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4 md:mb-5">
+                            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-3 sm:mb-4 md:mb-5">
                               {step.title}
                             </h3>
 
-                            <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+                            <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
                               {step.description}
                             </p>
                           </div>
@@ -226,22 +229,26 @@ function Hero3() {
             </div>
 
             <div className="relative mt-8 sm:mt-12 md:mt-16 z-20">
-              <div className="relative rounded-2xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/50 via-black/60 to-black/70 border-2 border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-2xl hover:shadow-white/20 group p-6 sm:p-8 md:p-12 lg:p-16">
+              <div className="relative rounded-2xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-yellow-100/50 via-yellow-50/60 to-yellow-100/70 border-2 border-yellow-200/40 hover:border-yellow-400/40 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-400/20 group p-6 sm:p-8 md:p-12 lg:p-16">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
 
                 <div className="relative z-10 text-center">
-                  <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 sm:mb-8 md:mb-10">
+                  <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-6 sm:mb-8 md:mb-10">
                     The Road We've Paved Together
                   </h2>
 
-                  <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed max-w-4xl mx-auto">
+                  <p className="text-gray-800 text-base sm:text-lg md:text-xl leading-relaxed max-w-4xl mx-auto">
                     From humble beginnings to becoming a trusted partner for businesses worldwide, our journey has been defined by innovation, dedication, and unwavering commitment to excellence. Through years of collaboration, we've transformed ideas into digital realities, helping countless companies establish their online presence, reach new audiences, and achieve their business goals. Today, we stand proud as a team that has delivered exceptional results across web development, mobile applications, digital marketing, and beyond.
                   </p>
 
                   <div className="mt-8 sm:mt-10 md:mt-12 lg:mt-16">
                     <div className="w-full max-w-5xl mx-auto aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-white/10 flex items-center justify-center overflow-hidden">
-                      <div className="text-gray-400 text-sm sm:text-base md:text-lg">
-                        Any Photo
+                      <div className="text-gray-400 text-sm sm:text-base md:text-lg h-full w-full">
+                        <img
+                          src='/public/LeezovaDelivery.png'
+                          alt='Leezova Delivery'
+                          className='object-fill h-full w-full '
+                        />
                       </div>
                     </div>
                   </div>

@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  max-width:full;
+  max-width: full;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #000000;
+  color-scheme: light;
+  color: #000000;
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,20 +19,20 @@
 }
 
 html {
-  background-color: #000000 !important;
+  background-color: #ffffff !important;
 }
 
 body {
-  background-color: #000000 !important;
+  background-color: #ffffff !important;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #ca8a04;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #b5a104;
 }
 
 body {
@@ -40,7 +40,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #000000 !important;
+  background-color: #ffffff !important;
 }
 
 h1 {
@@ -55,12 +55,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #fefce8;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #ca8a04;
 }
 button:focus,
 button:focus-visible {
@@ -68,13 +68,12 @@ button:focus-visible {
 }
 
 body::-webkit-scrollbar {
-  display: none;            
+  display: none;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
-
 
 @keyframes marquee {
   0% {
@@ -109,41 +108,39 @@ body::-webkit-scrollbar {
   }
 }
 
-.gradient{
-   background:
-           
-      linear-gradient(
-        to right,
-        rgba(0,0,0,0.9) 0%,
-        rgba(0,0,0,0.6) 12%,
-        transparent 35%,
-        transparent 65%,
-        rgba(0,0,0,0.6) 88%,
-        rgba(0,0,0,0.9) 100%
-      ),
-      radial-gradient(
-        ellipse at center,
-        transparent 60%,
-        rgba(0,0,0,0.4) 100%
-      )
-   
+.gradient {
+  background:
+    linear-gradient(
+      to right,
+      rgba(250, 235, 215, 0.9) 0%,
+      rgba(250, 235, 215, 0.6) 12%,
+      transparent 35%,
+      transparent 65%,
+      rgba(250, 235, 215, 0.6) 88%,
+      rgba(250, 235, 215, 0.9) 100%
+    ),
+    radial-gradient(
+      ellipse at center,
+      transparent 60%,
+      rgba(250, 235, 215, 0.4) 100%
+    );
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #000000 !important;
+    color: #000000;
+    background-color: #ffffff !important;
   }
   html {
-    background-color: #000000 !important;
+    background-color: #ffffff !important;
   }
   body {
-    background-color: #000000 !important;
+    background-color: #ffffff !important;
   }
   a:hover {
-    color: #747bff;
+    color: #b5a104;
   }
   button {
-    background-color: #1a1a1a;
+    background-color: #fefce8;
   }
 }
