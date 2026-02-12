@@ -4,14 +4,13 @@ import { useEffect } from 'react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Solution from './Solution'
 import AboutUs from './aboutUs/AboutUs'
-// import OurMission from './aboutUs/subPages/OurMission'
-// import Values from './aboutUs/subPages/Values'
-// import Team from './aboutUs/subPages/Team'
+
 import Hero1 from './heroMain'
 import Navbar from './components/NavBar'
 import Footer from './components/Footer'
-import OurProducts from './Products/subPages/OurProducts'
+
 import OurClients from './trustedBy/OurClients'
+import OurProducts from './Products/OurProducts'
 // import LeezovaStamp from './leezovaStamp'
 
 function App() {

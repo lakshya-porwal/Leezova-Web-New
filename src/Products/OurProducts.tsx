@@ -1,4 +1,4 @@
-import ProductCard from "../../components/ProductCard"
+import ProductCard from "../components/ProductCard"
 
 
 const OurProducts = () => {
@@ -34,15 +34,20 @@ const OurProducts = () => {
 
         img1="/public/BmaFrontSs.png"
         desc1="A centralized hotel operations dashboard that gives staff a real-time snapshot of check-ins, room occupancy, and room status. From upcoming arrivals to housekeeping alerts, everything is organized in one clean interface to help teams manage daily operations smoothly and efficiently."
+        view1="User View"
 
         img2="/public/BmaBookingDetails.png"
         desc2="A detailed guest booking screen that provides complete reservation information, including stay duration, payment status, booking source, and room details. This view helps staff deliver personalized service while keeping all guest and stay data easily accessible in one place."
+        view2="Staff View"
 
         img3="/public/BmaIncomingDetails.png"
         desc3="An arrivals management screen that allows front desk staff to track upcoming reservations, view guest details, and perform quick check-ins. With booking sources, payment status, and stay dates clearly displayed, managing guest arrivals becomes fast and error-free."
+        view3="User View"
 
         img4="/public/BmaMyTask.png"
-        desc4="A task management interface designed for hotel staff to handle service requests, housekeeping duties, and guest needs in real time. Staff can track task progress, view locations, and mark jobs as completed, ensuring faster response times and better guest satisfaction." />
+        desc4="A task management interface designed for hotel staff to handle service requests, housekeeping duties, and guest needs in real time. Staff can track task progress, view locations, and mark jobs as completed, ensuring faster response times and better guest satisfaction."
+        view4="Staff View"
+        />
     </div>
   )
 }

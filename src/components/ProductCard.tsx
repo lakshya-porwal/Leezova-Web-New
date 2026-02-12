@@ -63,7 +63,7 @@ function ProductCard({
                     {title}
                 </div>
 
-                <div className="text-xl sm:text-2xl lg:text-3xl font-medium mb-6 md:mb-2 tracking-wide text-blue-600">
+                <div className="text-xl sm:text-2xl lg:text-3xl font-medium mb-6 md:mb-2 tracking-wide text-gray-300">
                     {tagline}
                 </div>
 
@@ -106,13 +106,13 @@ function ProductCard({
                         </span>
                     </div>
 
-                    <div className="text-base sm:text-lg  flex text-left pl-2 text-gray-400 max-w-xl mt-6">
+                    <div className="text-base sm:text-lg flex text-left pl-2 max-w-xl mt-6">
                         {currentProduct.description}
                     </div>
                 </div>
 
                 {/* DESKTOP DESCRIPTION */}
-                <div className="hidden lg:block text-lg xl:text-xl leading-relaxed text-gray-400 max-w-xl mt-6">
+                <div className="hidden lg:block text-lg xl:text-xl leading-relaxed max-w-xl mt-6">
                     {currentProduct.description}
                 </div>
             </div>
