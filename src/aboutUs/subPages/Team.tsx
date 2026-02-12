@@ -79,17 +79,17 @@ export default function Team() {
         </div>
 
         {/* arrow Section */}
-        <div className=" hidden lg:flex h-full justify-center items-center gap-6">
+        <div className=" hidden lg:flex h-full justify-center items-center gap-6 md:pb-8">
           <span onClick={scrollLeft} className="cursor-pointer"><Arrow className="rotate-90 h-10 fill-white" /></span>
           <span onClick={scrollRight} className="cursor-pointer"> <Arrow className="-rotate-90 h-10 fill-white" /></span>
         </div>
 
         {/* Bottom Section */}
-        <div className="h-screen flex items-center justify-center px-6 my-20">
+        {/* <div className="h-screen flex items-center justify-center px-6 my-20">
           <div className="w-full max-w-6xl aspect-[21/9] rounded-2xl overflow-hidden bg-gray-900 p-2">
             <div className="w-full h-full rounded-lg flex justify-center items-center"> video</div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Image Preview Modal */}
