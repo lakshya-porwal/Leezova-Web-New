@@ -13,32 +13,32 @@ export interface NavRoute {
 export const navRoutes: NavRoute[] = [
   {
     label: "About us",
-    path: null,
-    hasDropdown: true,
-    dropdownItems: [
-      {
-        label: "Our Mission",
-        path: "/about-us/our-mission",
-        description: "What drives us forward",
-        image: "/OurMissionSs.png",
-      },
-      {
-        label: "Values",
-        path: "/about-us/values",
-        description: "Our core principles",
-        image: "/OurValuesSs.png",
-      },
-      {
-        label: "Team",
-        path: "/about-us/team",
-        description: "Our Culture",
-        image: "/TeamSs.png",
-      },
-    ],
+    path:"/aboutUs",
+    hasDropdown: false,
+    // dropdownItems: [
+    //   {
+    //     label: "Our Mission",
+    //     path: "/about-us/our-mission",
+    //     description: "What drives us forward",
+    //     image: "/OurMissionSs.png",
+    //   },
+    //   {
+    //     label: "Values",
+    //     path: "/about-us/values",
+    //     description: "Our core principles",
+    //     image: "/OurValuesSs.png",
+    //   },
+    //   {
+    //     label: "Team",
+    //     path: "/about-us/team",
+    //     description: "Our Culture",
+    //     image: "/TeamSs.png",
+    //   },
+    // ],
   },
   {
     label: "Products",
-    path:"/products/Erp",
+    path:"/products",
     hasDropdown: false,
     // dropdownItems: [
       
@@ -53,7 +53,7 @@ export const navRoutes: NavRoute[] = [
   },
   {
     label: "Trusted By",
-    path:  "/trustedBy/RockBottom.tsx",
+    path:  "/trustedBy",
     hasDropdown: false,
     // dropdownItems: [
       
