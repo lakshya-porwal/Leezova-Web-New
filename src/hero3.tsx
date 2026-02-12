@@ -39,8 +39,8 @@ const SearchIcon = (): ReactElement => (
 );
 
 // Common class names
-const GLASS_CARD_CLASSES = "relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 pt-12";
-const GLOW_EFFECT_CLASSES = "absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none";
+const GLASS_CARD_CLASSES = "relative rounded-xl overflow-hidden backdrop-blur-md 60 border border-white/50 transition-all duration-300 group p-6 pt-12";
+const GLOW_EFFECT_CLASSES = "absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none";
 
 interface Service {
   id: number;
@@ -146,9 +146,14 @@ function Hero3() {
             {services.map((service) => (
               <div
                 key={service.id}
-                className={`${GLASS_CARD_CLASSES} min-h-[320px] flex flex-col `}
+                className={`${GLASS_CARD_CLASSES}  min-h-[320px] flex flex-col `}
               >
-                <div className={GLOW_EFFECT_CLASSES} />
+                <div
+                  className={GLOW_EFFECT_CLASSES}
+                  style={{
+                    background: "linear-gradient(90deg,rgba(9, 2, 92, 1) 0%, rgba(12, 12, 133, 0.29) 35%, rgba(255, 255, 255, 0) 100%)"
+                  }}
+                />
 
                 <div className="relative z-10 flex flex-col h-full items-center text-center">
                   <div className={`w-20 h-20 ${service.iconColor} rounded-full flex items-center justify-center mb-4 bg-black/30 backdrop-blur-sm border border-white/10 flex-shrink-0`}>
@@ -239,9 +244,13 @@ function Hero3() {
                   </p>
 
                   <div className="mt-8 sm:mt-10 md:mt-12 lg:mt-16">
-                    <div className="w-full max-w-5xl mx-auto aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-white/10 flex items-center justify-center overflow-hidden">
+                    <div className="w-full max-w-5xl mx-auto aspect-video rounded-xl flex items-center justify-center overflow-hidden">
                       <div className="text-gray-400 text-sm sm:text-base md:text-lg">
-                        Any Photo
+                        <img
+                          src='/public/ResultPicture.png'
+                          className=''
+                          alt='RESULT PICTURE'
+                        />
                       </div>
                     </div>
                   </div>

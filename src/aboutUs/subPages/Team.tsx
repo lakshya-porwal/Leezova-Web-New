@@ -49,11 +49,11 @@ export default function Team() {
               Our Journey
             </span>
 
-            <span className="text-[#4169E1] text-[60px] md:text-[120px] font-bold leading-tight mt-1 md:mt-0">
+            <span className="text-[#4169E1] text-[55px] md:text-[120px] font-bold leading-tight mt-1 md:mt-0">
               TOGETHER
             </span>
 
-            <span className="text-gray-200 text-[60px] md:text-[120px] leading-tight mt-1 md:mt-0">
+            <span className="text-gray-200 text-[55px] md:text-[120px] leading-tight mt-1 md:mt-0">
               at Leezova
             </span>
           </div>

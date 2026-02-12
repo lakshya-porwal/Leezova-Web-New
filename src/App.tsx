@@ -10,7 +10,7 @@ import AboutUs from './aboutUs/AboutUs'
 import Hero1 from './heroMain'
 import Navbar from './components/NavBar'
 import Footer from './components/Footer'
-import OurProducts from './products/subPages/OurProducts'
+import OurProducts from './Products/subPages/OurProducts'
 import OurClients from './trustedBy/OurClients'
 // import LeezovaStamp from './leezovaStamp'
 

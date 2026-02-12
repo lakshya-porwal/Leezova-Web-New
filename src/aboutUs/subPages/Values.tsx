@@ -47,28 +47,41 @@ return (
         </h1>
       </div>
 
-      <div className="relative z-10 mt-24 px-4 sm:px-6">
+      <div className="relative z-10 mt-24 px-4 sm:px-6 ">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-x-8 place-items-center max-w-7xl mx-auto">
           {values.map((value, index) => (
             <div
               key={index}
               className={`h-[400px] w-full max-w-[350px] ${value.padding} group px-4 sm:px-0`}
+             
             >
-              <div className="h-full w-full border-2 border-white rounded-xl p-1">
-                <div className="h-full w-full bg-black rounded-lg flex flex-col justify-between">
-                  <div className="flex-1 flex items-center justify-center">
-                    {value.icon}
-                  </div>
+              <div className="h-full w-full border-2  border-white rounded-xl p-1">
+                <div className="group relative h-full w-full bg-black rounded-lg overflow-hidden transition-all duration-500">
+  
+  {/* Gradient Overlay (appears only on hover) */}
+  <div className="absolute inset-0 opacity-0 transition-opacity duration-500
+                  group-hover:opacity-100
+                  bg-[linear-gradient(90deg,rgba(9,2,92,1)_0%,rgba(12,12,133,0.29)_35%,rgba(255,255,255,0)_100%)]">
+  </div>
 
-                  <div className="px-4 pb-6 text-center">
-                    <h3 className="text-2xl font-semibold text-[#4169E1]">
-                      {value.title}
-                    </h3>
-                    <p className="text-sm text-gray-400 mt-2">
-                      {value.description}
-                    </p>
-                  </div>
-                </div>
+  {/* Content */}
+  <div className="relative z-10 flex flex-col justify-between h-full">
+    
+    <div className="flex-1 flex items-center justify-center">
+      {value.icon}
+    </div>
+
+    <div className="px-4 pb-6 text-center">
+      <h3 className="text-2xl font-semibold text-[#4169E1]">
+        {value.title}
+      </h3>
+      <p className="text-sm text-gray-400 mt-2">
+        {value.description}
+      </p>
+    </div>
+
+  </div>
+</div>
               </div>
             </div>
           ))}
