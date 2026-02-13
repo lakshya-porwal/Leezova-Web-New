@@ -247,7 +247,7 @@ function Hero3() {
                     <div className="w-full max-w-5xl mx-auto aspect-video rounded-xl flex items-center justify-center overflow-hidden">
                       <div className="text-gray-400 text-sm sm:text-base md:text-lg">
                         <img
-                          src='/public/ResultPicture.png'
+                          src='/ResultPicture.png'
                           className=''
                           alt='RESULT PICTURE'
                         />

@@ -157,14 +157,14 @@ const OurClients = () => {
         <ClientCard
           title="Vardhaman Computers"
           description="We helped Vardhaman Computers modernize their digital presence with a clean layout that showcases their products and improves customer inquiries."
-          imgSrc="/public/vardhmanComputerSs.jpeg"
+          imgSrc="/vardhmanComputerSs.jpeg"
           link="#"
         />
 
         <ClientCard
           title="St. Peter Convent Higher Secondary School"
           description="We designed an informative and easy-to-navigate website for St. Peter Convent to better connect with parents, students, and the school community."
-          imgSrc="/public/Convent schoolSs.jpeg"
+          imgSrc="/Convent schoolSs.jpeg"
           link="#"
           reverse
         />
