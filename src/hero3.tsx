@@ -230,28 +230,26 @@ function Hero3() {
               </div>
             </div>
 
-            <div className="relative mt-8 sm:mt-12 md:mt-16 z-20">
-              <div className="relative rounded-2xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/50 via-black/60 to-black/70 border-2 border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-2xl hover:shadow-white/20 group p-6 sm:p-8 md:p-12 lg:p-16">
+            <div className="relative mt-4 sm:mt-6 md:mt-8 z-20">
+              <div className="relative rounded-lg overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/50 via-black/60 to-black/70 border-2 border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-2xl hover:shadow-white/20 group p-3 sm:p-4 md:p-5 lg:p-6">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
 
                 <div className="relative z-10 text-center">
-                  <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 sm:mb-8 md:mb-10">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 sm:mb-3">
                     The Road We've Paved Together
                   </h2>
 
-                  <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed max-w-4xl mx-auto">
-                    From humble beginnings to becoming a trusted partner for businesses worldwide, our journey has been defined by innovation, dedication, and unwavering commitment to excellence. Through years of collaboration, we've transformed ideas into digital realities, helping countless companies establish their online presence, reach new audiences, and achieve their business goals. Today, we stand proud as a team that has delivered exceptional results across web development, mobile applications, digital marketing, and beyond.
+                  <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                    From humble beginnings to becoming a trusted partner for businesses worldwide, our journey has been defined by innovation, dedication, and unwavering commitment to excellence. Through years of collaboration, we've transformed ideas into digital realities, helping countless companies establish their online presence, reach new audiences, and achieve their business goals.
                   </p>
 
-                  <div className="mt-8 sm:mt-10 md:mt-12 lg:mt-16">
-                    <div className="w-full max-w-5xl mx-auto aspect-video rounded-xl flex items-center justify-center overflow-hidden">
-                      <div className="text-gray-400 text-sm sm:text-base md:text-lg">
-                        <img
-                          src='/ResultPicture.png'
-                          className=''
-                          alt='RESULT PICTURE'
-                        />
-                      </div>
+                  <div className="mt-3 sm:mt-4 md:mt-5">
+                    <div className="w-full max-w-4xl mx-auto rounded-lg overflow-hidden">
+                      <img
+                        src='/ResultPicture.png'
+                        className='w-full h-auto max-h-[350px] sm:max-h-[450px] md:max-h-[500px] object-contain'
+                        alt='RESULT PICTURE'
+                      />
                     </div>
                   </div>
                 </div>

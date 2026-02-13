@@ -55,6 +55,19 @@ const Logo = React.memo(() => (
   </Link>
 ));
 Logo.displayName = 'Logo';
+const DotLogo = React.memo(() => (
+  <Link to="/" className="flex items-center justify-center">
+    <img
+      src="/logoSmall.png"
+      alt="LEEZOVA"
+      loading="eager"
+      decoding="async"
+      fetchPriority="high"
+      className="h-8 w-auto brightness-0 invert"
+    />
+  </Link>
+));
+DotLogo.displayName = 'DotLogo';
 
 const ImageWithFallback = React.memo(({
   src,
@@ -194,7 +207,8 @@ const DesktopNav = React.memo(({
   onDropdownEnter,
   onDropdownLeave,
   onItemHover,
-  onScheduleClick
+  onScheduleClick,
+  isScrollingDown
 }: {
   routes: NavRoute[];
   activeDropdown: string | null;
@@ -203,70 +217,83 @@ const DesktopNav = React.memo(({
   onDropdownLeave: () => void;
   onItemHover: (routeId: string, idx: number | null) => void;
   onScheduleClick: () => void;
+  isScrollingDown: boolean;
 }) => (
-  <div className="hidden lg:block relative w-full">
-    <div
-      className="absolute inset-0 pointer-events-none"
-      style={{
-        background: 'linear-gradient(360deg, rgba(255, 255, 255, 0) 0%, rgb(0, 0, 0) 100%)'
-      }}
-    />
-    <div className="w-full px-6 py-4 relative z-10">
-      <div className="flex items-center justify-between w-full">
-        <Logo />
-
-        <div className="flex items-center space-x-1 justify-center">
-          {routes.map((route, index) => {
-            const routeId = generateRouteId(route, index);
-            const isActive = activeDropdown === routeId;
-
-            return (
-              <div
-                key={routeId}
-                className="relative"
-                onMouseEnter={() => route.hasDropdown && onDropdownEnter(routeId)}
-                onMouseLeave={onDropdownLeave}
-              >
-                {route.path ? (
-                  <Link
-                    to={route.path}
-                    className={`px-4 py-2 rounded-lg transition-colors ${isActive
-                      ? 'bg-[#2d3447] text-white'
-                      : 'text-gray-300 hover:bg-[#2d3447] hover:text-white'
-                      }`}
-                  >
-                    {route.label}
-                  </Link>
-                ) : (
-                  <div
-                    className={`px-4 py-2 rounded-lg transition-colors cursor-pointer ${isActive
-                      ? 'bg-[#2d3447] text-white'
-                      : 'text-gray-300 hover:bg-[#2d3447] hover:text-white'
-                      }`}
-                  >
-                    {route.label}
-                  </div>
-                )}
-
-                {route.hasDropdown && isActive && route.dropdownItems && (
-                  <DesktopDropdown
-                    route={route}
-                    hoveredIdx={hoveredItems[routeId] ?? null}
-                    onItemHover={(idx) => onItemHover(routeId, idx)}
-                  />
-                )}
-              </div>
-            );
-          })}
-        </div>
-
-        <button
-          onClick={onScheduleClick}
-          className="px-6 py-2 bg-[#2d3447] hover:bg-[#3a4155] rounded-lg font-medium transition-colors text-white"
+  <div className="hidden lg:block relative w-full px-4 pt-4">
+    <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <div className="flex-1 flex justify-start">
+        <div
+        style={{
+          background: 'linear-gradient(180deg,rgba(6, 6, 94, 1) 0%, rgba(0, 0, 0, 0.51) 37%, rgba(255, 255, 255, 0) 100%)',
+          transition: 'width 0.8s cubic-bezier(0.65, 0, 0.35, 1), height 0.8s cubic-bezier(0.65, 0, 0.35, 1), padding 0.8s cubic-bezier(0.65, 0, 0.35, 1), border-radius 0.8s cubic-bezier(0.65, 0, 0.35, 1)'
+        }}
+        className={`relative shadow-2xl border border-white/10 backdrop-blur-md overflow-hidden ${
+          isScrollingDown
+            ? 'w-[54px] h-[54px] rounded-full px-0'
+            : 'w-full h-[52px] rounded-full px-6'
+        }`}
         >
-          Contact Us
-        </button>
+          <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${isScrollingDown ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <DotLogo />
+          </div>
+
+          <div className={`h-full flex items-center justify-between gap-4 transition-all duration-500 origin-center ${isScrollingDown ? 'opacity-0 scale-75 pointer-events-none' : 'opacity-100 scale-100'}`}>
+            <Logo />
+
+            <div className="flex-1 flex items-center justify-center space-x-3 whitespace-nowrap">
+              {routes.map((route, index) => {
+                const routeId = generateRouteId(route, index);
+                const isActive = activeDropdown === routeId;
+
+                return (
+                  <div
+                    key={routeId}
+                    className="relative"
+                    onMouseEnter={() => route.hasDropdown && onDropdownEnter(routeId)}
+                    onMouseLeave={onDropdownLeave}
+                  >
+                    {route.path ? (
+                      <Link
+                        to={route.path}
+                        className={`px-8 py-2 rounded-full transition-colors ${isActive
+                          ? 'bg-[#2d3447] text-white'
+                            : 'text-gray-300 hover:bg-black hover:text-white'
+                          }`}
+                      >
+                        {route.label}
+                      </Link>
+                    ) : (
+                      <div
+                        className={`px-8 py-2 rounded-full transition-colors cursor-pointer ${isActive
+                          ? 'bg-[#2d3447] text-white'
+                            : 'text-gray-300 hover:bg-black hover:text-white'
+                          }`}
+                      >
+                        {route.label}
+                      </div>
+                    )}
+
+                    {route.hasDropdown && isActive && route.dropdownItems && (
+                      <DesktopDropdown
+                        route={route}
+                        hoveredIdx={hoveredItems[routeId] ?? null}
+                        onItemHover={(idx) => onItemHover(routeId, idx)}
+                      />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </div>
+
+      <button
+        onClick={onScheduleClick}
+        className="bg-white rounded-full shadow-2xl h-[52px] px-6 text-black hover:bg-gray-100 font-medium transition-colors flex items-center shrink-0"
+      >
+        Book a call
+      </button>
     </div>
   </div>
 ));
@@ -410,6 +437,34 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileActiveMenu, setMobileActiveMenu] = useState<string | null>(null);
   const [scheduleModalOpen, setScheduleModalOpen] = useState(false);
+  const [isScrollingDown, setIsScrollingDown] = useState(false);
+  const lastScrollY = useRef(0);
+
+  // Handle scroll detection
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Only hide if scrolled down more than 50px
+      if (currentScrollY > 50) {
+        if (currentScrollY > lastScrollY.current) {
+          // Scrolling down
+          setIsScrollingDown(true);
+        } else {
+          // Scrolling up
+          setIsScrollingDown(false);
+        }
+      } else {
+        // At top of page
+        setIsScrollingDown(false);
+      }
+      
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -496,32 +551,25 @@ export default function Navbar() {
   return (
     <>
       <nav className="lg:fixed lg:top-0 lg:left-0 lg:right-0 z-[9999] text-white relative">
-        <div
-          className="hidden lg:block absolute inset-0 pointer-events-none"
-          style={{
-            background: 'linear-gradient(360deg, rgba(255, 255, 255, 0) 0%, rgba(9, 9, 121, 1) 100%)'
-          }}
+        <DesktopNav
+          routes={navRoutes}
+          activeDropdown={activeDropdown}
+          hoveredItems={hoveredItems}
+          onDropdownEnter={handleDropdownEnter}
+          onDropdownLeave={handleDropdownLeave}
+          onItemHover={handleItemHover}
+          onScheduleClick={handleScheduleClick}
+          isScrollingDown={isScrollingDown}
         />
-        <div className="relative z-10">
-          <DesktopNav
-            routes={navRoutes}
-            activeDropdown={activeDropdown}
-            hoveredItems={hoveredItems}
-            onDropdownEnter={handleDropdownEnter}
-            onDropdownLeave={handleDropdownLeave}
-            onItemHover={handleItemHover}
-            onScheduleClick={handleScheduleClick}
-          />
-          <MobileNav
-            routes={navRoutes}
-            isOpen={mobileOpen}
-            activeMenu={mobileActiveMenu}
-            onToggle={handleMobileToggle}
-            onMenuToggle={handleMobileMenuToggle}
-            onClose={handleMobileClose}
-            onScheduleClick={handleScheduleClick}
-          />
-        </div>
+        <MobileNav
+          routes={navRoutes}
+          isOpen={mobileOpen}
+          activeMenu={mobileActiveMenu}
+          onToggle={handleMobileToggle}
+          onMenuToggle={handleMobileMenuToggle}
+          onClose={handleMobileClose}
+          onScheduleClick={handleScheduleClick}
+        />
       </nav>
       <ScheduleModal isOpen={scheduleModalOpen} onClose={handleScheduleClose} />
     </>
