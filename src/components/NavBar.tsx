@@ -208,7 +208,8 @@ const DesktopNav = React.memo(({
   onDropdownLeave,
   onItemHover,
   onScheduleClick,
-  isScrollingDown
+  isScrollingDown,
+  pathname
 }: {
   routes: NavRoute[];
   activeDropdown: string | null;
@@ -218,16 +219,16 @@ const DesktopNav = React.memo(({
   onItemHover: (routeId: string, idx: number | null) => void;
   onScheduleClick: () => void;
   isScrollingDown: boolean;
+  pathname: string;
 }) => (
   <div className="hidden lg:block relative w-full px-4 pt-4">
     <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
       <div className="flex-1 flex justify-start">
         <div
         style={{
-          background: 'linear-gradient(180deg,rgba(6, 6, 94, 1) 0%, rgba(0, 0, 0, 0.51) 37%, rgba(255, 255, 255, 0) 100%)',
           transition: 'width 0.8s cubic-bezier(0.65, 0, 0.35, 1), height 0.8s cubic-bezier(0.65, 0, 0.35, 1), padding 0.8s cubic-bezier(0.65, 0, 0.35, 1), border-radius 0.8s cubic-bezier(0.65, 0, 0.35, 1)'
         }}
-        className={`relative shadow-2xl border border-white/10 backdrop-blur-md overflow-hidden ${
+        className={`relative bg-white/10 shadow-2xl border border-white/10 backdrop-blur-md overflow-hidden ${
           isScrollingDown
             ? 'w-[54px] h-[54px] rounded-full px-0'
             : 'w-full h-[52px] rounded-full px-6'
@@ -243,7 +244,12 @@ const DesktopNav = React.memo(({
             <div className="flex-1 flex items-center justify-center space-x-3 whitespace-nowrap">
               {routes.map((route, index) => {
                 const routeId = generateRouteId(route, index);
-                const isActive = activeDropdown === routeId;
+                const isCurrentRoute = route.path
+                  ? (route.path === "/" ? pathname === "/" : pathname.startsWith(route.path))
+                  : Boolean(route.dropdownItems?.some((item) =>
+                    item.path === "/" ? pathname === "/" : pathname.startsWith(item.path)
+                  ));
+                const isActive = isCurrentRoute || activeDropdown === routeId;
 
                 return (
                   <div
@@ -256,7 +262,7 @@ const DesktopNav = React.memo(({
                       <Link
                         to={route.path}
                         className={`px-8 py-2 rounded-full transition-colors ${isActive
-                          ? 'bg-[#2d3447] text-white'
+                          ? 'bg-black text-white'
                             : 'text-gray-300 hover:bg-black hover:text-white'
                           }`}
                       >
@@ -265,7 +271,7 @@ const DesktopNav = React.memo(({
                     ) : (
                       <div
                         className={`px-8 py-2 rounded-full transition-colors cursor-pointer ${isActive
-                          ? 'bg-[#2d3447] text-white'
+                          ? 'bg-black text-white'
                             : 'text-gray-300 hover:bg-black hover:text-white'
                           }`}
                       >
@@ -305,7 +311,8 @@ const MobileNav = React.memo(({
   onToggle,
   onMenuToggle,
   onClose,
-  onScheduleClick
+  onScheduleClick,
+  pathname
 }: {
   routes: NavRoute[];
   isOpen: boolean;
@@ -314,6 +321,7 @@ const MobileNav = React.memo(({
   onMenuToggle: (routeId: string) => void;
   onClose: () => void;
   onScheduleClick: () => void;
+  pathname: string;
 }) => {
   const sidebarRef = useRef<HTMLDivElement>(null);
 
@@ -371,7 +379,12 @@ const MobileNav = React.memo(({
         <div className="flex flex-col p-4 space-y-2">
           {routes.map((route, index) => {
             const routeId = route.path || `mobile-${index}-${route.label.toLowerCase()}`;
-            const isMenuOpen = activeMenu === routeId;
+            const isCurrentRoute = route.path
+              ? (route.path === "/" ? pathname === "/" : pathname.startsWith(route.path))
+              : Boolean(route.dropdownItems?.some((item) =>
+                item.path === "/" ? pathname === "/" : pathname.startsWith(item.path)
+              ));
+            const isMenuOpen = activeMenu === routeId || (isCurrentRoute && Boolean(route.dropdownItems?.length));
 
             return (
               <div key={routeId}>
@@ -379,13 +392,21 @@ const MobileNav = React.memo(({
                   <Link
                     to={route.path}
                     onClick={onClose}
-                    className="flex items-center justify-start text-left px-3 py-3 rounded-md text-gray-200 hover:bg-[#2d3447] active:bg-[#3a4155] cursor-pointer transition-colors touch-manipulation"
+                    className={`flex items-center justify-start text-left px-3 py-3 rounded-md cursor-pointer transition-colors touch-manipulation ${
+                      isCurrentRoute
+                        ? "bg-white/20 text-white"
+                        : ""
+                    }`}
                   >
                     <span className="flex-1">{route.label}</span>
                   </Link>
                 ) : (
                   <div
-                    className="flex items-center justify-between px-3 py-3 rounded-md text-gray-200 hover:bg-[#2d3447] active:bg-[#3a4155] cursor-pointer transition-colors touch-manipulation"
+                    className={`flex items-center justify-between px-3 py-3 rounded-md cursor-pointer transition-colors touch-manipulation ${
+                      isCurrentRoute
+                        ? "bg-white/20 text-white"
+                        : "bg-white/10 text-white"
+                    }`}
                     onClick={() => {
                       if (route.hasDropdown && route.dropdownItems) {
                         onMenuToggle(routeId);
@@ -404,14 +425,23 @@ const MobileNav = React.memo(({
                 {isMenuOpen && route.dropdownItems && (
                   <div className="ml-2 mt-1 mb-2 space-y-1 border-l-2 border-gray-700 pl-4 transition-all duration-200">
                     {route.dropdownItems.map((item, idx) => (
+                      (() => {
+                        const isItemActive = item.path === "/" ? pathname === "/" : pathname.startsWith(item.path);
+                        return (
                       <Link
                         key={idx}
                         to={item.path}
                         onClick={onClose}
-                        className="block px-3 py-2.5 text-sm rounded-md text-gray-400 hover:bg-[#2d3447] hover:text-white active:bg-[#3a4155] transition-colors touch-manipulation"
+                        className={`block px-3 py-2.5 text-sm rounded-md transition-colors touch-manipulation ${
+                          isItemActive
+                            ? "bg-white/20 text-white"
+                            : "bg-white/10 text-white"
+                        }`}
                       >
                         {item.label}
                       </Link>
+                        );
+                      })()
                     ))}
                   </div>
                 )}
@@ -565,6 +595,7 @@ export default function Navbar() {
           onItemHover={handleItemHover}
           onScheduleClick={handleScheduleClick}
           isScrollingDown={isScrollingDown}
+          pathname={location.pathname}
         />
         <MobileNav
           routes={navRoutes}
@@ -574,6 +605,7 @@ export default function Navbar() {
           onMenuToggle={handleMobileMenuToggle}
           onClose={handleMobileClose}
           onScheduleClick={handleScheduleClick}
+          pathname={location.pathname}
         />
       </nav>
       <ScheduleModal isOpen={scheduleModalOpen} onClose={handleScheduleClose} />

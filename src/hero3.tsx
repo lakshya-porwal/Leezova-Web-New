@@ -151,7 +151,7 @@ function Hero3() {
                 <div
                   className={GLOW_EFFECT_CLASSES}
                   style={{
-                    background: "linear-gradient(90deg,rgba(9, 2, 92, 1) 0%, rgba(12, 12, 133, 0.29) 35%, rgba(255, 255, 255, 0) 100%)"
+                    background: "linear-gradient(90deg,rgba(9, 2, 92, 1) 0%, rgba(12, 12, 133, 0.29) 20%, rgba(255, 255, 255, 0) 100%)"
                   }}
                 />
 
