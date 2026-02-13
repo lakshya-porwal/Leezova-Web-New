@@ -73,10 +73,10 @@ function Hero1({ onStartProject }: { onStartProject: () => void }) {
   return (
     <div
       ref={containerRef}
-      className="h-[65vh] sm:h-screen w-full flex items-center justify-center relative bg-black overflow-hidden cursor-none"
+      className="h-[65vh] sm:h-screen w-full flex items-center justify-center relative bg-black overflow-hidden "
     >
       {/* Custom rounded cursor */}
-      <div
+      {/* <div
         className="fixed pointer-events-none z-50 mix-blend-difference hidden lg:block"
         style={{
           left: `${mousePosition.x}px`,
@@ -88,7 +88,7 @@ function Hero1({ onStartProject }: { onStartProject: () => void }) {
           background: "white",
           transition: "width 0.2s ease, height 0.2s ease",
         }}
-      />
+      /> */}
 
       {/* Hero Content */}
       <div className="relative z-20 px-6 w-full md:px-28 lg:px-48 text-left sm:-mt-16">

@@ -34,7 +34,7 @@ export default function OurMission() {
         </div>
         {/* Top Introduction Section */}
         <div className="mb-12 md:mb-16">
-          <p className="text-lg text-white leading-relaxed max-w-auto text-left">
+          <p className="text-lg text-white leading-relaxed max-w-auto md:text-left text-center">
             At Leezova Technologies, we deliver reliable and scalable IT
             services that help businesses grow with confidence. We specialize in
             IT staff augmentation, custom software development, and digital
@@ -142,12 +142,17 @@ export default function OurMission() {
             </h3>
             {/* Gradient Line */}
             <div className="relative w-full max-w-4xl mx-auto mb-8">
-              <div className="h-px block border-none w-full" style={{ background: 'linear-gradient(90deg, #fff0 15%, #ffffffb3 50%, #fff0 85%)' }}></div>
+              <div className="h-px block border-none w-full" style={{ background: 'linear-gradient(90deg,rgba(9, 2, 92, 1) 0%, rgba(12, 12, 133, 0.29) 35%, rgba(255, 255, 255, 0) 100%)' }}></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6">
               {/* Card 1 - IT Staff Augmentation */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border border-white/10 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                  style={{
+                    background: "linear-gradient(90deg,rgba(9, 2, 92, 1) 0%, rgba(12, 12, 133, 0.29) 35%, rgba(255, 255, 255, 0) 100%)"
+                  }}
+                />
                 <div className="relative z-10 flex flex-col h-full items-center text-center">
                   <div className="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mb-4 bg-black/30 backdrop-blur-sm border border-white/10 flex-shrink-0">
                     <svg
@@ -174,8 +179,13 @@ export default function OurMission() {
               </div>
 
               {/* Card 2 - Custom Software */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border border-white/10 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                  style={{
+                    background: "linear-gradient(90deg,rgba(9, 2, 92, 1) 0%, rgba(12, 12, 133, 0.29) 35%, rgba(255, 255, 255, 0) 100%)"
+                  }}
+                />
                 <div className="relative z-10 flex flex-col h-full items-center text-center">
                   <div className="w-20 h-20 bg-purple-300 rounded-full flex items-center justify-center mb-4 bg-black/30 backdrop-blur-sm border border-white/10 flex-shrink-0">
                     <svg
@@ -202,8 +212,13 @@ export default function OurMission() {
               </div>
 
               {/* Card 3 - Web & Mobile */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border border-white/10 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                  style={{
+                    background: "linear-gradient(90deg,rgba(9, 2, 92, 1) 0%, rgba(12, 12, 133, 0.29) 35%, rgba(255, 255, 255, 0) 100%)"
+                  }}
+                />
                 <div className="relative z-10 flex flex-col h-full items-center text-center">
                   <div className="w-20 h-20 bg-blue-300 rounded-full flex items-center justify-center mb-4 bg-black/30 backdrop-blur-sm border border-white/10 flex-shrink-0">
                     <svg
@@ -230,8 +245,13 @@ export default function OurMission() {
               </div>
 
               {/* Card 4 - Partnership Approach */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border border-white/10 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                  style={{
+                    background: "linear-gradient(90deg,rgba(9, 2, 92, 1) 0%, rgba(12, 12, 133, 0.29) 35%, rgba(255, 255, 255, 0) 100%)"
+                  }}
+                />
                 <div className="relative z-10 flex flex-col h-full items-center text-center">
                   <div className="w-20 h-20 bg-orange-300 rounded-full flex items-center justify-center mb-4 bg-black/30 backdrop-blur-sm border border-white/10 flex-shrink-0">
                     <svg
@@ -259,8 +279,13 @@ export default function OurMission() {
               </div>
 
               {/* Card 5 - Skilled Team */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border border-white/10 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                  style={{
+                    background: "linear-gradient(90deg,rgba(9, 2, 92, 1) 0%, rgba(12, 12, 133, 0.29) 35%, rgba(255, 255, 255, 0) 100%)"
+                  }}
+                />
                 <div className="relative z-10 flex flex-col h-full items-center text-center">
                   <div className="w-20 h-20 bg-cyan-300 rounded-full flex items-center justify-center mb-4 bg-black/30 backdrop-blur-sm border border-white/10 flex-shrink-0">
                     <svg
@@ -287,8 +312,13 @@ export default function OurMission() {
               </div>
 
               {/* Card 6 - Flexible & Proven */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border border-white/10 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                  style={{
+                    background: "linear-gradient(90deg,rgba(9, 2, 92, 1) 0%, rgba(12, 12, 133, 0.29) 35%, rgba(255, 255, 255, 0) 100%)"
+                  }}
+                />
                 <div className="relative z-10 flex flex-col h-full items-center text-center">
                   <div className="w-20 h-20 bg-green-300 rounded-full flex items-center justify-center mb-4 bg-black/30 backdrop-blur-sm border border-white/10 flex-shrink-0">
                     <svg
@@ -317,8 +347,13 @@ export default function OurMission() {
               </div>
 
               {/* Card 7 - AI Solutions */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border border-white/10 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                  style={{
+                    background: "linear-gradient(90deg,rgba(9, 2, 92, 1) 0%, rgba(12, 12, 133, 0.29) 35%, rgba(255, 255, 255, 0) 100%)"
+                  }}
+                />
                 <div className="relative z-10 flex flex-col h-full items-center text-center">
                   <div className="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mb-4 bg-black/30 backdrop-blur-sm border border-white/10 flex-shrink-0">
                     <svg
@@ -345,8 +380,13 @@ export default function OurMission() {
               </div>
 
               {/* Card 8 - Cloud Solutions */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border border-white/10 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                  style={{
+                    background: "linear-gradient(90deg,rgba(9, 2, 92, 1) 0%, rgba(12, 12, 133, 0.29) 35%, rgba(255, 255, 255, 0) 100%)"
+                  }}
+                />
                 <div className="relative z-10 flex flex-col h-full items-center text-center">
                   <div className="w-20 h-20 bg-cyan-300 rounded-full flex items-center justify-center mb-4 bg-black/30 backdrop-blur-sm border border-white/10 flex-shrink-0">
                     <svg
@@ -373,8 +413,13 @@ export default function OurMission() {
               </div>
 
               {/* Card 9 - Solution & Support */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 pt-12 min-h-[320px] flex flex-col">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md0 border border-white/10 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                  style={{
+                    background: "linear-gradient(90deg,rgba(9, 2, 92, 1) 0%, rgba(12, 12, 133, 0.29) 35%, rgba(255, 255, 255, 0) 100%)"
+                  }}
+                />
                 <div className="relative z-10 flex flex-col h-full items-center text-center">
                   <div className="w-20 h-20 bg-pink-300 rounded-full flex items-center justify-center mb-4 bg-black/30 backdrop-blur-sm border border-white/10 flex-shrink-0">
                     <svg

@@ -36,21 +36,21 @@ PlaceholderIcon.displayName = 'PlaceholderIcon';
 
 const Logo = React.memo(() => (
   <Link to="/" className="flex items-center gap-2">
-    <img 
-      src="/logoSmall.png" 
-      alt="LEEZOVA" 
+    <img
+      src="/logoSmall.png"
+      alt="LEEZOVA"
       loading="eager"
       decoding="async"
       fetchPriority="high"
-      className="h-8 md:h-6 w-auto brightness-0 invert" 
+      className="h-8 md:h-6 w-auto brightness-0 invert"
     />
-    <img 
-      src="/mainLogo.png" 
-      alt="LEEZOVA" 
+    <img
+      src="/mainLogo.png"
+      alt="LEEZOVA"
       loading="eager"
       decoding="async"
       fetchPriority="high"
-      className="hidden md:block h-2 md:h-4 w-auto brightness-0 invert" 
+      className="hidden md:block h-2 md:h-4 w-auto brightness-0 invert"
     />
   </Link>
 ));
@@ -317,7 +317,7 @@ const MobileNav = React.memo(({
       {/* Sidebar */}
       <div
         ref={sidebarRef}
-        className={`fixed top-0 left-0 h-full w-[85%] sm:w-[75%] md:w-[60%] bg-[#1f2433] z-50 transform transition-transform duration-300 ease-out overflow-y-auto ${isOpen ? "translate-x-0" : "-translate-x-full"
+        className={`fixed top-0 left-0 h-full w-[53%] sm:w-[50%] md:w-[60%] bg-[#1f2433] z-50 transform transition-transform duration-300 ease-out overflow-y-auto ${isOpen ? "translate-x-0" : "-translate-x-full"
           } lg:hidden`}
         role="dialog"
         aria-modal="true"
@@ -325,7 +325,7 @@ const MobileNav = React.memo(({
       >
         {/* Sidebar Header */}
         <div className="sticky top-0 bg-[#1f2433] z-10 flex justify-between items-center px-4 py-4 border-b border-gray-700">
-          <span className="text-lg font-semibold text-white">Menu</span>
+          <span className="text-lg font-semibold text-white pl-4">Menu</span>
           <button
             onClick={onClose}
             className="text-2xl text-gray-300 hover:text-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#3a4155] rounded p-1 transition-colors"
@@ -347,7 +347,7 @@ const MobileNav = React.memo(({
                   <Link
                     to={route.path}
                     onClick={onClose}
-                    className="flex items-center justify-between px-3 py-3 rounded-md text-gray-200 hover:bg-[#2d3447] active:bg-[#3a4155] cursor-pointer transition-colors touch-manipulation"
+                    className="flex items-center justify-start text-left px-3 py-3 rounded-md text-gray-200 hover:bg-[#2d3447] active:bg-[#3a4155] cursor-pointer transition-colors touch-manipulation"
                   >
                     <span className="flex-1">{route.label}</span>
                   </Link>
