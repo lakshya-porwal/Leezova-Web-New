@@ -129,10 +129,19 @@ const OurClients = () => {
       <p className="md:text-4xl sm:text-3xl text-blue-600 tracking-widest uppercase md:mt-24 mt-10 px-4 font-semibold">
         Trusted Brands. Elevated Experiences.
       </p>
+
+ <div
+    className="h-px block border-none w-full mt-4"
+    style={{
+      background:
+        "linear-gradient(90deg, #fff0 15%, #ffffffb3 50%, #fff0 85%)",
+    }}
+  ></div>
+
       <div className="px-4 sm:px-8 md:px-16">
         <ClientCard
           title="Rockbottom.in"
-          description="We revamped Rockbottom’s online presence with a faster, modern interface designed to improve engagement and drive more conversions."
+          description="We revamped Rockbottom's online presence with a faster, modern interface designed to improve engagement and drive more conversions."
           imgSrc="/rock-bottom-bg2.png"
           link="https://rockbottom.in"
         />
