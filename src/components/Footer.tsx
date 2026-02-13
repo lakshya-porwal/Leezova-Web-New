@@ -7,206 +7,158 @@ export default function Footer() {
   const [scheduleModalOpen, setScheduleModalOpen] = useState(false);
   const currentYear = new Date().getFullYear();
 
-  const footerLinks = {
-    aboutUs: [{ label: "About Us", path: "/aboutUs" }],
-    products: [{ label: "Products", path: "/products" }],
-    trustedBy: [{ label: "Trusted By", path: "/trustedBy" }],
-    solutions: [{ label: "Solutions", path: "/solutions" }],
-  };
-
   return (
-    <footer className="relative w-full bg-[#0b1230] text-slate-200">
-      <div className="max-w-7xl mx-auto px-6 pt-10 pb-6">
-
-        {/* Top Section - Logo + CTA */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10 pb-6 border-b border-white/10">
-          {/* Brand Section */}
-          <div className="flex flex-col justify-center">
-            <Link to="/" className="flex items-center justify-center gap-3 mb-2">
-              <img src="/logoSmall.png" alt="LEEZOVA Logo" className="h-10 brightness-0 invert" />
-              <img src="/mainLogo.png" alt="LEEZOVA" className="hidden md:block h-6 brightness-0 invert" />
-            </Link>
-            <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
-              Building intelligent digital solutions that help businesses operate smarter, faster, and better.
-            </p>
-          </div>
-
-          {/* CTA Section */}
-          <div className="flex flex-col justify-center items-center">
-            <h4 className="text-sm font-semibold text-slate-300 mb-3 uppercase tracking-wide">Start Your Journey</h4>
+    <footer
+      className="relative w-full text-slate-200"
+      style={{
+        backgroundColor: "#000000",
+        background:
+          "linear-gradient(180deg,rgba(6, 6, 94, 1) 0%, rgba(0, 0, 0, 0.51) 37%, rgba(255, 255, 255, 0) 100%)",
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-6 mb-16 ">
+        
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between">
+            <div className="text-center md:text-left">
+              <h2 className="text-3xl md:text-4xl font-bold text-white my-3">Start Your Journey</h2>
+              <p className="text-slate-300 max-w-md">
+                Elevate your business with LEEZOVA&apos;s cutting-edge tech solutions and strategic digital expertise.
+              </p>
+            </div>
             <button
               onClick={() => setScheduleModalOpen(true)}
               className="px-5 py-2 bg-slate-200 hover:bg-slate-100 text-slate-900 font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
-              Schedule a call
+              Schedule a Call
             </button>
           </div>
+  
+        
+      </div>
 
-          {/* contact Section */}
-          <div className="grid grid-cols-2 gap-3">
-            <div className="bg-[#0b1230] rounded-lg p-3">
-              <div className="md:text-2xl text-xl font-bold text-slate-200 mb-1">Email</div>
-              <div className="text-xs text-slate-300">
-                <a
-                  href="mailto:contact@Leezova.com"
-                  className="block md:text-sm text-xs text-slate-300 hover:text-blue-400 transition-colors"
-                >
-                  contact@Leezova.com
-                </a>
-              </div>
-            </div>
-            <div className="bg-[#0b1230] rounded-lg p-3">
-              <div className="md:text-2xl text-xl font-bold text-slate-200 mb-1">Phone</div>
-              <div className="text-xs text-slate-300">
-                <a
-                  href="tel:+919202155929"
-                  className="block md:text-sm text-xs text-slate-300 hover:text-blue-400 transition-colors"
-                >
-                  +91 9202155929
-                </a>
-              </div>
-            </div>
-          </div>
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16">
+        <div className="space-y-6">
+          <h3 className="text-white font-bold text-lg uppercase tracking-wider">Quick Links</h3>
+          <nav className="flex flex-col gap-4">
+            <Link to="/aboutUs" className="text-slate-400 hover:text-white flex items-center gap-2 group transition-colors">
+              <span className="text-sm group-hover:translate-x-1 transition-transform">→</span>
+              About Us
+            </Link>
+            <Link to="/products" className="text-slate-400 hover:text-white flex items-center gap-2 group transition-colors">
+              <span className="text-sm group-hover:translate-x-1 transition-transform">→</span>
+              Products
+            </Link>
+            <Link to="/trustedBy" className="text-slate-400 hover:text-white flex items-center gap-2 group transition-colors">
+              <span className="text-sm group-hover:translate-x-1 transition-transform">→</span>
+              Trusted By
+            </Link>
+            <Link to="/solutions" className="text-slate-400 hover:text-white flex items-center gap-2 group transition-colors">
+              <span className="text-sm group-hover:translate-x-1 transition-transform">→</span>
+              Solutions
+            </Link>
+          </nav>
         </div>
 
-        {/* Main Grid - Navigation */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-6 items-center">
-
-          {/* Left: Routes in a 2x2 grid */}
-          <div className="lg:col-span-2">
-            <div className="grid grid-cols-2 gap-4">
+        <div className="space-y-6">
+          <h3 className="text-white font-bold text-lg uppercase tracking-wider">Contact Us</h3>
+          <div className="space-y-4">
+            <a className="flex items-center gap-4 p-3 rounded-lg transition-colors group" href="mailto:contact@Leezova.com">
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center text-white transition-all duration-300 group-hover:text-blue-400 group-hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M3 6L12 13L21 6M5 4H19C20.1 4 21 4.9 21 6V18C21 19.1 20.1 20 19 20H5C3.9 20 3 19.1 3 18V6C3 4.9 3.9 4 5 4Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
               <div>
-                <ul className="space-y-2">
-                  {footerLinks.aboutUs.map((link) => (
-                    <li key={link.path}>
-                      <Link
-                        to={link.path}
-                        className="text-sm text-slate-300 relative group inline-block hover:text-blue-400 transition-colors"
-                      >
-                        <span>{link.label}</span>
-                        <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-blue-400 transition-all group-hover:w-full"></span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-slate-200">contact@Leezova.com</p>
               </div>
-
+            </a>
+            <a className="flex items-center gap-4 p-3 rounded-lg transition-colors group" href="tel:+919202155929">
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center text-white transition-all duration-300 group-hover:text-blue-400 group-hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M22 16.92V20C22 20.55 21.55 21 21 21C11.61 21 4 13.39 4 4C4 3.45 4.45 3 5 3H8.09C8.57 3 8.99 3.34 9.09 3.81L9.81 7.27C9.9 7.71 9.74 8.16 9.39 8.45L7.25 10.2C8.35 12.64 10.36 14.65 12.8 15.75L14.55 13.61C14.84 13.26 15.29 13.1 15.73 13.19L19.19 13.91C19.66 14.01 20 14.43 20 14.91V16.92H22Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
               <div>
-                <ul className="space-y-2">
-                  {footerLinks.products.map((link) => (
-                    <li key={link.path}>
-                      <Link
-                        to={link.path}
-                        className="text-sm text-slate-300 relative group inline-block hover:text-blue-400 transition-colors"
-                      >
-                        <span>{link.label}</span>
-                        <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-blue-400 transition-all group-hover:w-full"></span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <ul className="space-y-2">
-                  {footerLinks.trustedBy.map((link) => (
-                    <li key={link.path}>
-                      <Link
-                        to={link.path}
-                        className="text-sm text-slate-300 relative group inline-block hover:text-blue-400 transition-colors"
-                      >
-                        <span>{link.label}</span>
-                        <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-blue-400 transition-all group-hover:w-full"></span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <ul className="space-y-2">
-                  {footerLinks.solutions.map((link) => (
-                    <li key={link.path}>
-                      <Link
-                        to={link.path}
-                        className="text-sm text-slate-300 relative group inline-block hover:text-blue-400 transition-colors"
-                      >
-                        <span>{link.label}</span>
-                        <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-blue-400 transition-all group-hover:w-full"></span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Middle: Connect (centered) */}
-          <div className="flex flex-col justify-center items-center">
-            <h3 className="text-xs font-semibold tracking-widest text-slate-300 mb-6 uppercase">
-              Connect
-            </h3>
-            <div className="flex gap-3 mb-4 justify-center items-center">
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0b1230] border border-white/10 hover:bg-slate-700 hover:border-slate-500 transition-all"
-              >
-                <FacebookIcon className="h-4 w-4 sm:h-5 sm:w-5 text-slate-200 transition-colors" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0b1230] border border-white/10 hover:bg-slate-700 hover:border-slate-500 transition-all"
-              >
-                <InstagramIcon className="h-4 w-4 sm:h-5 sm:w-5 text-slate-200 transition-colors" />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0b1230] border border-white/10 hover:bg-slate-700 hover:border-slate-500 transition-all"
-              >
-                <LinkedInIcon className="h-4 w-4 sm:h-5 sm:w-5 text-slate-200 transition-colors" />
-              </a>
-            </div>
-          </div>
-
-          {/* Right: Map / Address (clickable -> Google Maps) */}
-          <div className="lg:col-span-2 flex flex-col justify-center items-center">
-            <a
-              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Ltd., 56, Vigyan Nagar, Indore, Madhya Pradesh 452009')}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col w-full bg-[#0b1230] rounded-lg shadow-md overflow-hidden"
-              aria-label="Open Leezova address in Google Maps"
-            >
-              <div className="w-full h-40 sm:h-48 md:h-40">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.42035397175!2d75.83158438761129!3d22.67539057020986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fd02401ec16d%3A0xf152590e82896ba3!2sLeezova%20Technologies%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1770874814293!5m2!1sen!2sin" width="100%" height="100%" className="border-none rounded-xl" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
-              </div>
-
-              <div className="p-3 sm:p-4 w-full">
-                <div className="text-sm font-semibold text-slate-200">LEEZOVA Technology</div>
-                <div className="text-xs sm:text-sm text-slate-300 mt-1">Ltd., 56, Vigyan Nagar, Indore, Madhya Pradesh 452009</div>
-                <div className="mt-2 text-[12px] text-blue-400 font-medium inline-flex items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2v-4" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 4h6v6" />
-                  </svg>
-                  View on Google Maps
-                </div>
+                <p className="text-slate-200">+91 9202155929</p>
               </div>
             </a>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="flex flex-col sm:flex-row justify-center items-center text-sm text-slate-300">
-          <div>
-            © {currentYear} <span className="font-semibold text-slate-200">LEEZOVA</span>. All rights reserved.
+        <div className="space-y-6">
+          <h3 className="text-white font-bold text-lg uppercase tracking-wider">Our Location</h3>
+          <a
+            href="https://maps.app.goo.gl/37RbpNWksCGvYKKX9"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-xl overflow-hidden border border-white/[0.05] group relative h-40 block border-red-500 border"
+          >
+            <img
+              className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-110 group-hover:blur-sm transition-all duration-700"
+              alt="Minimalist dark map showing city streets"
+              src="/maps.png"
+            />
+            <div className="absolute inset-0 flex flex-col items-center justify-center">
+              <svg className="w-8 h-8 text-blue-400 mb-2 transition-transform duration-300 group-hover:scale-150  " viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 21C12 21 5 14.5 5 9.5C5 5.36 8.13 2 12 2C15.87 2 19 5.36 19 9.5C19 14.5 12 21 12 21Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                <circle cx="12" cy="9.5" r="2.5" stroke="currentColor" strokeWidth="1.8" />
+              </svg>
+              <p className="text-black font-medium">Indore, MP</p>
+            </div>
+          </a>
+          <p className="text-sm text-slate-400 text-center">Indore, Madhya Pradesh, India</p>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <h3 className="text-white font-bold text-lg uppercase tracking-wider">Follow Us</h3>
+          <p className="text-slate-400 text-sm">Join our digital community and stay updated with the latest in tech.</p>
+          <div className="flex gap-4 pt-1 items-center justify-center">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center hover:bg-blue-400 hover:text-black transition-all"
+            >
+              <FacebookIcon className="w-5 h-5" />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center hover:bg-blue-400 hover:text-black transition-all"
+            >
+              <InstagramIcon className="w-5 h-5" />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center hover:bg-blue-400 hover:text-black transition-all"
+            >
+              <LinkedInIcon className="w-5 h-5" />
+            </a>
           </div>
+        </div>
+      </div>
+
+      <div className="border-t border-white/5 py-8">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <Link to="/" className="flex items-center gap-2">
+            <img
+              src="/logoSmall.png"
+              alt="LEEZOVA"
+              className="h-8 w-auto brightness-0 invert"
+            />
+            <img
+              src="/mainLogo.png"
+              alt="LEEZOVA"
+              className="h-4 w-auto brightness-0 invert"
+            />
+          </Link>
+          <p className="text-slate-500 text-sm">
+            © {currentYear} LEEZOVA. All rights reserved.
+           
+          </p>
         </div>
       </div>
 

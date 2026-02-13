@@ -292,7 +292,7 @@ const DesktopNav = React.memo(({
         onClick={onScheduleClick}
         className="bg-white rounded-full shadow-2xl h-[52px] px-6 text-black hover:bg-gray-100 font-medium transition-colors flex items-center shrink-0"
       >
-        Book a call
+        Book a Call
       </button>
     </div>
   </div>
@@ -320,7 +320,12 @@ const MobileNav = React.memo(({
   return (
     <>
       {/* Mobile/Tablet Header */}
-      <div className="lg:hidden flex items-center justify-between px-4 py-3 bg-[#1f2433]">
+      <div
+        style={{
+          background: "linear-gradient(180deg,rgba(6, 6, 94, 1) 0%, rgba(0, 0, 0, 0.51) 37%, rgba(255, 255, 255, 0) 100%)",
+        }}
+        className="lg:hidden flex items-center justify-between px-4 py-3"
+      >
         <Logo />
         <button
           onClick={onToggle}
@@ -344,14 +349,14 @@ const MobileNav = React.memo(({
       {/* Sidebar */}
       <div
         ref={sidebarRef}
-        className={`fixed top-0 left-0 h-full w-[53%] sm:w-[50%] md:w-[60%] bg-[#1f2433] z-50 transform transition-transform duration-300 ease-out overflow-y-auto ${isOpen ? "translate-x-0" : "-translate-x-full"
+        className={`fixed top-0 left-0 h-full w-[53%] sm:w-[50%] md:w-[60%] bg-black z-50 transform transition-transform duration-300 ease-out overflow-y-auto ${isOpen ? "translate-x-0" : "-translate-x-full"
           } lg:hidden`}
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
       >
         {/* Sidebar Header */}
-        <div className="sticky top-0 bg-[#1f2433] z-10 flex justify-between items-center px-4 py-4 border-b border-gray-700">
+        <div className="sticky top-0 bg-black z-10 flex justify-between items-center px-4 py-4 border-b border-gray-700">
           <span className="text-lg font-semibold text-white pl-4">Menu</span>
           <button
             onClick={onClose}
@@ -415,13 +420,13 @@ const MobileNav = React.memo(({
           })}
 
           <button
-            className="mt-6 px-4 py-3 bg-[#2d3447] hover:bg-[#3a4155] active:bg-[#4a5568] rounded-lg font-7xl text-white transition-colors touch-manipulation"
+            className="mt-6 h-[52px] px-6 bg-white rounded-full shadow-2xl text-black hover:bg-gray-100 font-medium transition-colors flex items-center justify-center w-full touch-manipulation"
             onClick={() => {
               onScheduleClick();
               onClose();
             }}
           >
-            Contact Us
+            Book a Call
           </button>
         </div>
       </div>
