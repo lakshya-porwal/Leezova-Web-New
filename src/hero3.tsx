@@ -204,8 +204,8 @@ function Hero3() {
                       </div>
 
                       <div className={`w-full md:w-[45%] ${isLeft ? "md:pr-8" : "md:pl-8"} relative z-0`}>
-                        <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-gradient-to-b from-black/40 via-black/50 to-blue-900/60 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 group p-6 sm:p-7 md:p-8 min-h-[180px] sm:min-h-[200px] md:min-h-[220px] flex flex-col justify-center">
-                          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                        <div className="relative rounded-xl overflow-hidden backdrop-blur-md bg-black/40 border border-white/20 hover:border-white/20 transition-all duration-300 group p-6 sm:p-7 md:p-8 min-h-[180px] sm:min-h-[200px] md:min-h-[220px] flex flex-col justify-center">
+                          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ background: "linear-gradient(90deg,rgba(9, 2, 92, 1) 0%, rgba(12, 12, 133, 0.29) 35%, rgba(255, 255, 255, 0) 100%)" }}></div>
 
                           <div className="relative z-10">
                             <div className="text-white/80 text-xs sm:text-sm font-semibold mb-3 sm:mb-4">
@@ -247,7 +247,7 @@ function Hero3() {
                     <div className="w-full max-w-5xl mx-auto aspect-video rounded-xl flex items-center justify-center overflow-hidden">
                       <div className="text-gray-400 text-sm sm:text-base md:text-lg">
                         <img
-                          src='/public/ResultPicture.png'
+                          src='/ResultPicture.png'
                           className=''
                           alt='RESULT PICTURE'
                         />
