@@ -113,7 +113,7 @@ export default function Footer() {
           <p className="text-slate-400 text-sm">Join our digital community and stay updated with the latest in tech.</p>
           <div className="flex gap-4 pt-1 items-center justify-center">
             <a
-              href="https://x.com"
+              href="https://x.com/Leezova_Tech"
               target="_blank"
               rel="noopener noreferrer"
               className="group w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center transition-all"
@@ -123,7 +123,7 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/leezova_technologies/"
               target="_blank"
               rel="noopener noreferrer"
               className="group w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center transition-all"
@@ -131,7 +131,7 @@ export default function Footer() {
               <InstagramIcon className="w-5 h-5 transition-all duration-300 group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/leezova-technologies-pvt-ltd"
               target="_blank"
               rel="noopener noreferrer"
               className="group w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center transition-all"
