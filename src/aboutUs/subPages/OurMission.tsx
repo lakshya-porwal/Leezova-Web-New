@@ -146,7 +146,7 @@ export default function OurMission() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6">
               {/* Card 1 - IT Staff Augmentation */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border border-white/10 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border-2 border-white/20 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                   style={{
@@ -179,7 +179,7 @@ export default function OurMission() {
               </div>
 
               {/* Card 2 - Custom Software */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border border-white/10 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border-2 border-white/20 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                   style={{
@@ -212,7 +212,7 @@ export default function OurMission() {
               </div>
 
               {/* Card 3 - Web & Mobile */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border border-white/10 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border-2 border-white/20 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                   style={{
@@ -245,7 +245,7 @@ export default function OurMission() {
               </div>
 
               {/* Card 4 - Partnership Approach */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border border-white/10 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border-2 border-white/20 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                   style={{
@@ -279,7 +279,7 @@ export default function OurMission() {
               </div>
 
               {/* Card 5 - Skilled Team */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border border-white/10 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border-2 border-white/20 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                   style={{
@@ -312,7 +312,7 @@ export default function OurMission() {
               </div>
 
               {/* Card 6 - Flexible & Proven */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border border-white/10 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border-2 border-white/20 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                   style={{
@@ -347,7 +347,7 @@ export default function OurMission() {
               </div>
 
               {/* Card 7 - AI Solutions */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border border-white/10 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border-2 border-white/20 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                   style={{
@@ -380,7 +380,7 @@ export default function OurMission() {
               </div>
 
               {/* Card 8 - Cloud Solutions */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border border-white/10 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md border-2 border-white/20 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                   style={{
@@ -413,7 +413,7 @@ export default function OurMission() {
               </div>
 
               {/* Card 9 - Solution & Support */}
-              <div className="relative rounded-xl overflow-hidden backdrop-blur-md0 border border-white/10 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
+              <div className="relative rounded-xl overflow-hidden backdrop-blur-md0 border-2 border-white/20 transition-all duration-300 group p-6 pt-12 min-h-[320px] flex flex-col">
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                   style={{
