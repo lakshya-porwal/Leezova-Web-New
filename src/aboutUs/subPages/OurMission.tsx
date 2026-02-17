@@ -13,9 +13,9 @@ export default function OurMission() {
       label: "Client Satisfaction, Built on Trust",
     },
     {
-      number: "ERP",
+      number: "Support",
       label:
-        "First ERP Product Developed, built from real operational and client needs",
+        "Continuous improvements , maintenance and upgrades",
     },
   ];
 
@@ -83,7 +83,7 @@ export default function OurMission() {
 
               {/* Content */}
               <div className="relative z-10 p-8 pt-12 min-h-[200px] flex flex-col items-center justify-center text-center">
-                <div className="text-5xl md:text-6xl font-bold text-white mb-2">
+                <div className="text-5xl md:text-6xl font-bold text-white mb-6">
                   {stat.number}
                 </div>
                 <div className="text-white text-sm md:text-base font-normal">
