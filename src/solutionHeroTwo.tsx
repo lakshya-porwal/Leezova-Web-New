@@ -22,38 +22,68 @@ function SolutionHeroTwo() {
     }
   ];
 
-  const domainSolutions2 = [
-    {
-      name: 'Education',
-      logo: '🎓',
-      description: 'Learning Management Systems (LMS), Student information systems, Online course platforms, and Academic performance analytics.'
-    },
-    {
-      name: 'Real Estate',
-      logo: '🏠',
-      description: 'Property management systems, Virtual tour platforms, CRM for agents, and Real estate analytics dashboards.'
-    },
-    {
-      name: 'Logistics & Transportation',
-      logo: '🚚',
-      description: 'Fleet management systems, Route optimization tools, Delivery tracking platforms, and Logistics analytics dashboards.'
-    },
-    {
-      name: 'Hospitality',
-      logo: '🏨',
-      description: 'Hotel management systems, Booking platforms, Guest experience apps, and Revenue management dashboards.'
-    },
-    {
-      name: 'Energy & Utilities',
-      logo: '⚡',
-      description: 'Smart grid management, Energy monitoring systems, Utility billing platforms, and Consumption analytics dashboards.'
-    },
-    {
-      name: 'Government & Public Sector',
-      logo: '🏛️',
-      description: 'Citizen service portals, Document management systems, Public service platforms, and Government analytics dashboards.'
-    }
-  ];
+ const domainSolutions2 = [
+  {
+    name: 'Education',
+    logo: '🎓',
+    description: 'Learning Management Systems (LMS), Student information systems, Online course platforms, and Academic performance analytics.'
+  },
+  {
+    name: 'Real Estate',
+    logo: '🏠',
+    description: 'Property management systems, Virtual tour platforms, CRM for agents, and Real estate analytics dashboards.'
+  },
+  {
+    name: 'Logistics & Transportation',
+    logo: '🚚',
+    description: 'Fleet management systems, Route optimization tools, Delivery tracking platforms, and Logistics analytics dashboards.'
+  },
+  {
+    name: 'Hospitality',
+    logo: '🤝',
+    description: 'Hotel management systems, Booking platforms, Guest experience apps, and Revenue management dashboards.'
+  },
+  {
+    name: 'Energy & Utilities',
+    logo: '⚡',
+    description: 'Smart grid management, Energy monitoring systems, Utility billing platforms, and Consumption analytics dashboards.'
+  },
+  {
+    name: 'SaaS & Product Engineering ',
+    logo: '💻',
+    description: 'SaaS platform development, Multi-tenant architecture, Subscription & billing systems, Admin dashboards, Scalable microservices architecture, CI/CD & DevOps automation'
+  },
+  {
+    name: 'HR & Workforce Management',
+    logo: '👥',
+    description: 'Attendance & leave management systems, Facial recognition authentication,Payroll integrations, Employee management portals, Workforce analytics dashboards'
+  },
+  {
+    name: 'AI & Intelligent Systems',
+    logo: '🤖',
+    description: ' AI-powered web applications, Predictive analytics dashboards, Face recognition integration, AI-driven learning systems, Data visualization & insights platforms'
+  },
+  {
+    name: ' On-Demand & Marketplace Platforms',
+    logo: '🛒',
+    description: 'On-demand service platforms, Marketplace architecture, Real-time tracking systems , Payment gateway integrations, Vendor & service provider dashboards'
+  },
+  {
+    name: 'Enterprise Web Applications',
+    logo: '🏢',
+    description: 'Custom enterprise portals, Admin & operations dashboards, Workflow automation systems,Role-based access control systems, High-performance frontend architecture'
+  },
+  {
+    name: 'Startup MVP & Digital Transformation ',
+    logo: '🚀',
+    description: ' MVP development, Product architecture consulting, UI/UX-led development, Legacy system modernization, Digital transformation solutions'
+  },
+  {
+    name: 'Cloud & DevOps Solutions ',
+    logo: '☁️',
+    description: 'Cloud deployment & infrastructure setup, CI/CD pipeline implementation, Performance optimization, Infrastructure scaling, Monitoring & logging solutions'
+  },
+];
 
   return (
     <div

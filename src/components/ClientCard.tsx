@@ -3,7 +3,7 @@ type ClientCardProps = {
     subtitle?: string;
     description: string;
     imgSrc: string;
-    link: string;
+    link?: string;
     reverse?: boolean;
 };
 
